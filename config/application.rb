@@ -1,5 +1,4 @@
-config.assets.initialize_on_precompile = false
-#↑を追加
+
 
 require_relative 'boot'
 
