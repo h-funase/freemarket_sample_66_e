@@ -28,10 +28,10 @@ Things you may want to cover:
 | nickname    | string | null: false |
 | email     | string | null: false, unique: true |
 | password    | integer | null: false        |
-| firstname   | string | null: false        |
-| lastname    | string | null: false        |
-| firstname_kana | string | null: false        |
-| lastname_kana | string | null: false        |
+| firs_tname   | string | null: false        |
+| last_name    | string | null: false        |
+| first_name_kana | string | null: false        |
+| last_name_kana | string | null: false        |
 | address    | text  | null: false        |
 | birthday    | date  | null: false        |
 | phone     | integer | null: false, unique: true |
@@ -43,14 +43,14 @@ Things you may want to cover:
 | Column     | Type  | Options            |
 |-----------------|---------|--------------------------------|
 | name      | string | null: false, index: true    |
-| prise      | inreger | null: false          |
-| discription   | text  | null: false          |
+| prise      | integer | null: false          |
+| description   | text  | null: false          |
 | like      | integer | null: false          |
 | status     | integer | null: false          |
 | location    | string | null: false          |
 | image      | string | null: false          |
 | delivery charge | integer | null: false          |
-| sales’s status | integer | null: false          |
+| status | integer | null: false          |
 | A-category_id  | integer | null: false, foreign_key: true |
 | B-category_id  | integer | null: false, foreign_key: true |
 | C-category_id  | integer | null: false, foreign_key: true |
