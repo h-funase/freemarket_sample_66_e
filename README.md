@@ -27,7 +27,7 @@ Things you may want to cover:
 | Column     | Type  | Options          |
 |----------------|---------|---------------------------|
 | nickname    | string | null: false |
-| email     | string | null: false, unique: true |
+| email     | string | null: false, unique: true, index: true |
 | password    | string | null: false        |
 | firs_tname   | string | null: false        |
 | last_name    | string | null: false        |
@@ -35,7 +35,7 @@ Things you may want to cover:
 | last_name_kana | string | null: false        |
 | address    | text  | null: false        |
 | birthday    | date  | null: false        |
-| phone     | integer | null: false, unique: true |
+| phone     | integer | null: false, unique: true, index: true|
 ### Association
 - has_many :items
 - has_many :comments
