@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 <!-- フリマアプリ「メルカリ」のクローンサイト -->
+## usersテーブル
 | Column     | Type  | Options          |
 |----------------|---------|---------------------------|
 | nickname    | string | null: false |
