@@ -25,7 +25,7 @@ Things you may want to cover:
 <!-- フリマアプリ「メルカリ」のクローンサイト -->
 | Column     | Type  | Options          |
 |----------------|---------|---------------------------|
-| nickname    | string | null: false, unique: true |
+| nickname    | string | null: false |
 | email     | string | null: false, unique: true |
 | password    | integer | null: false        |
 | firstname   | string | null: false        |
