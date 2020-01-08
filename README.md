@@ -40,6 +40,8 @@ Things you may want to cover:
 - has_many :items
 - has_many :comments
 - has_many :likes
+- belongs_to :card
+
 ## itemsテーブル
 | Column     | Type  | Options            |
 |-----------------|---------|--------------------------------|
@@ -75,14 +77,14 @@ Things you may want to cover:
 |---------|---------|--------------------------------|
 | user_id | inreger | null: false, foreign_key: true |
 | item_id | integer | null: false, foreign_key: true |
-### Associstion
+### Association
 - belongs_to :user
 - belongs_to :item
 ## A-categoryテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
 | name  | string | null: false |
-### Associstion
+### Association
 - has_many :items
 - has_many :B-category
 - belongs_to :C-category
@@ -91,7 +93,7 @@ Things you may want to cover:
 |---------------|---------|--------------------------------|
 | name     | string | null: false          |
 | A-category_id | integer | null: false, foreign_key: true |
-### Associstion
+### Association
 - belongs_to :A-category
 - has_many :C-category
 ## C-categoryテーブル
@@ -99,13 +101,21 @@ Things you may want to cover:
 |---------|---------|--------------------------------------|
 | name  | string | null: false             |
 | B-category_id | integer | null: false, foreign_key: true |
-### Associstion
+### Association
 - belongs_to :B-category
 - belongs_to :A-category
 ## brandテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
 | name  | string | null: false |
-### Associstion
+### Association
 - has_many :items
+## cardsテーブル
+| Column | Type | Option |
+|---------|-------|------|
+| user_id | integer | null: false |
+| customor_id | string | null: false |
+| card_id | string | null: false |
+### Asosiation
+- belongs_to :user
 
