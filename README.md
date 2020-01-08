@@ -33,7 +33,7 @@ Things you may want to cover:
 | last_name    | string | null: false        |
 | first_name_kana | string | null: false        |
 | last_name_kana | string | null: false        |
-| address    | text  | null: false        |
+| address    | string  | null: false        |
 | birthday    | date  | null: false        |
 | phone     | integer | null: false, unique: true, index: true|
 ### Association
