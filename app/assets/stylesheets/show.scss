@@ -1,66 +1,99 @@
 
-section {
-    display: block;
+.item_html{
+
 }
 
-.item__details{
-  width: 700px;
+.item__details {
+  width: 600px;
   height: 800px;
   margin: 0 auto;
   margin-top: 40px;
-  background: red;
+  background: white;
   padding: 24px 40px;
 }
 
-.item__details__main-content{
-  display: flex;
+.item_name {
+  font-size: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  line-height: 1.4;
 }
-.item__details__main-content-boxes{
-  background: lightsalmon;
-  width: 100%;
-  height: 500px;
+.item__details__main_content {
+  margin: 16px 0 0;
+}
+.item__details__main_content_boxes {
+  background: white;
+  height: 450px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
-  padding-top: 16px;
 }
-.item__details__main-content-boxes__subject{
-  background: lightseagreen;
-  position: relative;
-  min-width: 280px;
-  max-width: 360px;
-  min-height: 280px;
-  box-sizing: border-box;
+.main_photo {
+  padding-right: 8px;
 }
+
 .photos {
-  height: 75px;
-  width: 75px;
+  background-image: url(/images/item_sample.jpg);
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+.small_photos {
+  background: red;
+  height: 120px;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
-.small-photo {
+.small_photo {
+  background: black;
+  height: 60px;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+table.item_detail_table {
+  float: right;
+  height: 380px;
+  width: 300px;
+  text-align: center;
+}
+table.item_detail_table {
+  float: right;
+  height: 380px;
+  width: 300px;
+  text-align: center;
+}
+th, td {
+  border: 1px solid #888585;
+  border-collapse: collapse;
+  padding: 9px;
+  font-size: 14px;
+  display: table-cell;
+  vertical-align: middle;
+}
+th {
+  background-color:  #d3d2d2;
+}
+.user_rating {
   display: flex;
   justify-content: space-between;
 }
-img.sub{
-  justify-content: space-between;
-  height: 75px;
-  width: 75px;
-  object-fit: cover;
+.item_user_ratings{
+  height:45px;
 }
-
-table.item-detail-table{
-  float: right;
-  border-collapse: collapse;
-  height: 380px;
-  width: 300px;
-  text-align: left;
-  margin-right: 30px;
+.item_price_box {
+  margin: 24px 0 0;
+  text-align: center;
 }
-.main_photo {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
+.item_price {
+  margin: 0 16px 0 0;
+  font-size: 50px;
 }
-.back-silver {
-  padding-left: 20px;
+.item_tax {
+  font-size: 10px;
+}
+.item_price_box{
+  text-align: center;
 }
