@@ -54,14 +54,14 @@ Things you may want to cover:
 | image      | string | null: false          |
 | delivery charge | integer | null: false          |
 | status | integer | null: false          |
-| A-category_id  | integer | null: false, foreign_key: true |
-| B-category_id  | integer | null: false, foreign_key: true |
-| C-category_id  | integer | null: false, foreign_key: true |
+| top_category_id  | integer | null: false, foreign_key: true |
+| middle_category_id  | integer | null: false, foreign_key: true |
+| bottom_category_id  | integer | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
 - has_many :comments
 - has_many :likes
-- belongs_to :A-category
+- belongs_to :top_category
 - belongs_to :brand
 ## commentsテーブル
 | Column | Type  | Options            |
