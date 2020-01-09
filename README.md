@@ -29,7 +29,7 @@ Things you may want to cover:
 | nickname    | string | null: false |
 | email     | string | null: false, unique: true, index: true |
 | password    | string | null: false        |
-| first_tname   | string | null: false        |
+| first_name   | string | null: false        |
 | last_name    | string | null: false        |
 | first_name_kana | string | null: false        |
 | last_name_kana | string | null: false        |
@@ -56,7 +56,6 @@ Things you may want to cover:
 | location    | string | null: false          |
 | image      | string | null: false          |
 | delivery charge | integer | null: false          |
-| status | integer | null: false          |
 | top_category_id  | integer | null: false, foreign_key: true |
 | middle_category_id  | integer | null: false, foreign_key: true |
 | bottom_category_id  | integer | null: false, foreign_key: true |
@@ -121,7 +120,7 @@ Things you may want to cover:
 | Column | Type | Option |
 |---------|-------|------|
 | user_id | integer | null: false |
-| customor_id | string | null: false |
+| customer_id | string | null: false |
 | card_id | string | null: false |
 ### Asosiation
 - belongs_to :user
