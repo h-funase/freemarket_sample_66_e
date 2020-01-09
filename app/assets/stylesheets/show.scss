@@ -1,11 +1,15 @@
 
 .item_html{
-
+  margin:0 auto;
+  padding: 0;
+  height:140vh;
+  background-color: #d3d2d2;
+  overflow: scroll;
 }
 
 .item__details {
   width: 600px;
-  height: 800px;
+  height: 100%;
   margin: 0 auto;
   margin-top: 40px;
   background: white;
@@ -13,6 +17,8 @@
 }
 
 .item_name {
+  font-family: "Source Sans Pro";
+  font-weight: bold;
   font-size: 24px;
   text-align: center;
   word-wrap: break-word;
@@ -52,36 +58,47 @@
   padding: 0;
   margin: 0;
 }
-
+// 詳細テーブル
 table.item_detail_table {
   float: right;
   height: 380px;
   width: 300px;
-  text-align: center;
 }
 table.item_detail_table {
   float: right;
   height: 380px;
   width: 300px;
-  text-align: center;
 }
 th, td {
   border: 1px solid #888585;
-  border-collapse: collapse;
   padding: 9px;
   font-size: 14px;
   display: table-cell;
-  vertical-align: middle;
 }
 th {
   background-color:  #d3d2d2;
 }
+.seller_name{
+  padding-bottom:5px;
+}
 .user_rating {
   display: flex;
-  justify-content: space-between;
+  align-items:center;
+  // justify-content: flex-start ;
 }
+
 .item_user_ratings{
-  height:45px;
+  height:25px;
+}
+// アイコン
+.fa-laugh{
+  color: #ef5185;
+}
+.fa-meh{
+  color: #fba933;
+}
+.fa-frown{
+  color: #6ab5d8;
 }
 .item_price_box {
   margin: 24px 0 0;
@@ -97,3 +114,68 @@ th {
 .item_price_box{
   text-align: center;
 }
+.item_buy_btn {
+  margin:16px 30px;
+  border-radius: 5px;
+  height:50px;
+  // width:100%;
+  background-color: red;
+  display: block;
+  font-size: 14px;
+  color: #fff;
+  line-height: 56px;
+  text-align: center;
+  font-weight: 600;
+}
+.shipping_note_message {
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+  text-align: center;
+}
+.item_description{
+  white-space: pre-wrap;
+  margin:10px 30px;
+  padding-bottom:20px;
+}
+.item_button_container{
+  padding-top:20px;
+  display:flex;
+  justify-content: space-around;
+}
+.item_button{
+  display: flex;
+  float: left;
+}
+.item_button_left {
+  display: flex;
+  padding: 8px 16px;
+  width:80px;
+  height:13px;
+  border-radius: 40px;
+  border: 1px solid #ea352d;
+  padding: 8 16;
+}
+
+.fa-heart,.fa-flag{
+  align-items:center;
+  margin:1px;
+  font-size: 10px;
+}
+.fa-unlock-alt {
+  float:right;
+  font-size: 10px;
+}
+.item_button_right {
+  margin-left: 5px;
+  display: flex;
+  background-color: #F5F5F5;
+  padding: 8px 16px;
+  width:120px;
+  height:13px;
+  border-radius: 40px;
+  border: solid  1px #F5F5F5;
+}
+ .item_text {
+   line-height: 10px;
+ }
