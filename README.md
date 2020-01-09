@@ -61,6 +61,7 @@ Things you may want to cover:
 | bottom_category_id  | integer | null: false, foreign_key: true |
 | saler_id | integer | null: false, foreign_key: true |
 | buyer_id | integer | foreign_key: true |
+| brand_id | integer | foreign_key: true |
 ### Association
 - belongs_to :user
 - has_many :comments
