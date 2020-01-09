@@ -41,6 +41,9 @@ Things you may want to cover:
 - has_many :comments
 - has_many :likes
 - belongs_to :card
+- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
+- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
 
 ## itemsテーブル
 | Column     | Type  | Options            |
@@ -57,12 +60,16 @@ Things you may want to cover:
 | top_category_id  | integer | null: false, foreign_key: true |
 | middle_category_id  | integer | null: false, foreign_key: true |
 | bottom_category_id  | integer | null: false, foreign_key: true |
+| saler_id | integer | null: false, foreign_key: true |
+| buyer_id | integer | foreign_key: true |
 ### Association
 - belongs_to :user
 - has_many :comments
 - has_many :likes
 - belongs_to :top_category
 - belongs_to :brand
+- belongs_to :saler, class_name: "User"
+- belongs_to :buyer, class_name: "User"
 ## commentsテーブル
 | Column | Type  | Options            |
 |---------|---------|--------------------------------|
