@@ -93,7 +93,7 @@ Things you may want to cover:
 | name  | string | null: false |
 ### Association
 - has_many :items
-- has_many :middle_category
+- has_many :middle_categorys
 - belongs_to :bottom_category
 ## middle_categoryテーブル
 | Column    | Type  | Options            |
@@ -102,7 +102,7 @@ Things you may want to cover:
 | top_category_id | integer | null: false, foreign_key: true |
 ### Association
 - belongs_to :top_category
-- has_many :bottom_category
+- has_many :bottom_categorys
 ## bottom_categoryテーブル
 | Column | Type  | Options               |
 |---------|---------|--------------------------------------|
