@@ -29,7 +29,7 @@ Things you may want to cover:
 | nickname    | string | null: false |
 | email     | string | null: false, unique: true, index: true |
 | password    | string | null: false        |
-| firs_tname   | string | null: false        |
+| first_tname   | string | null: false        |
 | last_name    | string | null: false        |
 | first_name_kana | string | null: false        |
 | last_name_kana | string | null: false        |
@@ -73,16 +73,16 @@ Things you may want to cover:
 ## commentsテーブル
 | Column | Type  | Options            |
 |---------|---------|--------------------------------|
-| coment | string | null: false          |
-| user_id | inreger | null: false, foreign_key: true |
+| comment | string | null: false          |
+| user_id | integer | null: false, foreign_key: true |
 | item_id | integer | null: false, foreign_key: true |
-### Associstion
+### Association
 - belongs_to :user
 - belongs_to :item
 ## likesテーブル
 | Column | Type  | Options            |
 |---------|---------|--------------------------------|
-| user_id | inreger | null: false, foreign_key: true |
+| user_id | integer | null: false, foreign_key: true |
 | item_id | integer | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
@@ -111,7 +111,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :middle_category
 - belongs_to :top_category
-## brandテーブル
+## brandsテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
 | name  | string | null: false |
