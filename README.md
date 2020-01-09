@@ -75,7 +75,6 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :comments
 - has_many :likes
-- belongs_to :top_category
 - belongs_to :brand
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
