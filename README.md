@@ -63,7 +63,7 @@ Things you may want to cover:
 | name      | string | null: false, index: true    |
 | price      | integer | null: false          |
 | description   | text  | null: false          |
-| like      | integer | null: false          |
+| like_id      | integer | null: false          |
 | status     | integer | null: false          |
 | location    | string | null: false          |
 | delivery_charge | integer | null: false          |
