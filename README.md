@@ -33,7 +33,7 @@ Things you may want to cover:
 | last_name    | string | null: false        |
 | first_name_kana | string | null: false        |
 | last_name_kana | string | null: false        |
-| address    | string  | null: false        |
+|
 | birthday    | date  | null: false        |
 | phone     | integer | null: false, unique: true, index: true|
 ### Association
@@ -44,12 +44,25 @@ Things you may want to cover:
 - has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
+- has_one :address
+
+## Addressesテーブル
+| Column | Type | Options |
+|--------|------|---------|
+| user_id | integer | null: false,foreign_key:true |
+| postal_code | integer | null: false |
+| prefectures | string | null:false |
+| municipality | string | null:false |
+| street_number | string | null:false |
+| building_name | string |            |
+## Association
+- belongs_to :user 
 
 ## itemsテーブル
 | Column     | Type  | Options            |
 |-----------------|---------|--------------------------------|
 | name      | string | null: false, index: true    |
-| prise      | integer | null: false          |
+| price      | integer | null: false          |
 | description   | text  | null: false          |
 | like      | integer | null: false          |
 | status     | integer | null: false          |
