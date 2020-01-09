@@ -80,30 +80,30 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-## A-categoryテーブル
+## top_categoryテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
 | name  | string | null: false |
 ### Association
 - has_many :items
-- has_many :B-category
-- belongs_to :C-category
-## B-categoryテーブル
+- has_many :middle_category
+- belongs_to :bottom_category
+## middle_categoryテーブル
 | Column    | Type  | Options            |
 |---------------|---------|--------------------------------|
 | name     | string | null: false          |
-| A-category_id | integer | null: false, foreign_key: true |
+| top_category_id | integer | null: false, foreign_key: true |
 ### Association
-- belongs_to :A-category
-- has_many :C-category
-## C-categoryテーブル
+- belongs_to :top_category
+- has_many :bottom_category
+## bottom_categoryテーブル
 | Column | Type  | Options               |
 |---------|---------|--------------------------------------|
 | name  | string | null: false             |
-| B-category_id | integer | null: false, foreign_key: true |
+| middle_category_id | integer | null: false, foreign_key: true |
 ### Association
-- belongs_to :B-category
-- belongs_to :A-category
+- belongs_to :middle_category
+- belongs_to :top_category
 ## brandテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
