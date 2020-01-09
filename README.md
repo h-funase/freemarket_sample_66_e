@@ -67,9 +67,7 @@ Things you may want to cover:
 | status     | integer | null: false          |
 | location    | string | null: false          |
 | delivery_charge | integer | null: false          |
-| top_category_id  | integer | null: false, foreign_key: true |
-| middle_category_id  | integer | null: false, foreign_key: true |
-| bottom_category_id  | integer | null: false, foreign_key: true |
+| category_id | integer | null: false, foreign_key |
 | saler_id | integer | null: false, foreign_key: true |
 | buyer_id | integer | foreign_key: true |
 | brand_id | integer | foreign_key: true |
@@ -82,6 +80,7 @@ Things you may want to cover:
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :images
+- belongs_to :category
 
 ## imagesテーブル
 | Colimn | Type | Options |
@@ -108,30 +107,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-## top_categoryテーブル
-| Column | Type  | Options   |
-|---------|---------|-------------|
-| name  | string | null: false |
+
+## Categorysテーブル
+| Column | Type | Option |
+|--------|------|--------|
+| name | string | null:false |
+| ancestry | string | index: true |
 ### Association
 - has_many :items
-- has_many :middle_categorys
-- belongs_to :bottom_category
-## middle_categoryテーブル
-| Column    | Type  | Options            |
-|---------------|---------|--------------------------------|
-| name     | string | null: false          |
-| top_category_id | integer | null: false, foreign_key: true |
-### Association
-- belongs_to :top_category
-- has_many :bottom_categorys
-## bottom_categoryテーブル
-| Column | Type  | Options               |
-|---------|---------|--------------------------------------|
-| name  | string | null: false             |
-| middle_category_id | integer | null: false, foreign_key: true |
-### Association
-- belongs_to :middle_category
-- belongs_to :top_category
+- has_ancestry
 ## brandsテーブル
 | Column | Type  | Options   |
 |---------|---------|-------------|
