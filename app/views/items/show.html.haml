@@ -2,7 +2,7 @@
 .item_html
   %section
   .item__details
-    %h2.item_name
+    %h2.item__details__name
       グラッドハンド リーガル　サドルシューズ　ブラック　gladhandREGAL
     .item__details__main_content
       .item__details__main_content_boxes
@@ -71,22 +71,84 @@
         使用後にはブラッシングしておりましたので、目立つ傷はなく、ソールとともに問題ありません。
         サイズは25.5cmであり、当方はコンバースやニューバランス等のサイズは26.5cmですが、丁度いい感じでした。
         付属のブラックの靴紐もございます。
-
         細かい傷等は画像にてご確認お願いします。
         
         .item_button_container
           .item_button
-            .item_button_left
+            .item_button__left
               .fas.fa-heart いいね
-            .item_button_right
+            .item_button__right
               .fas.fa-flag  不適切な商品の報告
           .item_text
             .fas.fa-unlock-alt  あんしん・あんぜんへの取り組み
 
 
   %section
-    .message-container {
-      
-    }
-            
+  .message_container 
+    .message_content
+      .message_items  
+        .message-user
+          .fas.fa-user-circle
+        .message-body
+          .message_body_text
+            すみません。アウトソールは何センチになりますか？
+            サイズを確認したいのですが？
+            .message_icon
+              .message_icon_left
+                .icon-time
+                  %i.far.fa-clock
+                  %span
+                    5日前
+              .message_icon_right
+                %i.far.fa-flag
+
+    .message_content
+      .message_content__box
+        .message_content__box__form
+          %p.attention 
+            相手のことを考え丁寧なコメントを心がけましょう。
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          .message_content__box__form__textarea
+          .message_content__box__form__submit
+            コメントする
+
+    .next_or_back
+      .previous_product.items-link_to
+        < バッグ レディース
+      .next_product.items-link_to
+        メンズ シューズ >
+
+
+    .item-snsbox
+      .sns
+        .facebook
+        %i.fab.fa-facebook-square
+        .twitter
+        %i.fab.fa-twitter-square
+        .line
+        %i.fab.fa-line
+        .pinterest
+        %i.fab.fa-pinterest-square
+
+  %section
+  .items_show
+    .item_show__name nicknameさんのその他の出品
+
+    .item_show__list
+      .item_show__list__box
+        .item_show__list__box__image
+        
+        .item_show__list__box__detail
+          gladhand シューズ
+          
+        .item_show__list__box__container
+          .item_show__list__box__container__price
+            ¥33000
+          %i.far.fa-heart
+            3
+  %section
+  .bread-crumbs 
+    %ul
+      %li  メルカリ > グラッドハンド リーガル サドルシューズ ブラック gladhandREGAL
+          
           
