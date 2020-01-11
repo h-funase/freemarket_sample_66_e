@@ -1,0 +1,289 @@
+.sell_item_html {
+  background-color: #ecebeb;
+}
+// アイコンヘッダー
+.icon_header {
+  &__upper{
+    height: 128px;
+    background-color: #ecebeb;
+    line-height: 1.5;
+    text-align: center;
+    &__logo{
+    }
+  }
+}
+
+// 商品フォームヘッダー
+.sell_form {
+  display: block;
+  &__main {
+    background: white;
+    height: 100%;
+    width: 700px;
+    margin: 0 auto;
+    &__head {
+      background: white;
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+    }
+    &__box{
+      border-top: 1px solid #eee;
+      background: white;
+    }
+  }
+}
+
+// 画像アップロード
+.sell_upload_box {
+  width: 620px;
+  padding: 40px;
+  width:100%;
+  &__head {
+    font-size: 16px;
+  }
+}
+
+.form-require{
+  display: inline;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: white;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+p.info {
+  display: block;
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+.sell_dropbox {
+  display: block;
+  width: 620px;
+  margin: 16px auto 0;
+  background: white;
+  position: relative;
+  min-height: 162px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  font-size: 0;
+  text-align: center;
+  &__container{
+    width: 100%;
+    margin-left: 0;
+    padding: 40px;
+    float: right;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+// 商品名入力
+.sell_content {
+  background: white;
+  padding: 40px;
+  border-top: 1px solid #eee;
+}
+.input_name {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.sell_content_item_group{
+  margin: 40px 0 0;
+}
+.sell_item_textarea{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+// 商品詳細
+.sell_detail_content{
+  background: white;
+  padding: 40px;
+  height:250px;
+  border-top: 1px solid #eee;
+  &__head{
+    float: left;
+    color: #888;
+    font-size: 14px;
+  }
+  &__box {
+    float: right;
+    width: 400px;
+    margin: 0;
+  }
+}
+
+select.select_default{
+  width: 100%;
+  text-indent: 0px;
+  position: relative;
+  margin-bottom: 5px;
+  z-index: 2;
+  height: 35px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.category_select_wrap{
+  margin: 8px 0 0;
+}
+
+
+// 配送について
+.shipping_item_content {
+  background: white;
+  padding: 40px;
+  height:300px;
+  border-top: 1px solid #eee;
+  &__head{
+    float: left;
+    color: #888888;
+    font-size: 14px;
+  }
+  &__box{
+    float: right;
+    width: 400px;
+    margin: 0;
+    &__form {
+    }
+  }
+}
+
+.item_price_content{
+  background: white;
+  padding: 40px;
+  height:250px;
+  border-top: 1px solid #eee;
+  &__head{
+    float: left;
+    color: #888888;
+    font-size: 14px;
+  }
+  &__box{
+    float: right;
+    width: 400px;
+    margin: 0;
+    &__form {
+    }
+  }
+}
+
+// 販売価格
+.item_price_input {
+  text-align: right;
+  width: 50%;
+  float: right;
+  display: flex;
+}
+.input-default{
+  height: 48px;
+  width: 170px;
+  padding: 8px 16px ;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  display: inline-block;
+}
+p.price{
+  display: inline-block;
+  font-size: 25px;
+  line-height: 48px;
+  padding: 5px;
+}
+
+.item_handling_charge{
+  display: block;
+  padding: 24px 0;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+}
+.sell_profit{
+  padding: 24px 0;
+  border-top: 1px solid #ccc;
+}
+
+.sell_btn_box {
+  padding: 40px;
+  border-top: 1px solid #eee;
+}
+p.caution {
+  font-size: 13px;;
+}
+
+.sell_btn {
+  margin: 40px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+.back_btn{
+  width: 45%;
+  margin: 24px auto 0;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  display: block;
+
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icon_footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.link{
+  display: flex;
+  justify-content: space-between;
+}
+
+a.info{
+  font-size: 12px;
+  color: black;
+  margin: 0 10px;
+}
