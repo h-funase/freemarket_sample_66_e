@@ -4,4 +4,7 @@ class ItemsController < ApplicationController
 
   def show
   end
+
+  def sell_item
+  end
 end
