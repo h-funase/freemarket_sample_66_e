@@ -2,31 +2,25 @@
   background-color: black;
   height: 400px;
   width: 100vw;
-  
-  
+
   &__contents {
-    // background-color:yellow;
+
     width: 70%;
     height: 300px;
     margin: 0 auto;
-    display: flex; 
+    display: flex;
     padding-top: 20px;
     justify-content: space-between;
 
     &__about{
       height: 350px;
       width: 200px;
-      // background-color: rgb(33, 170, 95)
       margin-right: 18px;
 
       &__title{
         font-size: 16px;
         font-weight: 600;
         color: rgb(255, 255, 255);
-        
-
-
-        
       }
 
       &__company_info{
@@ -34,7 +28,6 @@
         opacity: 0.7;
         font-size: 12px;
         margin: 14px 0px 0px;
-
       }
 
       &__recruit{
@@ -42,7 +35,6 @@
         opacity: 0.7;
         font-size: 12px;
         margin: 14px 0px 0px;
-
       }
 
       &__press{
@@ -50,7 +42,6 @@
         opacity: 0.7;
         font-size: 12px;
         margin: 14px 0px 0px;
-
       }
 
       &__brog{
@@ -58,16 +49,13 @@
         opacity: 0.7;
         font-size: 12px;
         margin: 14px 0px 0px;
-
       }
-      
+
       &__guideline{
         color: rgb(255, 255, 255);
         opacity: 0.7;
         font-size: 12px;
         margin: 14px 0px 0px;
-
-
       }
 
       &__icons{
@@ -76,11 +64,8 @@
        margin: 14px 0px 0px;
        font-size: 30px;
        color: white;
-       
       }
-      
     }
-
 
 
     &__help {
@@ -101,20 +86,13 @@
         margin: 14px 0px 0px;
 
         .help_list {
-          
-  
+
           &__a_hlpe {
             margin-top: 14px;
           }
         }
       }
-
-      
     }
-
-
-
-
 
 
     &__privacy {
@@ -126,7 +104,6 @@
         font-size: 16px;
         font-weight: 600;
         color: rgb(255, 255, 255);
-
       }
 
       &__privacy_list {
@@ -135,7 +112,7 @@
       }
 
       .privacy_list{
-        
+
         &__a_privacy {
           color: rgb(255, 255, 255);
           opacity: 0.7;
@@ -143,15 +120,7 @@
           margin: 14px 0px 0px;
         }
       }
-
-     
     }
-
-
-
-
-
-
 
 
     &__states_choice {
@@ -172,10 +141,6 @@
           opacity: 0.7;
           font-size: 12px;
           margin: 14px 0px 0px;
-          
-          
-            
-  
         }
       }
     }
@@ -190,7 +155,6 @@
     display: flex;
     align-items: center;
 
-
     &__footer_box {
       background-color: black;
       width:  100%;
@@ -198,22 +162,13 @@
 
     &__footer_logo {
       width: 150px;
-      
     }
-      
-      
 
     &__footer_lnc {
-     color: white;
+      color: white;
       font-size: 12px;
       text-align: center;
-      
-  
     }
-
-      
     }
   }
-  
-
 }
