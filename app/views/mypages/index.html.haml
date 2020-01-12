@@ -1,0 +1,146 @@
+.mypages_html
+  = render "items/header"
+
+  .mypage_container
+
+    -# メインコンテンツ
+    .mypage-content
+      %section.mypage-content__user-icon
+        %figure= image_tag "mercari_icon.png",width: 60,height: 60
+        %h2 nickname
+        .mypage-content__number
+          .mypage-content__evaluation
+            評価
+            %span.bold 8
+          .mypage-content__sell-product
+            出品数
+
+      %ul.mypage-content__tabs.bold
+        %li
+          = link_to "お知らせ",root_path,class:"mypage-content__active"
+          %li
+            = link_to "やることリスト",root_path
+      %ul.mypage-content__notification
+        %li
+          %figure= image_tag "mercari_icon.png"
+          .mypage-content__item-body
+            .mypage-content__item-text
+              事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.far.fa-clock
+              %span 21 時間前
+          %i.fas.fa-chevron-right
+        %li
+          %figure= image_tag "mercari_icon.png"
+          .mypage-content__item-body
+            .mypage-content__item-text
+              事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.far.fa-clock
+              %span 21 時間前
+          %i.fas.fa-chevron-right
+        %li
+          %figure= image_tag "mercari_icon.png"
+          .mypage-content__item-body
+            .mypage-content__item-text
+              事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.far.fa-clock
+              %span 21 時間前
+            %i.fas.fa-chevron-right
+        %li
+          %figure= image_tag "mercari_icon.png"
+          .mypage-content__item-body
+            .mypage-content__item-text
+              事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.far.fa-clock
+              %span 21 時間前
+          %i.fas.fa-chevron-right
+        %li
+          %figure= image_tag "mercari_icon.png"
+          .mypage-content__item-body
+            .mypage-content__item-text
+              事務局から個別メッセージ「ログイン通知」
+            %time
+              %i.far.fa-clock
+              %span 21 時間前
+          %i.fas.fa-chevron-right
+        %li.mypage-content__go-lists
+         
+      .mypage-content__tab-container
+        %h2.mypage-content__tab-head
+          購入した商品
+        %ul.mypage-content__tabs.bold
+          %li
+            = link_to "取引中",root_path,class:"mypage-content__active"
+            %li
+              = link_to "過去の取引",root_path
+        .mypage-content__tab-content
+          %ul.mypage-content__tab-transaction-now
+            %li.mypage-content__item-notfound
+              取引中の商品がありません
+
+
+
+
+    -# サイドコンテンツ
+    .mypage_side_content
+      %nav.mypage_side_content__nav
+        %ul.mypage_side_content__nav_list
+          %li
+            .mypage_side_content__nav_list_item 
+              マイページ
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              お知らせ
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              やることリスト
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              いいね！一覧
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              出品する
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              出品した商品 - 出品中
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              出品した商品 - 取引中
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              出品した商品 - 売却済み
+              .icon.fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              購入した商品 - 取引中
+              .fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item
+              購入した商品 - 過去の取引
+              %i.fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item
+              ニュース一覧
+              %i.fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              評価一覧
+              %i.fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              ガイド
+              %i.fas.fa-chevron-right
+          %li
+            .mypage_side_content__nav_list_item 
+              お問い合わせ
+              %i.fas.fa-chevron-right

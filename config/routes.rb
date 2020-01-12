@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       get :sell_item
     end
   end
+
+  resources :mypages, only: [:index, :show,]
 end
