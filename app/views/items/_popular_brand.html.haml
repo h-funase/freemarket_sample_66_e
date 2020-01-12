@@ -1,0 +1,81 @@
+.top_contents
+
+  .top_contents__contents_box
+
+    .top_contents__contents_box__popular_category
+      人気のブランド
+
+    .top_contents__contents_box__category_choice
+      %ul.cotegory_list
+        %li.cotegory_list__p_category1 シャネル
+        %li.cotegory_list__p_category2 ルイヴィトン
+        %li.cotegory_list__p_category3 シュプリーム
+        %li.cotegory_list__p_category4 ナイキ
+
+
+.category_contents
+
+  .category_contents__category_box
+
+    .category_contents__category_box__items_box
+
+      .category_contents__category_box__items_box__title
+
+        .category_contents__category_box__items_box__title__name
+          %h3.category_new_items シャネル新着アイテム
+
+        .category_contents__category_box__items_box__title__see_more
+          = link_to "#", class: "see_more" do
+            もっと見る >
+
+      .wrapper
+        = render "category_format"
+
+
+
+    .category_contents__category_box__items_box
+
+      .category_contents__category_box__items_box__title
+
+        .category_contents__category_box__items_box__title__name
+          %h3.category_new_items ルイヴィトン新着アイテム
+
+        .category_contents__category_box__items_box__title__see_more
+          = link_to "#", class: "see_more" do
+            もっと見る >
+
+      .wrapper
+        = render "category_format"
+
+
+
+    .category_contents__category_box__items_box
+
+      .category_contents__category_box__items_box__title
+
+        .category_contents__category_box__items_box__title__name
+          %h3.category_new_items シュプリーム新着アイテム
+
+        .category_contents__category_box__items_box__title__see_more
+          = link_to "#", class: "see_more" do
+            もっと見る >
+
+      .wrapper
+        = render "category_format"
+
+
+
+    .category_contents__category_box__items_box
+
+      .category_contents__category_box__items_box__title
+
+        .category_contents__category_box__items_box__title__name
+          %h3.category_new_items ナイキ新着アイテム
+
+        .category_contents__category_box__items_box__title__see_more
+          = link_to "#", class: "see_more" do
+            もっと見る >
+
+      .wrapper
+        = render "category_format"
+
