@@ -13,11 +13,16 @@
  *= require_tree .
  *= require_self
  */
-
+ @import "font-awesome-sprockets";
+ @import "./font-awesome";
  @import "reset";
  @import "items";
  @import "index";
  @import "show";
- @import "footer";
- @import "font-awesome-sprockets";
- @import "./font-awesome";
+ @import "header";
+ @import "top_image";
+ @import "popular_category";
+ @import "bottom_image";
+ @import "sell_item";
+
+
