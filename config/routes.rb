@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     collection do
       get :sell_item
       get :logout
+      get :sign_up
+      get :login
     end
   end
+
+  resources :mypages, only: [:index, :show,]
 end

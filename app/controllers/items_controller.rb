@@ -8,6 +8,13 @@ class ItemsController < ApplicationController
   def sell_item
   end
 
+
   def logout
+  end
+
+  def sign_up
+  end
+  
+  def login
   end
 end
