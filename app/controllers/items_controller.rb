@@ -11,6 +11,9 @@ class ItemsController < ApplicationController
   def credit
   end
 
+  def logout
+  end
+
   def sign_up
   end
   

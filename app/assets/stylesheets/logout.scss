@@ -1,0 +1,31 @@
+.logout{
+  background-color:white;
+  width: 50%;
+  height: 150px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  position: relative;
+
+  &__main {
+    background-color:#ea352d;
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto; 
+
+    &__btn {
+      width: 50&;
+      height: 40px;
+      text-align: center;
+      background: #ea352d;
+      border: 10px solid #ea352d;
+      color: #fff;
+    }
+  }
+}
+
+
