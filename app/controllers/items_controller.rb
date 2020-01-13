@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   def sell_item
   end
 
+  def credit
+  end
 
   def sign_up
   end
