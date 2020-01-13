@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :sell_item
       get :step2
       get :step3_1
+      get :step3_2
     end
   end
 end
