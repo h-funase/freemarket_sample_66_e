@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get :sell_item
       get :logout
+      get :credit
       get :sign_up
       get :login
     end
