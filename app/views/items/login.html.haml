@@ -7,7 +7,8 @@
         %section.contents
           .new_user
             %p アカウントをお持ちでない方はこちら
-            %a{:href => ""} 新規会員登録
+            .new_user_bottom 
+              %link_to 新規会員登録
           .login_form
             %button#facebook_login.btn-default1.btn_facebook
               %i.fab.fa-facebook-square
@@ -22,6 +23,6 @@
               .login_recaptcha
                 *Recaptchaが入ります
               %button.login_button{:type => "submit"} ログイン
-              %a.forget_password{:href => ""} パスワードをお忘れの方
+              %link.forget_password{:href => ""} パスワードをお忘れの方
       .wrapper
         = render "login_footer"
