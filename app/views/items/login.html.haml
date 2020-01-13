@@ -16,13 +16,13 @@
             %button#google-login.btn-default1.btn_googl
               %i.fab.fa-google
               Googleでログイン
-          %form{:action => "", :method => "POST"}
+          %form{action: "", method: "POST"}
             .bottom_contents
-              %input.login_mail{:name => "email", :placeholder => "メールアドレス", :type => "email"}/
-              %input.login_password{:name => "password", :placeholder => "パスワード", :type => "password"}/
+              %input.login_mail{name: "email", placeholder: "メールアドレス", type: "email"}/
+              %input.login_password{name: "password", placeholder: "パスワード", type: "password"}/
               .login_recaptcha
                 *Recaptchaが入ります
-              %button.login_button{:type => "submit"} ログイン
-              %link.forget_password{:href => ""} パスワードをお忘れの方
+              %button.login_button{type: "submit"} ログイン
+              %link.forget_password{href: ""} パスワードをお忘れの方
       .wrapper
         = render "login_footer"
