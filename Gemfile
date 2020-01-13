@@ -64,3 +64,5 @@ gem 'erb2haml'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'rspec-rails'
+gem 'active_hash'#あらかじめデータが登録されたテーブルを作成するためのgem。都道府県を登録しておくのに使う
+
