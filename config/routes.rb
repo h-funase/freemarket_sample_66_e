@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get :sell_item
+      get :logout
     end
   end
 end
