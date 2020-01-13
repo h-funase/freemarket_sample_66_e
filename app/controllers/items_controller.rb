@@ -10,4 +10,7 @@ class ItemsController < ApplicationController
 
   def step2
   end
+
+  def step3_1
+  end
 end
