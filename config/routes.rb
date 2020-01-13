@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get :login
     end
   end
+
+  resources :mypages, only: [:index, :show,]
 end
