@@ -7,4 +7,7 @@ class ItemsController < ApplicationController
 
   def sell_item
   end
+
+  def step2
+  end
 end

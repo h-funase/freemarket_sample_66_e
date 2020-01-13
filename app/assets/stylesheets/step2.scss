@@ -1,0 +1,312 @@
+.input_mem_info {
+  background-color: rgb(239, 239, 239);
+  height: 100%;
+  width: 100%;
+
+  &__top_contents {
+    height: 100px;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    &__box {
+      height: 60%;
+      width: 100%;
+      display: flex;
+
+      &__free_icon {
+        width: 200px;
+      }
+
+      &__progress_bar {
+
+        .progress_bar {
+          height: 100%;
+          width: 600px;
+          display: flex;
+          align-items: center;
+
+          &__active {
+            font-size: 12px;
+            list-style: none;
+            display: inline-block;
+            width: 19%;
+            text-align: center;
+            cursor: pointer;
+            color: #888;
+          }
+
+          .progress_status:before {
+            content: counter(step);
+            content: '';
+            counter-increment: step;
+            width: 10px;
+            height: 10px;
+            line-height : 30px;
+            border: 1px solid #ccc;
+            border-radius: 100%;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            background-color: #ccc;
+           }
+
+           .progress_status:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            border: 1px solid #ea352d;
+            background-color: #ea352d;
+            top: 15px;
+            left: -50%;
+            z-index : -1;
+           }
+        }
+      }
+    }
+  }
+
+
+
+  &__bottom_contents {
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 40px 40px 64px;
+
+    .bottom_contents_head {
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: bold;
+      padding-bottom: 40px;
+    }
+
+    &__main_form {
+      height: 90%;
+      width: 63%;
+      margin: 0 auto;
+      border-top: 1px solid #f5f5f5;
+
+      &__group {
+        height: 10%;
+        width: 100%;
+        margin-top: 40px;
+
+        &__top_contents {
+          background-color: #fff;
+          height: 45%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          &__string {
+            font-size: 15px;
+            font-weight: 600;
+          }
+
+          &__essential_icon {
+            color: #fff;
+            font-size: 12px;
+            background: #ea352d;
+            border-radius: 2px;
+            margin-left: 5px;
+          }
+        }
+
+        &__bottom_content {
+          background-color: #fff;
+          height: 55%;
+          width: 100%;
+          border: solid 1px #888;
+          border-radius: 4px;
+          padding: 10px;
+          color: #888;
+        }
+
+        &__valid {
+          color: #888;
+          font-size: 14px;
+          padding: 10px 0px;
+        }
+
+        &__check_box {
+          padding-bottom: 16px;
+          font-size: 14px;
+        }
+      }
+
+      &__identity_verification {
+        font-size: 14px;
+
+        .identity_head {
+          font-weight: 500;
+        }
+      }
+
+      &__real_name {
+        height: 10%;
+        width: 100%;
+        margin-top: 40px;
+
+        &__top_contents {
+          background-color: #fff;
+          height: 45%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          &__string {
+            font-size: 15px;
+            font-weight: 600;
+          }
+
+          &__essential_icon {
+            color: #fff;
+            font-size: 12px;
+            background: #ea352d;
+            border-radius: 2px;
+            margin-left: 5px;
+          }
+        }
+
+        &__bottom_contents {
+          display: flex;
+          justify-content: space-between;
+
+          &__last_name {
+            background-color: #fff;
+            height: 55%;
+            width: 48%;
+            border: solid 1px #888;
+            border-radius: 4px;
+            padding: 10px;
+            color: #888;
+          }
+  
+          &__first_name {
+            background-color: #fff;
+            height: 55%;
+            width: 48%;
+            border: solid 1px #888;
+            border-radius: 4px;
+            padding: 10px;
+            color: #888;
+          }
+        }
+      }
+
+      &__birth_day {
+        height: 10%;
+        width: 100%;
+        margin-top: 40px;
+
+        &__top_contents {
+          background-color: #fff;
+          height: 45%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+
+          &__string {
+            font-size: 15px;
+            font-weight: 600;
+          }
+
+          &__essential_icon {
+            color: #fff;
+            font-size: 12px;
+            background: #ea352d;
+            border-radius: 2px;
+            margin-left: 5px;
+          }
+        }
+
+        &__bottom_contents {
+
+          .birthday_select_wrap {
+            display: flex;
+
+            .select_default {
+              width: 20%;
+            }
+
+            .select-wrap {
+              padding: 6px 10px 0;
+            }
+          }
+
+          .caution {
+            color: #888;
+            padding-top: 10px;;
+          }
+        }
+      }
+    }
+    
+    &__bottom_form {
+      height: 30%;
+      width: 100%;
+      margin: 40px 0 0;
+
+      &__top-content {
+        height: 10%;
+        width: 100%;
+        font-size: 14px;
+        color: #888;
+        display: flex;
+        justify-content: center;
+
+        .rule {
+          text-decoration: none;
+          color: rgb(0, 149, 238);
+        }
+      }
+
+      &__submit_btn {
+        background-color: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        width: 64%;
+        height: 48px;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        transition: all ease-out .3s;
+        margin: 32px auto;
+      }
+
+      &__middle_content {
+        display: flex;
+        justify-content: flex-end;
+        width: 82%;
+
+        .about_register {
+          text-decoration: none;
+          color: rgb(0, 149, 238);
+          font-size: 14px;
+        }
+      }
+
+      &__bottom_content {
+        background-color: #f5f5f5;
+        padding: 8px 16px;
+        margin-top: 32px;
+        color: gray;
+        font-size: 10px;
+        width: 64%;
+        margin: 32px auto 0px;
+
+        .privacy_font {
+          text-decoration: none;
+          color: rgb(0, 149, 238);
+        }
+      }
+    }
+  }
+}
