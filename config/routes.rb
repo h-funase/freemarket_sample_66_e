@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get :sign_up
     end
   end
+
+  resources :mypages, only: [:index, :show,]
 end
