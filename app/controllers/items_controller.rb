@@ -10,4 +10,10 @@ class ItemsController < ApplicationController
 
   def credit
   end
+
+  def sign_up
+  end
+  
+  def login
+  end
 end
