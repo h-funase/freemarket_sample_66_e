@@ -19,4 +19,7 @@ class ItemsController < ApplicationController
   
   def login
   end
+
+  def userprofile
+  end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :credit
       get :sign_up
       get :login
+      get :userprofile
     end
   end
 
