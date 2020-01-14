@@ -1,0 +1,41 @@
+.item_buy_header
+  = render "icon_header"
+%main.main_contents
+  .contents_head
+    %h2.title1 購入内容の確認
+  %section.item_content
+    .item_content_inner
+      .item_content_inner__left
+        *商品の写真
+      .item_content_inner__right
+        .top1 商品名
+        .bottom1 ¥ 10,000(税込) 送料込み
+  %section.get_box
+    .get_box__inner
+      .get_box_charge
+        .get_box_charge__pay1
+          %p.charge 支払金額
+          %p.money ¥ 3500
+        .get_box_charge__pay2
+          %form.check{action: "#", method: ""}
+            %input{name: "", type: "checkbox", value: ""}/
+          %form
+            %p.points ポイントを使用(所持ポイント:P0)
+      .get_box_pay
+        .pay_top
+          .pay_top__text
+            支払方法
+        .pay_bottom
+          %span.plus> ＋
+          登録してください
+      .get_box_pay
+        .pay_top
+          .pay_top__text
+            配送先
+        .pay_bottom
+          %span.plus> ＋
+          登録
+      .get_box_btn
+        %button.btn_buy{:type => "submit"} 購入する
+.item_buy_footer
+  = render "icon_footer"
