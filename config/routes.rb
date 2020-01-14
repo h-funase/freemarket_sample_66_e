@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :step2
       get :step3_1
       get :step3_2
+      get :step4
     end
   end
 end
