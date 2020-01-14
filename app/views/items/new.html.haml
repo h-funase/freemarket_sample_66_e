@@ -65,7 +65,7 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    -# = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---", class: 'select_default'
+                    = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---", class: 'select_default'
         
         -# 配送について
         .shipping_item_content
