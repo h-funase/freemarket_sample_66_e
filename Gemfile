@@ -66,3 +66,4 @@ gem 'devise'
 gem 'rspec-rails'
 gem 'active_hash'#あらかじめデータが登録されたテーブルを作成するためのgem。都道府県を登録しておくのに使う
 gem 'payjp'#クレジットカード情報の登録、及びクレジットカード決済に必要なgem
+gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
