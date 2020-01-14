@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration[5.0]
       t.references :user, null: false,foreign_key: true
       t.string :customer_id
       t.string :card_id
+      t.string :token
       t.timestamps
     end
   end
