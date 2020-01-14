@@ -1,17 +1,6 @@
 .sell_item_html {
   background-color: #ecebeb;
 }
-// アイコンヘッダー
-.icon_header {
-  &__upper{
-    height: 128px;
-    background-color: #ecebeb;
-    line-height: 1.5;
-    text-align: center;
-    &__logo{
-    }
-  }
-}
 
 // 商品フォームヘッダー
 .sell_form {
@@ -92,8 +81,9 @@ p.info {
   padding: 40px;
   border-top: 1px solid #eee;
 }
-.input_name {
+.sell_form_name {
   height: 48px;
+  width: 100%;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -135,7 +125,7 @@ p.info {
   }
 }
 
-select.select_default{
+.select_default{
   width: 100%;
   text-indent: 0px;
   position: relative;
@@ -261,29 +251,9 @@ p.caution {
   border: 1px solid #aaa;
   color: #fff;
   display: block;
-
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
 }
 
-.icon_footer {
-  width: 456px;
-  height: 220px;
-  margin: 0 auto;
-  height: 250px;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.link{
-  display: flex;
-  justify-content: space-between;
-}
-
-a.info{
-  font-size: 12px;
-  color: black;
-  margin: 0 10px;
-}
