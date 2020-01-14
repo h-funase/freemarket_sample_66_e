@@ -59,11 +59,11 @@
   &__bottom_contents {
     background-color: #fff;
     width: 50%;
-    height: 500px;
+    height: 100%;
     margin: 0 auto;
 
     &__top {
-    height: 22%;
+    height: 100px;
     width: 100%;
     font-size: 24px;
     display: flex;
@@ -81,28 +81,33 @@
    &__bottom {
      height: 82%;
      width: 100%;
-     padding: 50px 40px 50px;
+     padding: 0px 40px 50px;
 
      &__box {
-       height: 100%;
-       width: 60%;
+       height: 80%;
+       width: 100%;
        margin: 0 auto;
+       border-bottom: 1px solid #f5f5f5;
+       padding: 40px 0 40px;
 
        &__phone_num {
          height: 10%;
-         width: 100%;
+         width: 60%;
          font-weight: 600;
          font-size: 15px;
+         margin: 0 auto;
        }
 
        &__input {
         height: 48px;
+        width: 60%;
         padding: 10px 16px 8px;
         border-radius: 4px;
         border: 1px solid #ccc;
         background: #fff;
         line-height: 1.5;
         font-size: 16px;
+        margin: 0 auto;
 
         .placeholder {
           color: #888;
@@ -110,9 +115,17 @@
        }
 
        &__text {
-        font-size: 15px;
-        padding: 8px 0 0 0;
-        color: rgb(51, 51, 51)
+         width: 60%;
+         font-size: 15px;
+         padding: 8px 0 0 0;
+         color: rgb(51, 51, 51);
+         margin: 0 auto;
+
+         .phone_re_enter {
+           font-size: 13px;
+           color: rgb(0, 149, 238);
+           text-decoration: none;
+         }
        }
 
        &__submit_btn {
@@ -120,7 +133,7 @@
         border: 1px solid #ea352d;
         color: #fff;
         display: block;
-        width: 100%;
+        width: 60%;
         height: 48px;
         line-height: 48px;
         font-size: 14px;
@@ -128,6 +141,19 @@
         text-align: center;
         transition: all ease-out .3s;
         margin: 32px auto 10px;
+       }
+
+       &__bottom_text {
+        width: 60%;
+        font-size: 12px;
+        padding: 8px 0 0 0;
+        color: rgb(51, 51, 51);
+        margin: 0 auto;
+
+        .sms_setting {
+          text-decoration: none;
+          color: rgb(0, 149, 238);
+        }
        }
      }
    }

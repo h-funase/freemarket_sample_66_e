@@ -33,3 +33,26 @@
         .step3_2__bottom_contents__bottom__box__text
           %p SMSで届いた認証番号を入力してください
         .step3_2__bottom_contents__bottom__box__submit_btn
+          %p 認証して完了
+
+
+      .step3_2__bottom_contents__bottom__box
+        .step3_2__bottom_contents__bottom__box__phone_num
+          %p 30秒たっても認証番号が届かない方へ
+        .step3_2__bottom_contents__bottom__box__text
+          %p 電話で認証番号を聞くこともできます。
+        .step3_2__bottom_contents__bottom__box__submit_btn
+          %p 電話で認証番号を聞く(通話無料)
+
+
+      .step3_2__bottom_contents__bottom__box
+        .step3_2__bottom_contents__bottom__box__phone_num
+          %p 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+        .step3_2__bottom_contents__bottom__box__text
+          = link_to "#", class: "phone_re_enter" do
+            %p.phone_re_enter 電話番号を再入力する
+        .step3_2__bottom_contents__bottom__box__bottom_text
+          ※SMSが届かない場合は
+          = link_to "#", class: "sms_setting" do
+            = "SMS受信設定"
+          を確認して、もう一度電話番号を入力してください。
