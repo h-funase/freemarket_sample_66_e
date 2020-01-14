@@ -5,7 +5,13 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def new
+    @item = Item.new
+  end
+
   def sell_item
+    @item = Item.new(item_params)
+    redirect_to root_path
   end
 
   def step2
@@ -34,7 +40,14 @@ class ItemsController < ApplicationController
   
   def login
   end
-
+  
   def item_buy
+
   end
+
+
+  private
+  def item_params
+    params.require(:item).permit( :name, :description, :category_id, :condition, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price,)
+
 end

@@ -81,8 +81,9 @@ p.info {
   padding: 40px;
   border-top: 1px solid #eee;
 }
-.input_name {
+.sell_form_name {
   height: 48px;
+  width: 100%;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -124,7 +125,7 @@ p.info {
   }
 }
 
-select.select_default{
+.select_default{
   width: 100%;
   text-indent: 0px;
   position: relative;
