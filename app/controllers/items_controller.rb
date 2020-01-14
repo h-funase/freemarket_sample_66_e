@@ -8,6 +8,20 @@ class ItemsController < ApplicationController
   def sell_item
   end
 
+  def step2
+  end
+
+  def step3_1
+  end
+
+  def step3_2
+  end
+
+  def step4
+  end
+  
+  def step5
+    
   def credit
   end
 
