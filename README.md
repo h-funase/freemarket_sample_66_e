@@ -126,6 +126,7 @@ Things you may want to cover:
 | user_id | integer | null: false |
 | customer_id | string | null: false |
 | card_id | string | null: false |
+| token   | string | null:false  |
 ### Asosiation
 - belongs_to :user
 
