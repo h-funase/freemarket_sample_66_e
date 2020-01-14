@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
   
   def step5
+  end
     
   def credit
   end
