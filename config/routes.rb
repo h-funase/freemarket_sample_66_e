@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :credit
       get :sign_up
       get :login
+      get :item_buy
     end
   end
 

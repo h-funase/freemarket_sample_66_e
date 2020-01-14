@@ -33,4 +33,7 @@ class ItemsController < ApplicationController
   
   def login
   end
+
+  def item_buy
+  end
 end
