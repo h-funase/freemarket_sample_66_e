@@ -9,6 +9,12 @@ Rails.application.routes.draw do
       get :step3_2
       get :step4
       get :step5
+      get :logout
+      get :credit
+      get :sign_up
+      get :login
     end
   end
+
+  resources :mypages, only: [:index, :show,]
 end

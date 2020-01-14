@@ -1,9 +1,6 @@
 .sell_item_html
-  // アイコンヘッダー
-  .icon_header
-    .icon_header__upper
-      .icon-_header__upper__logo
-        
+  = render "icon_header"
+
   // 商品フォームヘッダー
   .sell_form
     .sell_form__main
@@ -208,12 +205,4 @@
         .back_btn
           戻る
 
-  .icon_footer
-    %nav.link
-      %ul.link
-        %li 
-          %a.info{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-        %li
-          %a.info{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-        %li
-          %a.info{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+  = render "icon_footer"

@@ -1,0 +1,31 @@
+.login_page
+  %body
+    .main_container
+      = render "icon_header"
+        
+      %main.user_login_main
+        %section.contents
+          .new_user
+            %p.new_user_acount アカウントをお持ちでない方はこちら
+            .new_user_bottom 
+              %link_to 新規会員登録
+
+          .login_form
+            %button#facebook_login.btn-default1.btn_facebook
+              %i.fab.fa-facebook-square
+              Facebookでログイン
+            %button#google-login.btn-default1.btn_googl
+              %i.fab.fa-google
+              Googleでログイン
+
+
+          %form.form_content{action: "", method: "POST"}
+            .bottom_contents
+              %input.login_mail{name: "email", placeholder: "メールアドレス", type: "email"}/
+              %input.login_password{name: "password", placeholder: "パスワード", type: "password"}/
+              .login_recaptcha
+                *Recaptchaが入ります
+              %button.login_button{type: "submit"} ログイン
+              %link.forget_password{href: ""} パスワードをお忘れの方
+      .wrapper
+        = render "icon_footer"
