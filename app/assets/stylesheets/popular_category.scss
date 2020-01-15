@@ -162,16 +162,16 @@
                     z-index: 1;
                     margin-top: 150px;
                   }
-                }
 
-                &__item_name {
-                  // background-color: royalblue;
-                  height: 26%;
-                  width: 100%;
-                  font-size: 14px;
-
-                  .item_name {
-                    padding: 12px;
+                  &__item_name {
+                    // background-color: royalblue;
+                    height: 26%;
+                    width: 100%;
+                    font-size: 14px;
+  
+                    .item_name {
+                      padding: 12px;
+                    }
                   }
                 }
               }

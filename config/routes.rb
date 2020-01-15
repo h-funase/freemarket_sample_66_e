@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :items, only: [:index]
   resources :mypages, only: [:index, :show,]
 end
