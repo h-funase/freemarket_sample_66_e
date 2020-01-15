@@ -5,7 +5,7 @@
 
   &__contents_box {
     background-color: rgb(255, 255, 255);
-    height: 85px;
+    height: 100px;
 
     &__popular_category {
       font-size: 28px;
@@ -143,6 +143,13 @@
                   background-size: cover;
                   height: 74%;
                   width: 100%;
+                  display: inline-flex;
+
+                  .item_image {
+                    background-size: cover;
+                    height: 100%;
+                    width: 100%;
+                  }
 
                   &__price {
                     // -webkit-box-align: center;

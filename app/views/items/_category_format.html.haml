@@ -5,13 +5,13 @@
         .item_list__one_item__box
           = link_to "#", class: "item_link" do
             .item_list__one_item__box__show_item
+              = image_tag "#{ladies_item.images[0].image}", class: "item_image"
               .item_list__one_item__box__show_item__price
-                = ladies_item.price
+                %p.img_title
+                  = "¥#{ladies_item.price}"
             .item_list__one_item__box__show_item__item_name
               %p.item_name
                 = ladies_item.name
-
-
 
     -# %li.item_list__one_item
     -#   .item_list__one_item__box
