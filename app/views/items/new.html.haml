@@ -6,7 +6,6 @@
     .sell_form__main
       %h2.sell_form__main__head  
         商品の情報を入力
-       
       
       .sell_form_content
       = form_for(@item) do |f|
@@ -14,15 +13,34 @@
         // 画像アップロード
         .sell_form__main__box
           .sell_upload_box 
+            
             %h3.sell_upload_box__head
-              出品画像 
+              = f.label :image, "出品画像"
               %span.form-require
                 必須
             %p.info 最大10枚までアップロードできます
             .sell_dropbox
-              .sell_dropbox__container
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+              .image-box__container
+                = f.fields_for :images do |i|
+                  .input-area
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:flex"
+                    -# %label{for: "img-file"}
+                    %i.fas.fa-camera
+              -# .label-content
+              -# %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
+              -#   %pre.label-box__text-visible クリックしてファイルをアップロード
+              -# .hidden-content
+              -#   = f.fields_for :images do |i|
+              -#     = i.file_field :image, class: "hidden-field"
+              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+
+
 
         // 商品名入力
         .sell_content 
@@ -52,10 +70,36 @@
                   = f.label :category_id, "カテゴリー"
                   %span.form-require
                     必須
-                
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---", class: 'select_default'
+                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
+
+                    .display_none.select-wrap
+                      %i.fa.fa-angle-down
+                      %select.k_ir_section__inner--form3-right-select-category#category_children
+
+                    .display_none.select-wrap
+                      %i.fa.fa-angle-down
+                      %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
+              
+
+                -# %label.item_category
+                -#   = f.label :size_id, "サイズ"
+                -#   %span.form-require
+                -#     必須
+                -# .category_select_wrap
+                -#   %i.icon_arrow_bottom
+                -#     = f.collection_select :size_id, Size.all, :id, :name, prompt: "---"
+
+      
+                -# .sell__about__right__wrap
+                -#   = f.label :brand_id, "ブランド"
+                -#   %span.required-gray
+                -#   .sell__about__right__wrap-box
+                -#     = f.text_field :brand_id, placeholder: "例）シャネル", class: "form"
+
+                        
+
                     
               -# 商品ステータス
               .sell_item_detail_box_form_group
@@ -65,7 +109,7 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---", class: 'select_default'
+                    = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---"
         
         -# 配送について
         .shipping_item_content
@@ -81,31 +125,40 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    -# = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value
+                    = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, prompt: "---"
+
+              .shipping_item_content__box__form_group
+                %label.shipping_charge
+                  = f.label :prefecture_id, "配送元地域"
+                  %span.form-require
+                    必須
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'}
+              
+
+                    
+
+
+              -# .shipping_item_content__box__form_group
+              -#   %label.delivery_way_id
+              -#     = f.label :delivery_way_id, "配送の方法"
+              -#     %span.form-require
+              -#       必須
+              -#   .category_select_wrap
+              -#     %i.icon_arrow_bottom
+              -#       = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, prompt: "---"
+
+              .shipping_item_content__box__form_group
+                %label.shipping_charge
+                  = f.label :delivery_days_id, "発送までの日数"
+                  %span.form-require
+                    必須
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, prompt: "---"
                   
-
-              .shipping_item_content__box__form_group
-                %label.shipping_charge
-                  = f.label :delivery_way_id, "配送の方法"
-                  %span.form-require
-                    必須
-                .category_select_wrap
-                  %i.icon_arrow_bottom
-                    -# = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value
-                   
-
-              .shipping_item_content__box__form_group
-                %label.shipping_charge
-                  配送料の負担
-                  %span.form-require
-                    必須
-                .category_select_wrap
-                  %i.icon_arrow_bottom
-                  %select.select_default
-                    %option{:value => ""} ____
-                    %option{:value => "1"} 1~2日で発送
-                    %option{:value => "2"} 2~3日で発送
-                    %option{:value => "3"} 4~7日で発送
+                    
         -# 販売価格
         .item_price_content
           .item_price_content__head
@@ -113,13 +166,13 @@
           .item_price_content__box
             .item_price_content__box__form
               %label.item_price
-                価格
+                = f.label :price, "価格"
                 %span.form-require
                   必須
               .item_price_input
                 %p.price¥
-                .input-default
-            
+                .input_price
+                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' }
               .item_handling_charge
                 販売手数料 (10%)
               .sell_profit
@@ -135,8 +188,9 @@
           %p.caution また、出品をもちまして,加盟店規約,に同意したことになります。
           
           .sell_btn
-            出品する
+            = f.submit "出品する", class: 'sell__about__bottom-btn submit'
           .back_btn
             戻る
 
   = render "icon_footer"
+

@@ -35,6 +35,12 @@
   }
 }
 
+
+.input-area{
+  display: flex;
+  justify-content: space-around;
+}
+
 .form-require{
   display: inline;
   margin: 0 0 0 8px;
@@ -61,19 +67,20 @@ p.info {
   border: 1px dashed #ccc;
   font-size: 0;
   text-align: center;
-  &__container{
-    width: 100%;
-    margin-left: 0;
-    padding: 40px;
-    float: right;
-    top: 50%;
-    left: 16px;
-    right: 16px;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.5;
-  }
 }
+.image-box__container{
+  width: 100%;
+  margin-left: 0;
+  padding: 30px;
+  float: right;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 
 // 商品名入力
 .sell_content {
@@ -111,7 +118,7 @@ p.info {
 .sell_detail_content{
   background: white;
   padding: 40px;
-  height:250px;
+  height:400px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -124,8 +131,8 @@ p.info {
     margin: 0;
   }
 }
-
-.select_default{
+// 注意
+select{
   width: 100%;
   text-indent: 0px;
   position: relative;
@@ -150,7 +157,7 @@ p.info {
 .shipping_item_content {
   background: white;
   padding: 40px;
-  height:300px;
+  height:400px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -168,8 +175,8 @@ p.info {
 
 .item_price_content{
   background: white;
+  height: 300px;
   padding: 40px;
-  height:250px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -229,7 +236,7 @@ p.caution {
   font-size: 13px;;
 }
 
-.sell_btn {
+.sell__about__bottom-btn {
   margin: 40px 0 0;
   background: #ea352d;
   border: 1px solid #ea352d;
