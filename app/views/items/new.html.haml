@@ -83,21 +83,6 @@
                       %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
               
 
-                -# %label.item_category
-                -#   = f.label :size_id, "サイズ"
-                -#   %span.form-require
-                -#     必須
-                -# .category_select_wrap
-                -#   %i.icon_arrow_bottom
-                -#     = f.collection_select :size_id, Size.all, :id, :name, prompt: "---"
-
-      
-                -# .sell__about__right__wrap
-                -#   = f.label :brand_id, "ブランド"
-                -#   %span.required-gray
-                -#   .sell__about__right__wrap-box
-                -#     = f.text_field :brand_id, placeholder: "例）シャネル", class: "form"
-
                         
 
                     
@@ -109,7 +94,7 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---"
+                    = f.select :condition_id, Item.conditions.keys,{prompt: '---'}
         
         -# 配送について
         .shipping_item_content
@@ -125,7 +110,7 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value, prompt: "---"
+                    = f.select :delivery_charge_id, Item.delivery_charges.keys,{prompt: '---'}
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
@@ -140,14 +125,15 @@
                     
 
 
-              -# .shipping_item_content__box__form_group
-              -#   %label.delivery_way_id
-              -#     = f.label :delivery_way_id, "配送の方法"
-              -#     %span.form-require
-              -#       必須
-              -#   .category_select_wrap
-              -#     %i.icon_arrow_bottom
-              -#       = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, prompt: "---"
+              .shipping_item_content__box__form_group
+                %label.delivery_way_id
+                  = f.label :delivery_way_id, "配送の方法"
+                  %span.form-require
+                    必須
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.select :delivery_way_id, Item.delivery_ways.keys,{prompt: '---'}
+
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
@@ -156,7 +142,7 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.collection_select :delivery_days_id, DeliveryDays.all, :id, :value, prompt: "---"
+                    = f.select :delivery_days_id, Item.delivery_days.keys,{prompt: '---'}
                   
                     
         -# 販売価格

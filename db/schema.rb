@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(version: 20200114122718) do
     t.text     "description",        limit: 65535, null: false
     t.integer  "category_id"
     t.integer  "size_id"
-    t.integer  "condition_id",                     null: false
+    t.string   "condition_id",                     null: false
     t.string   "delivery_charge_id",               null: false
     t.string   "prefecture_id",                    null: false
     t.string   "delivery_days_id",                 null: false
+    t.string   "delivery_way_id",                  null: false
     t.integer  "price",                            null: false
     t.integer  "buyer_id"
     t.integer  "saler_id"
