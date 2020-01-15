@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @ladies_items = Item.limit(10)
+    @ladies_items = Item.order("created_at DESC").limit(10)
   end
 
   def show
