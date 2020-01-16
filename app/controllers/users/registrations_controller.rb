@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def step2
-    if verify_recaptcha
       session[:nickname] = params[:user][:nickname]
       session[:email] = params[:user][:email]
       session[:password] = params[:user][:password]
@@ -21,9 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       session[:provider] = session[:provider]
       session[:uid] = session[:uid]
       @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password],  first_name_kana: session[:first_name_kana],last_name_kana: session[:last_name_kana], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday],phone: params[:user][:phone])
-    else
-      redirect_to signup_index_path, notice: 'reCAPTCH認証を行なってください'
-    end
   end
 
   def create
