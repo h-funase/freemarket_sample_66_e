@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rspec-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use mysql as the database for Active Record
@@ -43,6 +43,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
+  gem 'factory_bot_rails'#テストコード用のgem。仮のインスタンスを簡単に生成できる
+  gem 'rspec-rails'#テストコード用のgem。モデルのバリデーション、NOTNULLやuniqueの確認に使う
+  gem 'rails-controller-testing'#テストコード用のgem。コントローラーのメソッドテスト用
 end
 
 group :development do
@@ -62,4 +66,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-sass'
+gem 'devise'
+gem 'active_hash'#あらかじめデータが登録されたテーブルを作成するためのgem。都道府県を登録しておくのに使う
+gem 'payjp'#クレジットカード情報の登録、及びクレジットカード決済に必要なgem
+gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
+gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
