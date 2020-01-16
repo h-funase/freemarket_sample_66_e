@@ -139,7 +139,6 @@
                 }
 
                 &__show_item {
-                  // background-image: url(/images/iphone-410311_1280.jpg);
                   background-size: cover;
                   height: 74%;
                   width: 100%;
@@ -152,18 +151,15 @@
                   }
 
                   &__price {
-                    // -webkit-box-align: center;
                     align-items: center;
                     background: rgba(0,0,0,.4);
                     border-radius: 0 14px 14px 0;
-                    // bottom: 8px;
                     box-sizing: border-box;
                     color: #fff;
                     display: inline-flex;
                     font-size: 17px;
                     height: 28px;
                     letter-spacing: .02em;
-                    // margin: 0;
                     padding: 0 12px;
                     position: absolute;
                     z-index: 1;
@@ -171,7 +167,6 @@
                   }
 
                   &__item_name {
-                    // background-color: royalblue;
                     height: 26%;
                     width: 100%;
                     font-size: 14px;
