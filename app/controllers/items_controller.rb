@@ -42,6 +42,11 @@ class ItemsController < ApplicationController
   
   def login
   end
+
+
+  def userprofile
+  end
+
   
   def item_buy
 
