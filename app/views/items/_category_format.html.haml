@@ -1,93 +1,14 @@
-
 .category_contents__category_box__items_box__items
-
   %ul.item_list
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-      
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
-
-    %li.item_list__one_item
-      .item_list__one_item__box
-        = link_to "#", class: "item_link" do
-          .item_list__one_item__box__show_item
-            .item_list__one_item__box__show_item__price
-              ¥2.500
-          .item_list__one_item__box__item_name
-            %p.item_name ショートブーツ
+    - @items.each do |item|
+      %li.item_list__one_item
+        .item_list__one_item__box
+          = link_to "#", class: "item_link" do
+            .item_list__one_item__box__show_item
+              = image_tag "#{item.images[0].image}", class: "item_image"
+              .item_list__one_item__box__show_item__price
+                %p.img_title
+                  = "¥#{item.price}"
+            .item_list__one_item__box__show_item__item_name
+              %p.item_name
+                = item.name
