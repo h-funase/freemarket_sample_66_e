@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use mysql as the database for Active Record
@@ -70,3 +71,4 @@ gem 'active_hash'#あらかじめデータが登録されたテーブルを作�
 gem 'payjp'#クレジットカード情報の登録、及びクレジットカード決済に必要なgem
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
+gem 'active_hash'

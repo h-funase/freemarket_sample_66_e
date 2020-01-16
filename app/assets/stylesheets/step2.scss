@@ -114,7 +114,7 @@
             background: #ea352d;
             border-radius: 2px;
             margin-left: 5px;
-            
+
           }
         }
 
@@ -126,10 +126,12 @@
           border-radius: 4px;
           padding: 10px;
           color: #888;
+
           input#user_nickname {
             width:100%;
             height:100%;
           }
+
         }
 
         &__valid {
@@ -235,6 +237,9 @@
           .birthday_select_wrap {
             display: flex;
             height:40px;
+
+
+
             .select_default {
               width: 20%;
             }

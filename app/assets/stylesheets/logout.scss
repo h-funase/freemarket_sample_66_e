@@ -1,3 +1,32 @@
-// Place all the styles related to the logout controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logout{
+  background-color:white;
+  width: 50%;
+  height: 150px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  position: relative;
+
+  &__main {
+    background-color:#ea352d;
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom :0;
+    margin:  auto; 
+
+    &__btn {
+      width: 50%;
+      height: 40px;
+      text-align: center;
+      background: #ea352d;
+      border: 10px solid #ea352d;
+      color: #fff;
+    }
+  }
+}
+
+

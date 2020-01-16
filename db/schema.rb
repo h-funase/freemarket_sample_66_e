@@ -10,52 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200113043035) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",         null: false
-    t.string   "postal_code",     null: false
-    t.string   "prefectures",     null: false
-    t.string   "municipality",    null: false
-    t.string   "street_number",   null: false
-    t.string   "building_name"
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "first_name_kana", null: false
-    t.string   "last_name_kana",  null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+ActiveRecord::Schema.define(version: 20200114024756) do
+
+
+  
+
+  
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                       null: false
+    t.string   "name",                          null: false
+    t.text     "description",     limit: 65535
+    t.integer  "category_id",                   null: false
+    t.integer  "size",                          null: false
+    t.integer  "condition",                     null: false
+    t.string   "delivery_charge",               null: false
+    t.string   "delivery_way",                  null: false
+    t.string   "delivery_days",                 null: false
+    t.integer  "price",                         null: false
+    t.integer  "saler_id",                      null: false
+    t.string   "brand_id",                      null: false
+    t.integer  "status",                        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
-  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",     null: false
-    t.string   "customer_id"
-    t.string   "card_id"
-    t.string   "token"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                            null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
-    t.string   "first_name_kana",                     null: false
-    t.string   "last_name_kana",                      null: false
-    t.date     "birthday",                            null: false
-    t.string   "phone",                               null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["phone"], name: "index_users_on_phone", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  end
-
-  add_foreign_key "cards", "users"
+ 
 end
