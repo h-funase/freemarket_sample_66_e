@@ -1,0 +1,22 @@
+.icon_footer {
+  width: 500px;
+  height: 220px;
+  margin: 0 auto;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+  img {
+    width: 250px;
+    height: 80px;
+  }
+}
+ul.link{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+a.info{
+  font-size: 12px;
+  color: black;
+  margin: 0 10px;
+}
