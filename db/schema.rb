@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20200115041108) do
     t.string   "name",                          null: false
     t.text     "description",     limit: 65535
     t.integer  "category_id",                   null: false
-    t.integer  "size",                          null: false
+    t.string   "size",                          null: false
     t.integer  "condition",                     null: false
     t.string   "delivery_charge",               null: false
     t.string   "delivery_way",                  null: false
