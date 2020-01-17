@@ -5,13 +5,34 @@
   %section
   .item__details
     %h2.item__details__name
-      グラッドハンド リーガル サドルシューズ ブラック gladhandREGAL
+      = @items.name
     .item__details__main_content
       .item__details__main_content_boxes
         .main_photo
           .photos
-          .small_photos
+            = image_tag @images.image_url.to_s, class: "photos"
+          .small_photos    
             .small_photo
+              = image_tag @images.image_url.to_s, class: "small_photo"
+            .small_photo2
+              = image_tag @images.image_url.to_s, class: "small_photo"
+            .small_photo3
+              = image_tag @images.image_url.to_s, class: "small_photo"
+            .small_photo4
+              = image_tag @images.image_url.to_s, class: "small_photo"
+            .small_photo5
+              = image_tag @images.image_url.to_s, class: "small_photo"
+            .small_photos2
+              .small_photo6
+                = image_tag @images.image_url.to_s, class: "small_photo"
+              .small_photo7
+                = image_tag @images.image_url.to_s, class: "small_photo"
+              .small_photo8
+                = image_tag @images.image_url.to_s, class: "small_photo"
+              .small_photo9
+                = image_tag @images.image_url.to_s, class: "small_photo"
+              .small_photo10
+                = image_tag @images.image_url.to_s, class: "small_photo"
         %table.item_detail_table
           %tbody
             %tr
@@ -33,48 +54,53 @@
               %td
                 .item_category
                   .item_category_top
-                  %span メンズ
-                  .item_category_middle
-                  %span &lt; 靴
-                  .item_category_bottom
-                  %span &lt; その他
+                  %span 
+                    = @items.category_id
+                  -# .item_category_middle
+                  -# %span &lt; 靴
+                  -# .item_category_bottom
+                  -# %span &lt; その他
             %tr
               %th ブランド
               %td グラッドハンド
             %tr
               %th 商品サイズ
-              %td 25.5cm
+              %td 
+                = @items.size
             %tr
               %th 商品の状態
-              %td 目立った傷や汚れなし
+              %td 
+                = @items.condition_id
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td 
+                = @items.delivery_charge_id
             %tr
               %th 配送の方法
-              %td ゆうゆうメルカリ便
+              %td 
+                = @items.delivery_way_id
             %tr
               %th 発送元地域
-              %td 福岡県
+              %td 
+                = @items.prefecture_id
             %tr
               %th 発送日の目安
-              %td 1~2日で発送
+              %td 
+                = @items.delivery_days_id
       .item_price_box
-        %span.item_price ¥30,000
+        %span.item_price
+          = "¥#{@items.price}"
         %span.item_tax (税込)
-        %span.item_shipping_fee 送料込み
+        %span.item_shipping_fee
+          -# 送料 : 
+          -# = @items.delivery_charge_id
       .item_buy_btn
-        購入画面に進む
+        = link_to "購入する", item_buy_items_path
       .shipping_note_message
-        この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
+        -# この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
 
       .item_description
-        正規店にて購入し、着用回数は5回程です。
-        使用後にはブラッシングしておりましたので、目立つ傷はなく、ソールとともに問題ありません。
-        サイズは25.5cmであり、当方はコンバースやニューバランス等のサイズは26.5cmですが、丁度いい感じでした。
-        付属のブラックの靴紐もございます。
-        細かい傷等は画像にてご確認お願いします。
-        
+        = @items.description
         .item_button_container
           .item_button
             .item_button__left
@@ -156,4 +182,3 @@
   %section
   = render "bottom_image"
   = render "footer"
-
