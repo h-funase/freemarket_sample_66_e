@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
