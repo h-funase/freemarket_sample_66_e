@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
+    @items = Item.includes(:images).order("created_at DESC").limit(10)
   end
 
   def show
@@ -53,7 +55,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :description, :category_id, :condition, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price,)
+    params.require(:item).permit( :name, :description, :category_id, :condition, :size, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price,)
   end
 
 end
