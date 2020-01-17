@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get :login
       get :userprofile
       get :item_buy
+      get :person_check
 
     end
   end

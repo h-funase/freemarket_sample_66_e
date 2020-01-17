@@ -52,6 +52,9 @@ class ItemsController < ApplicationController
 
   end
 
+  def person_check
+  end
+
 
   private
   def item_params
