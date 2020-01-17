@@ -81,4 +81,5 @@ gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボッ�
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
 gem 'fog-aws'
-
+gem 'ancestry'
+gem "carrierwave"

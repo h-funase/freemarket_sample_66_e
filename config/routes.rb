@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :logout, only: [:index]
 
 
-  resources :items, only:[:index, :show] do
+  resources :items do
     collection do
       get :sell_item
       get :step2
