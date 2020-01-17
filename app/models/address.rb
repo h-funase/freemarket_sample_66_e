@@ -1,7 +1,6 @@
 class Address < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
 
-  postal = /\A\d{3}-?d{4}\z/
+
   kanji = /\A[一-龥]+\z/
   kana = /\A([ァ-ン]|ー)+\z/
 
