@@ -40,7 +40,7 @@ class CardsController < ApplicationController
 
   def pay 
       item = Item.find(card_params[:card_id])
-      redirect_to edit_item_path(item.id) if product.status != 0  
+      redirect_to item_path(item.id) if product.status != 0  
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
