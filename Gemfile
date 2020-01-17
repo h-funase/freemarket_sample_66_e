@@ -44,9 +44,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
-  gem 'factory_bot_rails'#テストコード用のgem。仮のインスタンスを簡単に生成できる
-  gem 'rspec-rails'#テストコード用のgem。モデルのバリデーション、NOTNULLやuniqueの確認に使う
-  gem 'rails-controller-testing'#テストコード用のgem。コントローラーのメソッドテスト用
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+
 end
 
 group :development do
@@ -72,3 +73,7 @@ gem 'payjp'#クレジットカード情報の登録、及びクレジットカ�
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
+
+group :test do
+  gem 'faker', "~> 2.8"
+end
