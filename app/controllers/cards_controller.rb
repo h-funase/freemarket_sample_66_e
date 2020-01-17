@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
   before_action :card_exist, only: [:index,:pay,:destroy,:show,:confirmation,:complete]
+  before_action :set_item, only: [:confirmation,:complete]
 
   def index
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -38,8 +39,8 @@ class CardsController < ApplicationController
   end
 
   def pay 
-      product = Product.find(card_params[:product_id])
-      redirect_to "/products/#{product.id}" if product.status != 0  #ヘルパーが使用出来なかった為仮置。ルーティング調整したら変更する事
+      item = Item.find(card_params[:card_id])
+      redirect_to edit_item_path(item.id) if product.status != 0  
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
@@ -53,7 +54,7 @@ class CardsController < ApplicationController
   end
 
   def destroy
-       card = Card.where(user_id: current_user.id).first
+       card = Card.find_by(user_id: current_user.id).first
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -69,14 +70,12 @@ class CardsController < ApplicationController
   end
 
   def confirmation
-    @product = Product.find(params[:product_id])
     @addresses = Address.find_by(user_id: current_user.id)
 
     card_information
   end
 
   def complete
-    @product = Product.find(params[:product_id])
     @addresses = Address.find_by(user_id: current_user.id)
     card_information
   end
@@ -97,5 +96,9 @@ class CardsController < ApplicationController
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(@card.customer_id)
     @default_card_information = customer.cards.retrieve(@card.card_id)
+  end
+
+  def set_item
+    @item = Item.find(params[:card_id])
   end
 end
