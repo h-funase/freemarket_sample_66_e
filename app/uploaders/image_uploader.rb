@@ -9,6 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :fog
   end
+
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -48,4 +49,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end
+
