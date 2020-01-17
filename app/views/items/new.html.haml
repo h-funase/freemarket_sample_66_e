@@ -6,7 +6,6 @@
     .sell_form__main
       %h2.sell_form__main__head  
         商品の情報を入力
-       
       
       .sell_form_content
       = form_for(@item) do |f|
@@ -14,15 +13,22 @@
         // 画像アップロード
         .sell_form__main__box
           .sell_upload_box 
+            
             %h3.sell_upload_box__head
-              出品画像 
+              = f.label :image, "出品画像"
               %span.form-require
                 必須
             %p.info 最大10枚までアップロードできます
             .sell_dropbox
-              .sell_dropbox__container
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+              .image-box__container
+                = f.fields_for :images do |i|
+                  .input-area
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
+                    %i.fas.fa-camera
+
 
         // 商品名入力
         .sell_content 
@@ -47,16 +53,15 @@
             .sell_detail_content__box__form
 
               -# 商品カテゴリー
-              .sell_item_detail_box_form_group
-                %label.item_category
-                  = f.label :category_id, "カテゴリー"
-                  %span.form-require
-                    必須
-                
-                .category_select_wrap
-                  %i.icon_arrow_bottom
-                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---", class: 'select_default'
-                    
+            .listing-form-box
+              .listing-product-detail__category
+                = f.label :category_id, class: 'listing-default__label'
+                %span.form-require 必須
+                .listing-select-wrapper
+                  .listing-select-wrapper__box
+                    = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
               -# 商品ステータス
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -65,8 +70,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    -# = f.collection_select :condition_id, Condition.all, :id, :value, prompt: "---", class: 'select_default'
-        
+                    = f.select :condition_id, Item.conditions.keys,{prompt: '---'}
+
         -# 配送について
         .shipping_item_content
           .shipping_item_content__head
@@ -81,31 +86,41 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    -# = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :value
-                  
+                    = f.select :delivery_charge_id, Item.delivery_charges.keys,{prompt: '---'}
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
+                  = f.label :prefecture_id, "配送元地域"
+                  %span.form-require
+                    必須
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'}
+              
+
+                    
+
+
+              .shipping_item_content__box__form_group
+                %label.delivery_way_id
                   = f.label :delivery_way_id, "配送の方法"
                   %span.form-require
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    -# = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value
-                   
+                    = f.select :delivery_way_id, Item.delivery_ways.keys,{prompt: '---'}
+
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
-                  配送料の負担
+                  = f.label :delivery_days_id, "発送までの日数"
                   %span.form-require
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                  %select.select_default
-                    %option{:value => ""} ____
-                    %option{:value => "1"} 1~2日で発送
-                    %option{:value => "2"} 2~3日で発送
-                    %option{:value => "3"} 4~7日で発送
+                    = f.select :delivery_days_id, Item.delivery_days.keys,{prompt: '---'}
+                  
+                    
         -# 販売価格
         .item_price_content
           .item_price_content__head
@@ -113,13 +128,13 @@
           .item_price_content__box
             .item_price_content__box__form
               %label.item_price
-                価格
+                = f.label :price, "価格"
                 %span.form-require
                   必須
               .item_price_input
                 %p.price¥
-                .input-default
-            
+                .input_price
+                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' }
               .item_handling_charge
                 販売手数料 (10%)
               .sell_profit
@@ -135,8 +150,9 @@
           %p.caution また、出品をもちまして,加盟店規約,に同意したことになります。
           
           .sell_btn
-            出品する
+            = f.submit "出品する", class: 'sell__about__bottom-btn submit'
           .back_btn
             戻る
 
   = render "icon_footer"
+

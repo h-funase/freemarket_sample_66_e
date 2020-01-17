@@ -44,7 +44,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
-
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
@@ -59,10 +58,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :production do
   gem 'unicorn', '5.4.1'
+end
+
+group :test do
+  gem 'faker', "~> 2.8"
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -75,7 +80,6 @@ gem 'payjp'#クレジットカード情報の登録、及びクレジットカ�
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
-
-group :test do
-  gem 'faker', "~> 2.8"
-end
+gem 'fog-aws'
+gem 'ancestry'
+gem "carrierwave"
