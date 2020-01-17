@@ -4,7 +4,6 @@ class Address < ApplicationRecord
   kanji = /\A[一-龥]+\z/
   kana = /\A([ァ-ン]|ー)+\z/
 
-  belongs_to_active_hash :prefecture
   belongs_to  :user, optional: true
   validates :postal_code, presence: true
   validates :prefectures, :municipality, :street_number, presence: true
