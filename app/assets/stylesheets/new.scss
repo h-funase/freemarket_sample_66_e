@@ -2,28 +2,28 @@
   background-color: #ecebeb;
 }
 
+
 // 商品フォームヘッダー
-.sell_form {
-  display: block;
-  &__main {
+
+.sell_form__main {
+  background: white;
+  height: 100%;
+  width: 700px;
+  margin: 0 auto;
+  &__head {
     background: white;
-    height: 100%;
-    width: 700px;
-    margin: 0 auto;
-    &__head {
-      background: white;
-      padding: 32px 16px;
-      font-size: 22px;
-      font-weight: bold;
-      line-height: 1.5;
-      text-align: center;
-    }
-    &__box{
-      border-top: 1px solid #eee;
-      background: white;
-    }
+    padding: 32px 16px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+  }
+  &__box{
+    border-top: 1px solid #eee;
+    background: white;
   }
 }
+
 
 // 画像アップロード
 .sell_upload_box {
@@ -33,6 +33,13 @@
   &__head {
     font-size: 16px;
   }
+}
+
+
+.input-area{
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .form-require{
@@ -61,19 +68,23 @@ p.info {
   border: 1px dashed #ccc;
   font-size: 0;
   text-align: center;
-  &__container{
-    width: 100%;
-    margin-left: 0;
-    padding: 40px;
-    float: right;
-    top: 50%;
-    left: 16px;
-    right: 16px;
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.5;
-  }
 }
+.image-box__container{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.image-field{
+  width:100%;
+}
+.upload-image__btn{
+  padding: 0;
+  width: 100%;
+  height: 132px;
+}
+
 
 // 商品名入力
 .sell_content {
@@ -111,7 +122,7 @@ p.info {
 .sell_detail_content{
   background: white;
   padding: 40px;
-  height:250px;
+  height:400px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -124,8 +135,8 @@ p.info {
     margin: 0;
   }
 }
-
-.select_default{
+// 注意
+select{
   width: 100%;
   text-indent: 0px;
   position: relative;
@@ -150,7 +161,7 @@ p.info {
 .shipping_item_content {
   background: white;
   padding: 40px;
-  height:300px;
+  height:400px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -168,8 +179,8 @@ p.info {
 
 .item_price_content{
   background: white;
+  height: 300px;
   padding: 40px;
-  height:250px;
   border-top: 1px solid #eee;
   &__head{
     float: left;
@@ -229,7 +240,7 @@ p.caution {
   font-size: 13px;;
 }
 
-.sell_btn {
+.sell__about__bottom-btn {
   margin: 40px 0 0;
   background: #ea352d;
   border: 1px solid #ea352d;
