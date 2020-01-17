@@ -1,7 +1,35 @@
 Rails.application.routes.draw do
+
+  devise_for :installs
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+  devise_scope :user do
+    get    'users/signup/registration',      to: 'users/registrations#step1'
+    get    'users/signup/sms_confirmation',  to: 'users/registrations#step2'
+  end
+  
+  get '/addresses/new', to: 'addresses#step3'
+  get '/cards/new', to: 'cards#step4'
+  get '/signup/done', to: 'signup#done'
+
+  resources :signup do
+    collection do
+      get 'index'
+      get 'done' 
+    end
+  end
+
   root 'items#index'
 
-  resources :items do
+  resources :cards,only:[:create]
+  resources :addresses,only:[:create,:update]
+  resources :logout, only: [:index]
+
+
+  resources :items, only:[:index, :show] do
     collection do
       get :sell_item
       get :step2
@@ -15,9 +43,15 @@ Rails.application.routes.draw do
       get :login
       get :userprofile
       get :item_buy
-
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
-  resources :mypages, only: [:index, :show,]
+
+
+
+  resources :mypages, only: [:index, :show]
+
+
 end
