@@ -3,7 +3,6 @@ $(function() {
   Payjp.setPublicKey('pk_test_68b7a42e6dd536540364eb97'); //(自身の公開鍵)
 
   $("#charge-form").on("click", "#token_submit", function(e) {
-    console.log("fire1");
     e.preventDefault();
     form.find("input[type=submit]").prop("disabled", true);
     var card = {
@@ -13,11 +12,9 @@ $(function() {
         exp_year: parseInt($("#exp_year").val())
         
     };
-    console.log(card);
 
 
     Payjp.createToken(card, function(status, response) {
-                console.log("fire2");
                 if (status === 200) { 
                   $("#number").removeAttr("name");
                   $("#cvc").removeAttr("name");
@@ -26,7 +23,6 @@ $(function() {
                   $("#token_submit").append(
                     $('<input type="hidden" name="payjp-token">').val(response.id)
                   ); 
-                  console.log(response.id);
                   $("#charge-form").get(0).submit();
                   alert("登録が完了しました"); 
                 } else {
