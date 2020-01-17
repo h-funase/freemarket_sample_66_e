@@ -1,13 +1,13 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe AddressesController, type: :controller do
-  let(:user) {create(:user)}
+# RSpec.describe AddressesController, type: :controller do
+#   let(:user) {create(:user)}
 
-  describe 'GET #step3' do
-    it "住所登録ページに遷移するか" do
-      login_user user
-      get :step3
-      expect(response).to render_template :step3
-    end
-  end
-end
+#   describe 'GET #step3' do
+#     it "住所登録ページに遷移するか" do
+#       login_user user
+#       get :step3
+#       expect(response).to render_template :step3
+#     end
+#   end
+# end
