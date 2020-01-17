@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       get :userprofile
       get :item_buy
       get :item_screen
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
@@ -53,10 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
-    end
-  end
+    
 
 
 
