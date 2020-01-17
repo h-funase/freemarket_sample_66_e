@@ -3,6 +3,7 @@ $(function() {
   Payjp.setPublicKey('pk_test_68b7a42e6dd536540364eb97'); //(自身の公開鍵)
 
   $("#charge-form").on("click", "#token_submit", function(e) {
+
     e.preventDefault();
     form.find("input[type=submit]").prop("disabled", true);
     var card = {
@@ -12,6 +13,7 @@ $(function() {
         exp_year: parseInt($("#exp_year").val())
         
     };
+
 
 
     Payjp.createToken(card, function(status, response) {

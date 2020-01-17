@@ -34,12 +34,21 @@
 .new_user_bottom{
   line-height: 40px;
   background: #0099e8;
+
   color: white;
+
   border: 1px solid #0099e8;
   display: block;
   width: 65%;
   margin: 0 auto;
 }
+
+.new_user_bottom__link{
+  text-decoration: none;
+  color:white;
+}
+
+
 
 .login_form{
   width: 100%;

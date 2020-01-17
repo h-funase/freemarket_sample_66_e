@@ -7,13 +7,12 @@
     .header__box__upper_contents
 
       .header__box__upper_contents__logo
-        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 281.19 84.08"><defs><style>.cls-1{fill:#dc4912;stroke:#fff;stroke-miterlimit:10;}.cls-2{font-size:48px;fill:#231815;font-family:YuGo-Bold-83pv-RKSJ-H, YuGothic;}</style></defs><title>アセット 3</title><g id="レイヤー_2" data-name="レイヤー 2"><g id="レイヤー_1-2" data-name="レイヤー 1"><polygon class="cls-1" points="36.41 83.5 0.5 62.77 0.5 21.31 36.41 0.58 72.32 21.31 72.32 62.77 36.41 83.5"/><polyline class="cls-1" points="0.5 21.31 36.41 42.04 72.32 21.31"/><polyline class="cls-1" points="36.41 83.5 36.41 49.36 36.41 42.04"/><line class="cls-1" x1="36.41" y1="52.41" x2="0.5" y2="31.67"/><line class="cls-1" x1="72.32" y1="33.2" x2="36.41" y2="50.88"/><text class="cls-2" transform="translate(86.41 62.77)">Fmarket</text></g></g></svg>
-
+        %h1
+          = link_to root_path do
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 281.19 84.08"><defs><style>.cls-1{fill:#dc4912;stroke:#fff;stroke-miterlimit:10;}.cls-2{font-size:48px;fill:#231815;font-family:YuGo-Bold-83pv-RKSJ-H, YuGothic;}</style></defs><title>アセット 3</title><g id="レイヤー_2" data-name="レイヤー 2"><g id="レイヤー_1-2" data-name="レイヤー 1"><polygon class="cls-1" points="36.41 83.5 0.5 62.77 0.5 21.31 36.41 0.58 72.32 21.31 72.32 62.77 36.41 83.5"/><polyline class="cls-1" points="0.5 21.31 36.41 42.04 72.32 21.31"/><polyline class="cls-1" points="36.41 83.5 36.41 49.36 36.41 42.04"/><line class="cls-1" x1="36.41" y1="52.41" x2="0.5" y2="31.67"/><line class="cls-1" x1="72.32" y1="33.2" x2="36.41" y2="50.88"/><text class="cls-2" transform="translate(86.41 62.77)">Fmarket</text></g></g></svg>
       .header__box__upper_contents__form
-
         .header__box__upper_contents__form__text
           何かお探しですか？
-
         .header__box__upper_contents__form__search_btn
           = link_to "#", class: "seach_link" do
             <i class="fas fa-search"></i>
@@ -49,53 +48,59 @@
               ブランドから探す
 
 
-
+    
       .header__box__lower_contents__right_comtents
+        - if user_signed_in?
+          .header__box__lower_contents__right_comtents__likes_list
 
-        .header__box__lower_contents__right_comtents__likes_list
+            .header__box__lower_contents__right_comtents__likes_list__likes-box
+              = link_to "#", class: "likes_link" do
 
-          .header__box__lower_contents__right_comtents__likes_list__likes-box
-            = link_to "#", class: "likes_link" do
+                .header__box__lower_contents__right_comtents__likes_list__likes-box__logo
+                  <i class="far fa-heart"></i>
 
-              .header__box__lower_contents__right_comtents__likes_list__likes-box__logo
-                <i class="far fa-heart"></i>
-
-              .header__box__lower_contents__right_comtents__likes_list__likes-box__name
-                いいね！一覧
-
-
-
-
-        .header__box__lower_contents__right_comtents__info
-
-          .header__box__lower_contents__right_comtents__info__info_box
-
-            .header__box__lower_contents__right_comtents__info__info_box__logo
-              <i class="far fa-bell"></i>
-
-            .header__box__lower_contents__right_comtents__info__info_box__name
-              お知らせ
+                .header__box__lower_contents__right_comtents__likes_list__likes-box__name
+                  いいね！一覧
 
 
 
-        .header__box__lower_contents__right_comtents__todo_list
 
-          .header__box__lower_contents__right_comtents__todo_list__todo_box
+          .header__box__lower_contents__right_comtents__info
 
-            .header__box__lower_contents__right_comtents__todo_list__todo_box__logo
-              <i class="fas fa-check"></i>
+            .header__box__lower_contents__right_comtents__info__info_box
 
-            .header__box__lower_contents__right_comtents__todo_list__todo_box__name
-              やることリスト
+              .header__box__lower_contents__right_comtents__info__info_box__logo
+                <i class="far fa-bell"></i>
+
+              .header__box__lower_contents__right_comtents__info__info_box__name
+                お知らせ
 
 
 
-        .header__box__lower_contents__right_comtents__my_page
-        
-          .header__box__lower_contents__right_comtents__my_page__may_box
+          .header__box__lower_contents__right_comtents__todo_list
 
-            .header__box__lower_contents__right_comtents__my_page__may_box__logo
-              <i class="far fa-smile"></i>
+            .header__box__lower_contents__right_comtents__todo_list__todo_box
 
-            .header__box__lower_contents__right_comtents__my_page__may_box__name
-              マイページ
+              .header__box__lower_contents__right_comtents__todo_list__todo_box__logo
+                <i class="fas fa-check"></i>
+
+              .header__box__lower_contents__right_comtents__todo_list__todo_box__name
+                やることリスト
+
+
+
+          .header__box__lower_contents__right_comtents__my_page
+          
+            .header__box__lower_contents__right_comtents__my_page__may_box
+
+              .header__box__lower_contents__right_comtents__my_page__may_box__logo
+                <i class="far fa-smile"></i>
+
+              .header__box__lower_contents__right_comtents__my_page__may_box__name
+                マイページ
+        - else
+          .header__box__lower_contents__right_comtents__button
+          .header__box__lower_contents__right_comtents__button__signup
+            = link_to "新規会員登録", signup_index_path, class: "btn registration"
+          .header__box__lower_contents__right_comtents__button__login
+            = link_to "ログイン", new_user_session_path, class: "btn login"

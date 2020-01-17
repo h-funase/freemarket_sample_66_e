@@ -20,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       session[:provider] = session[:provider]
       session[:uid] = session[:uid]
       @user = User.new(nickname:session[:nickname], email: session[:email], password: session[:password],  first_name_kana: session[:first_name_kana],last_name_kana: session[:last_name_kana], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday],phone: params[:user][:phone])
+
   end
 
   def create

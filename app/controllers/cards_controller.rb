@@ -3,7 +3,9 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
   before_action :card_exist, only: [:index,:pay,:destroy,:show,:confirmation,:complete]
+
   before_action :set_item, only: [:confirmation,:complete]
+
 
   def index
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -39,9 +41,11 @@ class CardsController < ApplicationController
   end
 
   def pay 
+
       item = Item.find_by(card_params[:card_id])
       redirect_to item_path(item.id) if product.status != 0  
       card = Card.find_by(user_id: current_user.id)
+
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       amount:  product.price,
@@ -54,7 +58,9 @@ class CardsController < ApplicationController
   end
 
   def destroy
+
        card = Card.find_by(user_id: current_user.id).first
+
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -70,12 +76,14 @@ class CardsController < ApplicationController
   end
 
   def confirmation
+
     @addresses = Address.find_by(user_id: current_user.id)
 
     card_information
   end
 
   def complete
+
     @addresses = Address.find_by(user_id: current_user.id)
     card_information
   end
@@ -84,7 +92,9 @@ class CardsController < ApplicationController
   private
 
   def card_exist
+
     @card = Card.find_by(user_id: current_user.id)
+
     redirect_to action: "step4" if @card.blank?
   end
 
@@ -98,7 +108,9 @@ class CardsController < ApplicationController
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
+
   def set_item
     @item = Item.find(params[:card_id])
   end
+
 end

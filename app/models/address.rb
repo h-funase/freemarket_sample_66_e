@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
 
+
   kanji = /\A[一-龥]+\z/
   kana = /\A([ァ-ン]|ー)+\z/
 
