@@ -3,6 +3,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.find(params[:id])
+    @images = Image.find(params[:id])
+
   end
 
   def new
@@ -53,7 +56,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :description, :category_id, :condition, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price,)
+    params.require(:item).permit( :name, :description, :category_id, :condition, :size_id, :brand, :delivery_charge_id, :delivery_way_id, :prefecture_id, :delivery_days_id, :price, :prefecture)
   end
 
 end
