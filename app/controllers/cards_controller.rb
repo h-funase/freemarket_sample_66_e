@@ -39,9 +39,9 @@ class CardsController < ApplicationController
   end
 
   def pay 
-      item = Item.find(card_params[:card_id])
+      item = Item.find_by(card_params[:card_id])
       redirect_to item_path(item.id) if product.status != 0  
-      card = Card.where(user_id: current_user.id).first
+      card = Card.find_by(user_id: current_user.id)
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
       amount:  product.price,
@@ -84,7 +84,7 @@ class CardsController < ApplicationController
   private
 
   def card_exist
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     redirect_to action: "step4" if @card.blank?
   end
 
