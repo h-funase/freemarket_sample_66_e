@@ -3,7 +3,7 @@
     - @items.each do |item|
       %li.item_list__one_item
         .item_list__one_item__box
-          = link_to "#", class: "item_link" do
+          = link_to item_path(2), class: "item_link" do
             .item_list__one_item__box__show_item
               = image_tag "#{item.images[0].image_url}", class: "item_image"
               .item_list__one_item__box__show_item__price
