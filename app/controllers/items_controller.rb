@@ -76,8 +76,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
   end
-  
-  def set_item_form_collction_select
-    @category_parent_array = Category.where(ancestry: nil)
-  end
+
 end
