@@ -11,7 +11,6 @@
   position: relative;
 
   &__box {
-    // background-color: black;
     height: 100%;
     width: 71%;
     margin: 0 auto;
@@ -23,7 +22,6 @@
     }
 
     &__upper_contents {
-      // background-color: rgb(255, 255, 25);
       height: 40%;
       width: 100%;
       display: flex;
@@ -143,7 +141,25 @@
         height: 100%;
         width: 52%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        &__button{
+          display: flex;
+          justify-content: end;
+          &__signup{
+            .registration{
+              text-decoration: none;
+              background-color:red;
+              color:white;
+              padding:6px;
+              border-radius: 3px;
+            }
+          }
+          &__login{
+
+          }
+        }
+
+    
 
         &__likes_list {
           height: 100%;
@@ -186,7 +202,6 @@
             height: 40%;
             width: 100%;
             display: flex;
-            // justify-content: space-around;
             align-items: center;
             line-height: 40%;
             font-size: 14px;
@@ -237,7 +252,6 @@
             height: 40%;
             width: 100%;
             display: flex;
-            // justify-content: space-around;
             align-items: center;
             line-height: 40%;
             font-size: 14px;

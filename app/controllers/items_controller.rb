@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
+    @items = Item.includes(:images).order("created_at DESC").limit(10)
   end
 
   def show
@@ -66,6 +68,11 @@ class ItemsController < ApplicationController
   
   def login
   end
+
+
+  def userprofile
+  end
+
   
   def item_buy
 

@@ -27,14 +27,14 @@ Things you may want to cover:
 | Column     | Type  | Options          |
 |----------------|---------|---------------------------|
 | nickname    | string | null: false |
-| email     | string | null: false, unique: true, index: true |
+| email     | string | null: false, unique: true, index: true 
 | password    | string | null: false        |
 | first_name   | string | null: false        |
 | last_name    | string | null: false        |
 | first_name_kana | string | null: false        |
 | last_name_kana | string | null: false        |
 | birthday    | date  | null: false        |
-| phone     | integer | null: false, unique: true, index: true|
+| phone     | string | null: false, unique: true, index: true|
 ### Association
 - has_many :items
 - has_many :comments
@@ -54,6 +54,10 @@ Things you may want to cover:
 | municipality | string | null:false |
 | street_number | string | null:false |
 | building_name | string |            |
+| first_name   | string | null: false        |
+| last_name    | string | null: false        |
+| first_name_kana | string | null: false        |
+| last_name_kana | string | null: false        |
 ### Association
 - belongs_to :user 
 
@@ -128,6 +132,7 @@ Things you may want to cover:
 | user_id | integer | null: false |
 | customer_id | string | null: false |
 | card_id | string | null: false |
+| token   | string | null:false  |
 ### Asosiation
 - belongs_to :user
 
