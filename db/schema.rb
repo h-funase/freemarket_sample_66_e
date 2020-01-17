@@ -1,28 +1,10 @@
 ActiveRecord::Schema.define(version: 20200117022212) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",         null: false
-    t.string   "postal_code",     null: false
-    t.string   "prefectures",     null: false
-    t.string   "municipality",    null: false
-    t.string   "street_number",   null: false
-    t.string   "building_name"
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "first_name_kana", null: false
-    t.string   "last_name_kana",  null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",     null: false
-    t.string   "customer_id"
-    t.string   "card_id"
-    t.string   "token"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "item_id"
+    t.text     "image_url",  limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,4 +71,5 @@ ActiveRecord::Schema.define(version: 20200117022212) do
 
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
+
 end

@@ -24,7 +24,6 @@ class Item < ApplicationRecord
 
 
 
-
   belongs_to :buyer_id, optional: true
   belongs_to :saler_id, optional: true
   # 都道府県
@@ -37,6 +36,5 @@ class Item < ApplicationRecord
   enum delivery_days: { "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3},_prefix: true
   # 配送方法
   enum delivery_way: { "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "クロネコヤマト": 6, "ゆうパック": 7, "クリックポスト": 8, "ゆうパケット": 9}, _prefix: true
-
 
 end
