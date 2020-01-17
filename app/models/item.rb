@@ -1,11 +1,14 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   # アソシエーション
-  belongs_to_active_hash :category
-  belongs_to_active_hash :size
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
+  belongs_to :category, optional: true
+  belongs_to :size, optional: true
 
+
+  scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
+  scope :category_item,  -> category_list { includes(:images).where(category_id: category_list.id )}
 
   # バリデーション
   validates :name,                    presence: true #,profanity_filter: true

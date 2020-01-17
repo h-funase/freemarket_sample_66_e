@@ -26,20 +26,8 @@
               .image-box__container
                 = f.fields_for :images do |i|
                   .input-area
-                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:flex"
-                    -# %label{for: "img-file"}
+                    = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
                     %i.fas.fa-camera
-              -# .label-content
-              -# %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
-              -#   %pre.label-box__text-visible クリックしてファイルをアップロード
-              -# .hidden-content
-              -#   = f.fields_for :images do |i|
-              -#     = i.file_field :image, class: "hidden-field"
-              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-              -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
-
 
 
         // 商品名入力
@@ -65,27 +53,15 @@
             .sell_detail_content__box__form
 
               -# 商品カテゴリー
-              .sell_item_detail_box_form_group
-                %label.item_category
-                  = f.label :category_id, "カテゴリー"
-                  %span.form-require
-                    必須
-                .category_select_wrap
-                  %i.icon_arrow_bottom
-                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
+            .listing-form-box
+              .listing-product-detail__category
+                = f.label :category_id, class: 'listing-default__label'
+                %span.form-require 必須
+                .listing-select-wrapper
+                  .listing-select-wrapper__box
+                    = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
-                    .display_none.select-wrap
-                      %i.fa.fa-angle-down
-                      %select.k_ir_section__inner--form3-right-select-category#category_children
-
-                    .display_none.select-wrap
-                      %i.fa.fa-angle-down
-                      %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
-              
-
-                        
-
-                    
               -# 商品ステータス
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -95,7 +71,7 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :condition_id, Item.conditions.keys,{prompt: '---'}
-        
+
         -# 配送について
         .shipping_item_content
           .shipping_item_content__head
