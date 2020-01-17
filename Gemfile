@@ -65,6 +65,10 @@ end
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
+group :test do
+  gem 'faker', "~> 2.8"
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
@@ -76,9 +80,6 @@ gem 'payjp'#クレジットカード情報の登録、及びクレジットカ�
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
+gem 'fog-aws'
 gem 'ancestry'
 gem "carrierwave"
-group :test do
-  gem 'faker', "~> 2.8"
-end
-
