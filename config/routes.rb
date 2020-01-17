@@ -9,16 +9,19 @@ Rails.application.routes.draw do
       get :step3_2
       get :step4
       get :step5
-      get :logout
       get :credit
       get :sign_up
       get :login
       get :userprofile
       get :item_buy
       get :item_screen
-
     end
   end
 
-  resources :mypages, only: [:index, :show,]
+  resources :mypages do
+    collection do
+      get :logout
+      get :edit
+    end
+  end
 end

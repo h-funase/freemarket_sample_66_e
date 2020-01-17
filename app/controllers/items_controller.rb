@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
   def step2
   end
 
@@ -32,8 +33,6 @@ class ItemsController < ApplicationController
   def credit
   end
 
-  def logout
-  end
 
   def sign_up
   end
