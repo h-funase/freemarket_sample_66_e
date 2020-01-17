@@ -76,6 +76,8 @@ gem 'payjp'#クレジットカード情報の登録、及びクレジットカ�
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
 gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
+gem 'ancestry'
+gem "carrierwave"
 group :test do
   gem 'faker', "~> 2.8"
 end
