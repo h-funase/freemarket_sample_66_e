@@ -4,7 +4,7 @@
     %ul.mypage_side_content__nav_list
       %li
         .mypage_side_content__nav_list_item 
-          マイページ
+          = link_to 'マイページ', '/mypages', class: ''
           .fas.fa-chevron-right
       %li
         .mypage_side_content__nav_list_item 
@@ -72,7 +72,7 @@
           設定
         %li
         .mypage_side_content__nav_list_item 
-          プロフィール
+          = link_to 'プロフィール', '/mypages/show', class: ''
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
@@ -96,5 +96,5 @@
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
-          ログアウト
+          = link_to 'ログアウト', '/mypages/logout', class: ''
           %i.fas.fa-chevron-right

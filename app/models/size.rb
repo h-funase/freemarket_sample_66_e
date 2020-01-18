@@ -1,3 +1,3 @@
-class Size < ActiveHash::Base
-  # has_many :items
+class Size < ApplicationRecord
+  has_many :items
 end

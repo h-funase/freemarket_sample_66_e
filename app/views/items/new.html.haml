@@ -55,12 +55,32 @@
               -# 商品カテゴリー
             .listing-form-box
               .listing-product-detail__category
-                = f.label :category_id, class: 'listing-default__label'
+                = f.label :category_id, "カテゴリー" 
                 %span.form-require 必須
                 .listing-select-wrapper
                   .listing-select-wrapper__box
                     = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                     %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+              
+              .sell_item_detail_box_form_group
+                %label.item_status
+                  = f.label :size_id, "サイズ"
+                  %span.form-require
+                    任意
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.select :size_id, Item.sizes.keys,{prompt: '---'}
+
+
+              .sell_item_detail_box_form_group
+                %label.item_status
+                  = f.label :brand_id, "ブランド"
+                  %span.form-require
+                    必須
+                .category_select_wrap
+                  %i.icon_arrow_bottom
+                    = f.select :brand_id, Item.brands.keys,{prompt: '---'}
+
 
               -# 商品ステータス
               .sell_item_detail_box_form_group

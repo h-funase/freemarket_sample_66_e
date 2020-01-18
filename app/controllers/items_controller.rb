@@ -7,11 +7,13 @@ class ItemsController < ApplicationController
   def show
     @items = Item.find(params[:id])
     @images = Image.find(params[:id])
+    
   end
 
   def new
     @item = Item.new
-    @item.images.build
+    5.times { @item.images.build }
+
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -80,7 +82,7 @@ class ItemsController < ApplicationController
   
   private
   def item_params
-    params.require(:item).permit( :name, :description, :category_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
+    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
   end
 
 end
