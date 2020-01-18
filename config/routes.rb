@@ -37,22 +37,12 @@ Rails.application.routes.draw do
       get :step3_2
       get :step4
       get :step5
+      get :logout
       get :credit
       get :sign_up
       get :login
       get :userprofile
       get :item_buy
-      get :item_screen
-    end
-  end
-
-  resources :mypages do
-    collection do
-      get :logout
-      get :edit
-    end
-  end
-
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
@@ -61,6 +51,12 @@ Rails.application.routes.draw do
 
 
 
-  resources :mypages, only: [:index, :show]
+
+  resources :mypages do
+    collection do
+      get :edit
+    end
+  end
+
 
 end
