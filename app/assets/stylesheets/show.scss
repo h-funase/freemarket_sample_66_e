@@ -31,7 +31,7 @@
       .main_photo {
         padding-right: 8px;
         .photos {
-          background-image: url(/images/item_sample.jpg);
+          // background-image: url(/images/item_sample.jpg);
           background-size: cover;
           width: 300px;
           height: 300px;
@@ -39,16 +39,68 @@
         .small_photos {
           background: #ecebeb;
           height: 120px;
-          width: 100%;
+          width: 300px;
           padding: 0;
           margin: 0;
+          display: flex;
+          position: relative;
           .small_photo {
-            background-image: url(/images/item_sample_small.jpg);
+            // background-image: url(/images/item_sample_small.jpg);
             background-size: cover;
             height: 60px;
             width: 60px;
-            padding: 0;
-            margin: 0;
+            }
+          .small_photo2 {
+            background-size: cover;
+            height: 60px;
+            width: 60px;
+          }
+          .small_photo3 {
+            background-size: cover;
+            height: 60px;
+            width: 60px;
+          }
+          .small_photo4 {
+            background-size: cover;
+            height: 60px;
+            width: 60px;
+          }
+          .small_photo5 {
+            background-size: cover;
+            height: 60px;
+            width: 60px;
+          }
+          .small_photos2{
+            position: absolute;
+            height: 60px;
+            width: 300px;
+            bottom: 0;
+            display: flex;
+            .small_photo6{
+              background-size: cover;
+              height: 60px;
+              width: 60px;
+            }
+            .small_photo7{
+              background-size: cover;
+              height: 60px;
+              width: 60px;
+            }
+            .small_photo8{
+              background-size: cover;
+              height: 60px;
+              width: 60px;
+            }
+            .small_photo9{
+              background-size: cover;
+              height: 60px;
+              width: 60px;
+            }
+            .small_photo10{
+              background-size: cover;
+              height: 60px;
+              width: 60px;
+            }
           }
         }
       }      
