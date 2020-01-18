@@ -6,13 +6,12 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    @images = Image.find(params[:id]) 
+    @images = @items.images
   end
 
   def new
     @item = Item.new
     5.times { @item.images.build }
-
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -27,7 +26,7 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
-
+  
 # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -40,6 +39,9 @@ class ItemsController < ApplicationController
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+
+
+  
 
   def step2
   end
@@ -59,6 +61,8 @@ class ItemsController < ApplicationController
   def credit
   end
 
+  def logout
+  end
 
   def sign_up
   end
@@ -72,7 +76,9 @@ class ItemsController < ApplicationController
 
   
   def item_buy
+  end
 
+  def person_check
   end
 
   def item_screen

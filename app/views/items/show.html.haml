@@ -10,29 +10,31 @@
       .item__details__main_content_boxes
         .main_photo
           .photos
-            = image_tag @images.image_url.to_s, class: "photos"
-          .small_photos    
-            .small_photo
-              = image_tag @images.image_url.to_s, class: "small_photo"
-            .small_photo2
-              = image_tag @images.image_url.to_s, class: "small_photo"
-            .small_photo3
-              = image_tag @images.image_url.to_s, class: "small_photo"
-            .small_photo4
-              = image_tag @images.image_url.to_s, class: "small_photo"
-            .small_photo5
-              = image_tag @images.image_url.to_s, class: "small_photo"
-            .small_photos2
-              .small_photo6
-                = image_tag @images.image_url.to_s, class: "small_photo"
-              .small_photo7
-                = image_tag @images.image_url.to_s, class: "small_photo"
-              .small_photo8
-                = image_tag @images.image_url.to_s, class: "small_photo"
-              .small_photo9
-                = image_tag @images.image_url.to_s, class: "small_photo"
-              .small_photo10
-                = image_tag @images.image_url.to_s, class: "small_photo"
+            = image_tag "#{@items.images[0].image_url}", class: "photos"
+          .small_photos  
+            - @images.each do |image|
+              = image_tag image.image_url.to_s, class: "small_photo"  
+            -# .small_photo
+            -#   = image_tag @images.image_url.to_s, class: "small_photo"
+            -# .small_photo2
+            -#   = image_tag @images.image_url.to_s, class: "small_photo"
+            -# .small_photo3
+            -#   = image_tag @images.image_url.to_s, class: "small_photo"
+            -# .small_photo4
+            -#   = image_tag @images.image_url.to_s, class: "small_photo"
+            -# .small_photo5
+            -#   = image_tag @images.image_url.to_s, class: "small_photo"
+            -# .small_photos2
+            -#   .small_photo6
+            -#     = image_tag @images.image_url.to_s, class: "small_photo"
+            -#   .small_photo7
+            -#     = image_tag @images.image_url.to_s, class: "small_photo"
+            -#   .small_photo8
+            -#     = image_tag @images.image_url.to_s, class: "small_photo"
+            -#   .small_photo9
+            -#     = image_tag @images.image_url.to_s, class: "small_photo"
+            -#   .small_photo10
+            -#     = image_tag @images.image_url.to_s, class: "small_photo"
         %table.item_detail_table
           %tbody
             %tr
@@ -59,11 +61,12 @@
                   
             %tr
               %th ブランド
-              %td グラッドハンド
+              %td 
+                = @items.brand_id
             %tr
               %th 商品サイズ
               %td 
-                = @items.size
+                = @items.size_id
             %tr
               %th 商品の状態
               %td 
@@ -92,8 +95,8 @@
       .item_buy_btn
         = link_to "購入する", item_buy_items_path
       .shipping_note_message
-        この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-
+        -if @items.delivery_way_id ==10
+          %p この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
       .item_description
         = @items.description
         .item_button_container

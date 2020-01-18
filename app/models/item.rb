@@ -1,5 +1,13 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+
+  # belongs_to_active_hash :condition
+  # belongs_to_active_hash :size
+  # belongs_to_active_hash :delivery_charge
+  belongs_to_active_hash :prefecture
+  # belongs_to_active_hash :delivery_days
+  # belongs_to_active_hash :delivery_way
+
   
   # アソシエーション
   has_many :images, dependent: :destroy
@@ -7,6 +15,7 @@ class Item < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :size, optional: true
   belongs_to :brand, optional: true
+
 
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
   scope :category_item,  -> category_list { includes(:images).where(category_id: category_list.id )}
