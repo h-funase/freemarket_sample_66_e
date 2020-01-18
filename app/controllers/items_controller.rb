@@ -77,9 +77,13 @@ class ItemsController < ApplicationController
   end
 
   def item_screen
+<<<<<<< Updated upstream
 
   end
   
+=======
+  end
+>>>>>>> Stashed changes
   private
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
