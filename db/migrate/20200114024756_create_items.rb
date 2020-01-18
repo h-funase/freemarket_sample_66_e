@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string     :name,               null: false #空でないこと
       t.text       :description,        null: false
       t.string     :category_id,        null: false, foreign_key: true      
-      t.integer    :size_id           
+      t.string     :size_id           
       t.string     :condition_id,       null: false
       t.string     :delivery_charge_id, null: false
       t.string     :prefecture_id,      null: false
@@ -15,7 +15,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer    :buyer_id        
       t.integer    :saler_id          
       t.string     :brand_id         
-      t.integer    :status            
+      t.string     :status            
       t.timestamps
     end
   end
