@@ -1,11 +1,20 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+
+  # belongs_to_active_hash :condition
+  # belongs_to_active_hash :size
+  # belongs_to_active_hash :delivery_charge
+  belongs_to_active_hash :prefecture
+  # belongs_to_active_hash :delivery_days
+  # belongs_to_active_hash :delivery_way
+
   
   # アソシエーション
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :category, optional: true
   belongs_to :size, optional: true
+
 
 
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }

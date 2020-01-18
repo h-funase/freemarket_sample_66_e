@@ -79,6 +79,10 @@ class ItemsController < ApplicationController
   def item_buy
   end
 
+  def person_check
+  end
+
+  def item_screen
 
   private
   def item_params
