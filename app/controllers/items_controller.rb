@@ -74,6 +74,9 @@ class ItemsController < ApplicationController
 
   end
 
+  def person_check
+  end
+
   def item_screen
 
   end
