@@ -83,6 +83,7 @@ class ItemsController < ApplicationController
   end
 
   def item_screen
+  end
 
   private
   def item_params
