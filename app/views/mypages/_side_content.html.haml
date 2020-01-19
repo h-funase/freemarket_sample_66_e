@@ -4,7 +4,7 @@
     %ul.mypage_side_content__nav_list
       %li
         .mypage_side_content__nav_list_item 
-          マイページ
+          = link_to 'マイページ', '/mypages', class: ''
           .fas.fa-chevron-right
       %li
         .mypage_side_content__nav_list_item 
@@ -71,8 +71,9 @@
         .mypage_side_content__nav_list__setup
           設定
         %li
-        .mypage_side_content__nav_list_item
-          %a{href: "/mypages/mypage", class: "mypages_profile"} プロフィール
+        .mypage_side_content__nav_list_item 
+          = link_to 'プロフィール', '/mypages/show', class: ''
+
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
@@ -96,7 +97,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right
         %li
-        .mypage_side_content__nav_list_item
-          = link_to logout_mypages_path, class: "logout" do
-            ログアウト
-            %i.fas.fa-chevron-right
+        .mypage_side_content__nav_list_item 
+          = link_to 'ログアウト', '/mypages/logout', class: ''
+          %i.fas.fa-chevron-right
