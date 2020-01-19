@@ -15,29 +15,6 @@
             - @images.each do |image|
               = image_tag image.image_url.to_s, class: "small_photo"  
 
-            -# .small_photo
-            -#   = image_tag @images.image_url.to_s, class: "small_photo"
-            -# .small_photo2
-            -#   = image_tag @images.image_url.to_s, class: "small_photo"
-            -# .small_photo3
-            -#   = image_tag @images.image_url.to_s, class: "small_photo"
-            -# .small_photo4
-            -#   = image_tag @images.image_url.to_s, class: "small_photo"
-            -# .small_photo5
-            -#   = image_tag @images.image_url.to_s, class: "small_photo"
-            -# .small_photos2
-            -#   .small_photo6
-            -#     = image_tag @images.image_url.to_s, class: "small_photo"
-            -#   .small_photo7
-            -#     = image_tag @images.image_url.to_s, class: "small_photo"
-            -#   .small_photo8
-            -#     = image_tag @images.image_url.to_s, class: "small_photo"
-            -#   .small_photo9
-            -#     = image_tag @images.image_url.to_s, class: "small_photo"
-            -#   .small_photo10
-            -#     = image_tag @images.image_url.to_s, class: "small_photo"
-
-            
         %table.item_detail_table
           %tbody
             %tr
@@ -96,7 +73,7 @@
         %span.item_tax (税込)
         %span.item_shipping_fee 送料込み
       .item_buy_btn
-        = link_to "購入する", cards_path
+        = link_to "購入する", item_cards_confirmation_path(@items.id)
       .shipping_note_message
 
 
