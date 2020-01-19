@@ -1,5 +1,5 @@
 .bottom_image {
-  background-image: url(/images/phone-690091_1920.jpg);
+  background-image: url(/icon/background-image.jpg);
   height: 250px;
   background-size: auto;
   display: flex;
@@ -19,8 +19,8 @@
 
     &__sub_title {
       height: 35%;
-      font-size: 35px;
-      font-weight: 400;
+      font-size: 25px;
+      font-weight: 800;
     }
 
     &__app_download {
@@ -49,7 +49,7 @@
 
   &__right_content {
     background-color: cornflowerblue;
-    background-image: url(/images/iphone-410311_1280.jpg);
+    background-image: url(/icon/download_content_pc.png);
     background-size: cover;
     height: 100%;
     width: 300px;

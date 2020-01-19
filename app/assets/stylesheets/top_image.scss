@@ -1,10 +1,10 @@
 .top_image {
-  background-image: url(/images/phone-690091_1920.jpg);
+  background-image: url(/icon/top-image1.jpeg);                 
+  background-size:auto;     
+  background-position:right ;            
   height: 390px;
-  background-size: auto;
   display: flex;
   align-items: center;
-
   &__main_box {
     height: 90%;
     width: 53%;
