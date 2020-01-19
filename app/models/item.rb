@@ -45,18 +45,9 @@ class Item < ApplicationRecord
   # 配送日数
   enum delivery_days: { "1~2日で発送": 1, "2~3日で発送": 2, "4~7日で発送": 3},_prefix: true
   # 配送方法
+
   enum delivery_way: { "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "クロネコヤマト": 6, "ゆうパック": 7, "クリックポスト": 8, "ゆうパケット": 9}, _prefix: true
   enum size: { 'XXS以下': 1, 'XS(SS)':2, 'S':3, 'M':4, 'L':5, 'XL(LL)':6,  '2XL(3L)':7, '3XL(4L)':8,  'FREE SIZE':9 }, _prefix: true
   enum brand: {"シャネル":1, "グッチ":2, "ルイヴィトン":3,  "シュプリーム":4, "アディダス":5, "ナイキ":6, "プーマ":7}, _prefix: true
-            
-            
-           
-             
-            
-          
-           
-             
-          
-
 
 end
