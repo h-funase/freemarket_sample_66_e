@@ -43,17 +43,17 @@ class CardsController < ApplicationController
   def pay 
 
       item = Item.find_by(card_params[:card_id])
-      redirect_to item_path(item.id) if product.status != 0  
+      redirect_to item_path(item.id) if item.status != 0  
       card = Card.find_by(user_id: current_user.id)
 
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
       Payjp::Charge.create(
-      amount:  product.price,
+      amount:  item.price,
       customer: card.customer_id,
       currency: 'jpy',
       )
-      product[:status] = 1
-      product.save
+      item[:status] = 1
+      item.save
      redirect_to action: 'complete'
   end
 
@@ -99,7 +99,7 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.permit('payjp-token',:product_id)
+    params.permit('payjp-token',:item_id)
   end
   
   def card_information
@@ -110,7 +110,7 @@ class CardsController < ApplicationController
 
 
   def set_item
-    @item = Item.find(params[:card_id])
+    @item = Item.find(params[:item_id])
   end
 
 end
