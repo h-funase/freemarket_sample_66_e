@@ -1,5 +1,5 @@
 .mypage
-  = render "header"
+  = render "items/header"
   .mypage_html
     .mypage_index
       .mypage_side_content
@@ -119,8 +119,10 @@
 
         .item_screen__items
           .item_screen__items__img
+            = link_to "#", "/mypages/1/selling"
           .item_screen__items__name
-            コメント
+            - @items.each do |item|
+              = item.name
             .item_screen__items__icons
               <i class="fas fa-heart"></i>
               .item_screen__items__icons__comment
@@ -135,7 +137,7 @@
         .item_screen__items
           .item_screen__items__img
           .item_screen__items__name
-            コメント
+            服
             .item_screen__items__icons
               <i class="fas fa-heart"></i>
               .item_screen__items__icons__comment
@@ -194,8 +196,8 @@
 
 
   %section
-    = render "bottom_image"
-    = render "footer"
+    = render "items/bottom_image"
+    = render "items/footer"
 
 
 

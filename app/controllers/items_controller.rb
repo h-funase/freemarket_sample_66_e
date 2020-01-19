@@ -49,17 +49,17 @@ class ItemsController < ApplicationController
 
   def step4
   end
-  
+
   def step5
   end
-    
+
   def credit
   end
 
 
   def sign_up
   end
-  
+
   def login
   end
 
@@ -67,15 +67,13 @@ class ItemsController < ApplicationController
   def userprofile
   end
 
-  
+
   def item_buy
 
   end
 
-  def item_screen
 
-  end
-  
+
   private
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
