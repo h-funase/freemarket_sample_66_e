@@ -1,21 +1,23 @@
 .item_buy_header
-  = render "icon_header"
+  = render "items/sheard/icon_header"
 %main.buy_main_contents
   .buy_contents_head
     %h2.title1 購入内容の確認
   %section.buy_item_content
     .buy_item_content_inner
       .buy_item_content_inner__left
-        *商品の写真
+        -# = image_tag "#{item.images[0].image_url}",
       .buy_item_content_inner__right
         .top1 商品名
-        .bottom1 ¥ 10,000(税込) 送料込み
+        .bottom1 
+          -# = @items.price 
   %section.get_box
     .get_box__inner
       .get_box_charge
         .get_box_charge__pay1
           %p.charge 支払金額
-          %p.money ¥ 3500
+          %p.money 
+            -# = @items.price
         .get_box_charge__pay2
           %form.buy_check{action: "#", method: ""}
             %input{name: "", type: "checkbox", value: ""}/
@@ -36,4 +38,4 @@
       .get_box_btn
         %button.btn_buy{type: "submit"} 購入する
 .item_buy_footer
-  = render "icon_footer"
+  = render "items/sheard/icon_footer"

@@ -1,0 +1,108 @@
+.wrapper
+  = render "items/sheard/header"
+
+
+  - breadcrumb :person_check
+  = render "layouts/breadcrumbs"
+
+
+
+.person_check
+  .person_check__main
+    .person_check__main__left_contents
+
+
+    .person_check__main__right_contents
+      .person_check__main__right_contents__title
+        %h2.person_check_title 本人情報の登録
+
+      .person_check__main__right_contents__bottom
+        .person_check__main__right_contents__bottom__content1
+          %p
+            お客さまの本人情報をご登録ください
+            %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.person_documents
+            = link_to "#", class: "person_document" do
+              本人確認書類のアップロードについて>
+
+        -# 本名（漢字）
+        .person_check__main__right_contents__bottom__content2
+          .person_check__main__right_contents__bottom__content2__title
+            %p お名前
+          .person_check__main__right_contents__bottom__content2__value
+            %p 田中 太郎
+
+        -# 本名（カタカナ）
+        .person_check__main__right_contents__bottom__content3
+          .person_check__main__right_contents__bottom__content3__title
+            %p お名前カナ
+          .person_check__main__right_contents__bottom__content3__value
+            %p タナカ タロウ
+
+        -# 生年月日
+        .person_check__main__right_contents__bottom__content4
+          .person_check__main__right_contents__bottom__content4__title
+            %p 生年月日
+          .person_check__main__right_contents__bottom__content4__value
+            %p 2000/01/01
+        
+        -# 郵便番号
+        .person_check__main__right_contents__bottom__content5
+          .person_check__main__right_contents__bottom__content5__title
+            %p 郵便番号
+          .person_check__main__right_contents__bottom__content5_icon
+            %p 任意
+        .person_check__main__right_contents__bottom__input
+          %p.placeholder 例）1234567
+
+        -# 都道府県（選択）
+        .person_check__main__right_contents__bottom__content6
+          = form_for '' do |f|
+            .person_check__main__right_contents__bottom__content6__box
+              .person_check__main__right_contents__bottom__content6__box__title
+                %p 都道府県
+              .person_check__main__right_contents__bottom__content6__box__icon
+                %p 任意
+            .person_check__main__right_contents__bottom__content6__prefecture
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: "input"
+
+
+        -# 市町村区
+        .person_check__main__right_contents__bottom__content5
+          .person_check__main__right_contents__bottom__content5__title
+            %p 市町村区
+          .person_check__main__right_contents__bottom__content5_icon
+            %p 任意
+        .person_check__main__right_contents__bottom__input
+          %p.placeholder 例）福山市新市町
+
+        -# 番地
+        .person_check__main__right_contents__bottom__content5
+          .person_check__main__right_contents__bottom__content5__title
+            %p 番地
+          .person_check__main__right_contents__bottom__content5_icon
+            %p 任意
+        .person_check__main__right_contents__bottom__input
+          %p.placeholder 例）1-1-1
+
+        -# 建物名
+        .person_check__main__right_contents__bottom__content5
+          .person_check__main__right_contents__bottom__content5__title
+            %p 番地
+          .person_check__main__right_contents__bottom__content5_icon
+            %p 任意
+        .person_check__main__right_contents__bottom__input
+          %p.placeholder 例）フリマビル110
+
+        -# 登録ボタン
+        .person_check__main__right_contents__bottom__submit_btn
+          %p
+            登録する
+          %p.person_documents
+            = link_to "#", class: "person_document" do
+              本人確認書類のアップロードについて>
+
+
+  = render "items/sheard/bottom_image"
+  = render "items/sheard/footer"

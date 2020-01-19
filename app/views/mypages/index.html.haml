@@ -1,5 +1,10 @@
+-# config/breadcrumbs.rbに定義したmypageを呼び出し
 .mypage
-  = render "items/header"
+  = render "items/sheard/header"
+
+  -# 下記を記述した箇所にパンくずリストが表示される。
+  - breadcrumb :mypages
+  = render "layouts/breadcrumbs"
 
   .mypage_html
     .mypage_index
@@ -7,5 +12,5 @@
       = render "main_content"
 
   %section
-    = render "items/bottom_image"
-    = render "items/footer"
+    = render "items/sheard/bottom_image"
+    = render "items/sheard/footer"

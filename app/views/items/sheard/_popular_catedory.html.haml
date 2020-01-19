@@ -1,0 +1,26 @@
+.top_contents
+
+  .top_contents__contents_box
+
+    .top_contents__contents_box__popular_category
+      人気のカテゴリー
+
+    .top_contents__contents_box__category_choice
+      %ul.cotegory_list
+        %li.cotegory_list__p_category1 レディース
+        %li.cotegory_list__p_category2 メンズ
+        %li.cotegory_list__p_category3 家電・スマホ・カメラ
+        %li.cotegory_list__p_category4 おもちゃ・ホビー・グッズ
+
+
+.category_contents
+  .category_contents__category_box
+    .category_contents__category_box__items_box
+      .category_contents__category_box__items_box__title
+        .category_contents__category_box__items_box__title__name
+          %h3.category_new_items レディース新着アイテム
+        .category_contents__category_box__items_box__title__see_more
+          = link_to "#", class: "see_more" do
+            もっと見る >
+      = render partial: "/items/sheard/category_format"
+

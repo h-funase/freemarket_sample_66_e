@@ -43,7 +43,8 @@ Rails.application.routes.draw do
       get :login
       get :userprofile
       get :item_buy
-      get :items_screen
+      get :person_check
+      get :item_screen
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
@@ -58,6 +59,7 @@ Rails.application.routes.draw do
       get :selling
     end
   end
+
 
   resources :mypages do
     member do
