@@ -12,11 +12,11 @@ class MypagesController < ApplicationController
   end
 
   def selling
-
   end
+
   def items_screen
-    @user = User.find(params[:id])
-    @items = @user.items
+    # @user = User.find(params[:id])
+    # @items = @user.items
   end
 
   def destroy
