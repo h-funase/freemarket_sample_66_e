@@ -1,6 +1,7 @@
 .mypage
   = render "items/sheard/header"
-
+  - breadcrumb :mypage
+  = render "layouts/breadcrumbs"
   .mypage_html
     .mypage_index
       = render "side_content"

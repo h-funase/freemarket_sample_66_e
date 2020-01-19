@@ -1,5 +1,10 @@
 .wrapper
-  = render "header"
+  = render "items/sheard/header"
+
+
+  - breadcrumb :person_check
+  = render "layouts/breadcrumbs"
+
 
 
 .person_check
@@ -99,5 +104,5 @@
               本人確認書類のアップロードについて>
 
 
-  = render "bottom_image"
-  = render "footer"
+  = render "items/sheard/bottom_image"
+  = render "items/sheard/footer"
