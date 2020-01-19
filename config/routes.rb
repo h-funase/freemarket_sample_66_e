@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       get :step3_2
       get :step4
       get :step5
+      get :logout
       get :credit
       get :sign_up
       get :login
@@ -49,18 +50,24 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+
+
   resources :mypages do
-    collection do
-      get :logout
-      get :edit
+    member do
+      get :selling
     end
   end
 
-    
 
+  resources :mypages do
+    member do
+      get :items_screen
+    end
+  end
 
+  resources :mypages, only:[:destroy]
 
-
-  resources :mypages, only: [:index, :show]
 
 end
