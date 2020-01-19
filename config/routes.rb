@@ -55,12 +55,20 @@ Rails.application.routes.draw do
       get :edit
     end
   end
-
-    
-
-
-
-
   resources :mypages, only: [:index, :show]
+
+  resources :items,only:[:show] do
+    get 'cards/pay', to: 'cards#pay'
+    get 'cards/confirmation', to:'cards#confirmation'
+    get 'cards/complete', to:'cards#complete'
+  end
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
 
 end
