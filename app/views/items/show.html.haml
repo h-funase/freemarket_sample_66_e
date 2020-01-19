@@ -38,7 +38,6 @@
                   .item_category_top
                   %span 
                     = @items.category_id
-                  
             %tr
               %th ブランド
               %td 
@@ -75,10 +74,6 @@
       .item_buy_btn
         = link_to "購入する", item_cards_confirmation_path(@items.id)
       .shipping_note_message
-
-
-
-
         -if @items.delivery_way_id ==10
           %p この商品はゆうゆうフリマ便を利用しているため、アプリからのみ購入できます。
       .item_description
@@ -91,7 +86,6 @@
               .fas.fa-flag  不適切な商品の報告
           .item_text
             .fas.fa-unlock-alt  あんしん・あんぜんへの取り組み
-
 
   = render "/items/sheard/item_detail"
   %section

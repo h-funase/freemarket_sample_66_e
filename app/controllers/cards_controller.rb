@@ -41,7 +41,6 @@ class CardsController < ApplicationController
   end
 
   def pay 
-      # item = Item.find_by(card_params[:item_id])
       if @item.status != 0  
         redirect_to item_path(@item.id) 
       else
