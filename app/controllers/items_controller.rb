@@ -55,10 +55,10 @@ class ItemsController < ApplicationController
 
   def step4
   end
-  
+
   def step5
   end
-    
+
   def credit
   end
 
@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
 
   def sign_up
   end
-  
+
   def login
   end
 
@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
   def userprofile
   end
 
-  
+
   def item_buy
   end
 
@@ -84,6 +84,7 @@ class ItemsController < ApplicationController
 
   def item_screen
   end
+
 
   private
   def item_params

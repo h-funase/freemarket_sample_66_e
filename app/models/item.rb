@@ -33,7 +33,7 @@ class Item < ApplicationRecord
 
 
 
-
+  belongs_to :user
   belongs_to :buyer_id, optional: true
   belongs_to :saler_id, optional: true
   # 都道府県

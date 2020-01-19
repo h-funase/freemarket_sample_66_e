@@ -1,0 +1,69 @@
+.edit_mypage{
+  height: 650px;
+  width: 600px;
+  background-color: #EEEEEE;
+
+
+  &__contents{
+  height: 300px;
+  width: 600px;
+  background-color :#FFFFFF;
+  &__edit{
+  height: 55px;
+  width: 600px;
+  background-color:red;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  }
+
+  &__or{
+  height: 10px;
+  width: 600px;
+  text-align: center;
+  line-height: 50px;
+
+  }
+  &__stop{
+  height: 55px;
+  width: 600px;
+  background-color:grey;
+  margin: 40px auto;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+
+  }
+  &__delete{
+  background-color:gray;
+  text-align: center;
+  line-height: 50px;
+  width: 600px;
+  color: white;
+  }
+ }
+
+  &__content{
+    height: 310px;
+    background-color:#FFFFFF;
+    margin-top: 20px;
+    padding: 20px;
+  &__caution{
+    height: 55px;
+    background-color: #FEF6CF;
+    padding: 5px;
+  }
+  &__fill{
+    height: 130px;
+    border: 1px solid #ccc;
+  }
+  &__comment{
+    height: 55px;
+    width: 600px;
+    background-color: grey;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+  }
+ }
+}
