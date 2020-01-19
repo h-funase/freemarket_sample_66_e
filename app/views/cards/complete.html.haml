@@ -1,0 +1,55 @@
+= render "items/sheard/icon_header"
+.confirm____container
+    
+  .buy_main
+    .buy_main__box
+      .buy_content
+        %h2.buy_content__completed_message_1
+          %i.fa.fa-clock
+          発送をお待ちください
+          %h2.buy_content__completed_message_2
+            出品者からの発送通知をお待ちください
+            %h2.buy_content__header
+              購入が完了しました
+        .buy_content__product
+          .buy_content__product__inner
+            .buy_product-main
+              .buy_product-image
+                = image_tag "#{@item.images[0].image_url}", height: "64px" , width: "64px"
+                .buy_product-name  
+                = @item.name
+            %form.buy_form
+              %p.buy_price
+                ¥
+                = @item.price.to_s(:delimited)
+                %span送料込み
+        .buy_content__user_info
+          .buy_content__user-info__inner
+            %h3 配送先
+            .user_info_text
+              = @addresses.postal_code.to_s
+              %br
+              = @addresses.prefectures + @addresses.municipality + @addresses.street_number + @addresses.building_name
+              %br
+              = current_user.last_name + " " + current_user.first_name
+            .user_info_fix
+              = link_to "#" do
+                変更する
+                %span 
+                %i.fa.fa-chevron-right
+        .buy_content__user_info
+          .buy_content__user_info__inner
+            %h3 支払方法
+            .user_info_text
+              = "**** **** ****"+ "#{@default_card_information.last4}"
+              %br
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            .user_info_fix
+              = link_to "#" do
+                変更する
+                %span
+                %i.fa.fa-chevron-right
+= render "items/sheard/icon_footer"
+  
