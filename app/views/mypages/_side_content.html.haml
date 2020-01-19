@@ -73,6 +73,7 @@
         %li
         .mypage_side_content__nav_list_item 
           = link_to 'プロフィール', '/mypages/show', class: ''
+
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
@@ -87,9 +88,10 @@
           メール/パスワード
           %i.fas.fa-chevron-right
         %li
-        .mypage_side_content__nav_list_item 
-          本人情報
-          %i.fas.fa-chevron-right
+        .mypage_side_content__nav_list_item
+          = link_to person_check_items_path, class: "mypage_edit" do
+            本人情報
+            %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
           電話番号の確認

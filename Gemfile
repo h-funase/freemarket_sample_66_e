@@ -83,3 +83,4 @@ gem 'active_hash'
 gem 'fog-aws'
 gem 'ancestry'
 gem "carrierwave"
+gem "gretel"
