@@ -1,6 +1,6 @@
 
 .item_html
-  = render "header"
+  = render "/items/sheard/header"
 
   %section
   .item__details
@@ -14,6 +14,7 @@
           .small_photos  
             - @images.each do |image|
               = image_tag image.image_url.to_s, class: "small_photo"  
+
             -# .small_photo
             -#   = image_tag @images.image_url.to_s, class: "small_photo"
             -# .small_photo2
@@ -35,6 +36,8 @@
             -#     = image_tag @images.image_url.to_s, class: "small_photo"
             -#   .small_photo10
             -#     = image_tag @images.image_url.to_s, class: "small_photo"
+
+            
         %table.item_detail_table
           %tbody
             %tr
@@ -178,5 +181,5 @@
       %li.item_name   メルカリ > グラッドハンド リーガル サドルシューズ ブラック gladhandREGA
           
   %section
-  = render "bottom_image"
-  = render "footer"
+  = render "/items/sheard/bottom_image"
+  = render "/items/sheard/footer"
