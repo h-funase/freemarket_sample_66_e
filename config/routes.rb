@@ -54,20 +54,21 @@ Rails.application.routes.draw do
 
 
 
+  # resources :mypages do
+  #   member do
+  #     get :selling
+  #   end
+  # end
+
+
   resources :mypages do
-    member do
+    collection do
+      get :items_screen
       get :selling
     end
   end
 
-
-  resources :mypages do
-    member do
-      get :items_screen
-    end
-  end
-
-  resources :mypages, only:[:destroy]
+  # resources :mypages, only:[:destroy]
 
 
 end

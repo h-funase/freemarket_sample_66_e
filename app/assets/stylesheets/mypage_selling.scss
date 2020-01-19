@@ -1,20 +1,16 @@
 .edit_mypage{
   height: 650px;
-  width: 800px;
+  width: 600px;
   background-color: #EEEEEE;
-  float: right;
-  margin: 80px 80px 0 0;
+
 
   &__contents{
   height: 300px;
-  width: 770px;
+  width: 600px;
   background-color :#FFFFFF;
-  margin: 20px 10px 0px 10px;
-  padding: 20px;
-
   &__edit{
   height: 55px;
-  width: 730px;
+  width: 600px;
   background-color:red;
   text-align: center;
   line-height: 50px;
@@ -23,14 +19,14 @@
 
   &__or{
   height: 10px;
-  width: 730px;
+  width: 600px;
   text-align: center;
   line-height: 50px;
 
   }
   &__stop{
   height: 55px;
-  width: 730px;
+  width: 600px;
   background-color:grey;
   margin: 40px auto;
   text-align: center;
@@ -39,45 +35,35 @@
 
   }
   &__delete{
-  height: 55px;
-  width: 730px;
   background-color:gray;
-  margin-left: 20px;
   text-align: center;
   line-height: 50px;
+  width: 600px;
   color: white;
-  margin: 20px auto;
   }
  }
 
   &__content{
     height: 310px;
-    width: 770px;
     background-color:#FFFFFF;
     margin-top: 20px;
-    margin-left: 10px;
     padding: 20px;
   &__caution{
     height: 55px;
-    width: 720px;
     background-color: #FEF6CF;
-    margin: auto;
     padding: 5px;
   }
   &__fill{
     height: 130px;
-    width: 720px;
     border: 1px solid #ccc;
-    margin: 10px auto;
   }
   &__comment{
     height: 55px;
-    width: 720px;
+    width: 600px;
     background-color: grey;
     text-align: center;
     line-height: 50px;
     color: white;
-    margin: auto;
   }
  }
 }
