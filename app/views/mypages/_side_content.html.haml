@@ -71,8 +71,8 @@
         .mypage_side_content__nav_list__setup
           設定
         %li
-        .mypage_side_content__nav_list_item 
-          プロフィール
+        .mypage_side_content__nav_list_item
+          %a{href: "/mypages/mypage", class: "mypages_profile"} プロフィール
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
@@ -87,14 +87,16 @@
           メール/パスワード
           %i.fas.fa-chevron-right
         %li
-        .mypage_side_content__nav_list_item 
-          本人情報
-          %i.fas.fa-chevron-right
+        .mypage_side_content__nav_list_item
+          = link_to person_check_items_path, class: "mypage_edit" do
+            本人情報
+            %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
           電話番号の確認
           %i.fas.fa-chevron-right
         %li
-        .mypage_side_content__nav_list_item 
-          ログアウト
-          %i.fas.fa-chevron-right
+        .mypage_side_content__nav_list_item
+          = link_to logout_mypages_path, class: "logout" do
+            ログアウト
+            %i.fas.fa-chevron-right
