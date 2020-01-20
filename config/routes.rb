@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     collection do
       get :items_screen
       get :selling
+      get :logout
     end
   end
   resources :mypages, only: [:index, :show]

@@ -25,8 +25,7 @@
               .image-box__container
                 = f.fields_for :images do |i|
                   .input-area
-                    = i.file_field :images,required: true, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
-                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'image_url'}
+                    = i.file_field :images, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
                     %i.fas.fa-camera
 
 
@@ -39,7 +38,6 @@
               %span.form-require
                 必須
             = f.text_field :name, required: true, class: "sell_form_name", placeholder: "商品名（必須40文字まで）"
-            = render partial: 'layouts/error_messages', locals: {item: @item, column: 'name'}
           .sell_content_item_group
             %label.sell_item_description
               = f.label :description do
@@ -47,7 +45,7 @@
               %span.form-require
                 必須
             = f.text_area :description,required: true, class: "sell_item_textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-            = render partial:'layouts/error_messages', locals: {item: @item, column: ' description'}
+            
         // 商品詳細
         .sell_detail_content
           .sell_detail_content__head
@@ -65,7 +63,7 @@
                   .listing-select-wrapper__box
                     = f.select :category_id,@category_parent_array, {}, {class: 'listing-select-wrapper__box--select', required: true, id: 'parent_category'}
                     %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-                =  render partial: 'layouts/error_messages', locals: {item: @item, column: ' category_id'}
+                
 
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -96,7 +94,7 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :condition_id, Item.conditions.keys,{prompt: '---'},required: true
-                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'condition_id'}
+                    
         -# 配送について
         .shipping_item_content
           .shipping_item_content__head
@@ -112,8 +110,7 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :delivery_charge_id, Item.delivery_charges.keys,{prompt: '---'},required: true
-                    = render partial: 'layouts/error_messages', locals: {items: @items, column: 'delivery_charge_id'}
-
+                  
               .shipping_item_content__box__form_group
                 %label.shipping_charge
                   = f.label :prefecture_id, "配送元地域"
@@ -122,7 +119,7 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'},required: true
-                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'prefecture_id'}
+
 
                     
 
@@ -135,7 +132,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :delivery_way_id, Item.delivery_ways.keys,{prompt: '---'},required: true
-                    = render partial:'layouts/error_messages', locals: {item: @item, column: 'delivery_way_id'}
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
@@ -145,7 +141,7 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :delivery_days_id,Item.delivery_days.keys,{prompt: '---'},required: true
-                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'delivery_days_id'}
+                    
                     
         -# 販売価格
         .item_price_content
@@ -161,7 +157,7 @@
                 %p.price¥
                 .input_price
                   = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' , required: true,}
-                  = render partial: 'layouts/error_messages', locals: {item: @item, column: 'price'}
+
               .item_handling_charge
                 販売手数料 (10%)
               .sell_profit

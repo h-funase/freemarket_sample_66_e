@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   # バリデーション
   validates :name,                    presence: true #,profanity_filter: true
   validates :description,             presence: true #,profanity_filter: true
-  # validates :category_id,           presence: true
+  validates :category_id,             presence: true
   validates :price,                   presence: true, inclusion: 300..9999999
   validates :condition_id,            presence: true
   validates :prefecture_id,           presence: true

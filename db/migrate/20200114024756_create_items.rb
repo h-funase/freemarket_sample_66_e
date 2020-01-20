@@ -1,10 +1,9 @@
 class CreateItems < ActiveRecord::Migration[5.0]
   def change
     create_table :items do |t|
-      t.references :user 
-      t.string     :name,               null: false #空でないこと
-      t.text       :description,        null: false
-      t.string     :category_id,        null: false, foreign_key: true      
+      t.references :user
+      t.string     :name,               null: false 
+      t.string     :category_id,        null: false, foreign_key: true
       t.string     :size_id           
       t.string     :condition_id,       null: false
       t.string     :delivery_charge_id, null: false
