@@ -21,10 +21,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to controller: :items, action: :index
     else
-      redirect_to new_item_path
+      render :new unless @item.valid? #（バリデーションエラーがある場合、falseが返り値となります）-> false # バリデーションに引っかかった場合
     end
   end
   
