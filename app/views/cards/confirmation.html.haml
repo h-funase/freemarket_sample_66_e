@@ -26,11 +26,10 @@
                 .buy_price_table__right
                   ¥
                   = @item.price.to_s(:delimited)
-              - if @item.status == 0
-                = link_to "購入する",item_cards_pay_path(@item.id), method: "GET", class:"btn-default"
-              - else 
+              - if @item.status == 1
                 = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
-              
+              - else 
+                = link_to "購入する",item_cards_pay_path(@item.id), method: "GET", class:"btn-default"
         .buy_content__user_info
           .buy_content__user_info__inner
             %h3 配送先

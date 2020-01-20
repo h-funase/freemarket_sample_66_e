@@ -3,9 +3,10 @@ class Address < ApplicationRecord
 
   kanji = /\A[一-龥]+\z/
   kana = /\A([ァ-ン]|ー)+\z/
+  postal = /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$|^\d{5}$|^\d{7}\z/
 
   belongs_to  :user, optional: true
-  validates :postal_code, presence: true
+  validates :postal_code, presence: true, format: { with: postal }
   validates :prefectures, :municipality, :street_number, presence: true
   validates :first_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
