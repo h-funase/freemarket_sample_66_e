@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   def show
     @items = Item.find(params[:id])
     @images = @items.images
-
   end
 
   def new
@@ -41,37 +40,9 @@ class ItemsController < ApplicationController
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
-
   
-
-  def step2
-  end
-
-  def step3_1
-  end
-
-  def step3_2
-  end
-
-  def step4
-  end
-
-  def step5
-  end
-
-  def credit
-  end
-
   def logout
   end
-
-  def sign_up
-  end
-
-  def login
-  end
-
 
   def userprofile
   end

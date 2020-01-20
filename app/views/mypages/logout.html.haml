@@ -11,7 +11,7 @@
     .logout
       .logout__main
         .logout__main__btn
-          %p ログアウト
+          = link_to "ログアウト", "/users/sign_out", method: "delete"
 
   %section
     = render "items/sheard/bottom_image"
