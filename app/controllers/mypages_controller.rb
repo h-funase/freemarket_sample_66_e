@@ -3,6 +3,7 @@ class MypagesController < ApplicationController
   end
 
   def show
+    
   end
 
   def logout
@@ -12,16 +13,20 @@ class MypagesController < ApplicationController
   end
 
   def selling
+    @item = Item.find(params[:id])
+    @images = @item.images
   end
 
   def items_screen
-    # @user = User.find(params[:id])
-    # @items = @user.items
+    @items = Item.order("created_at DESC")
+    #@user = User.find(params[:id])
+   #items = @user.items
   end
 
   def destroy
-    @item.destroy if @item.user_id == current_user.id
-    redirect_to "/items/#{@item.user.id}/mypages"
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
   end
 
 end

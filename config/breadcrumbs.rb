@@ -29,7 +29,7 @@ crumb :items_screen do
 end
 
 crumb :selling do
-  link "出品中", selling_mypages_path
+  link "出品中", selling_mypage_path
   parent :items_screen
 end
 
