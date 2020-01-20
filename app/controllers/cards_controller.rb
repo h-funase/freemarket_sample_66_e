@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :card_exist, only: [:index,:pay,:destroy,:show,:confirmation,:complete]
 
-  before_action :set_item, only: [:confirmation,:complete]
+  before_action :set_item, only: [:confirmation,:pay,:complete]
 
 
   def index
@@ -41,26 +41,24 @@ class CardsController < ApplicationController
   end
 
   def pay 
-
-      item = Item.find_by(card_params[:card_id])
-      redirect_to item_path(item.id) if product.status != 0  
-      card = Card.find_by(user_id: current_user.id)
-
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      Payjp::Charge.create(
-      amount:  product.price,
-      customer: card.customer_id,
-      currency: 'jpy',
-      )
-      product[:status] = 1
-      product.save
-     redirect_to action: 'complete'
+      if @item.status != 0  
+        redirect_to item_path(@item.id) 
+      else
+        card = Card.find_by(user_id: current_user.id)
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp::Charge.create(
+        amount:  @item.price,
+        customer: card.customer_id,
+        currency: 'jpy',
+        )
+        @item[:status] = 1
+        @item.save
+        redirect_to action: 'complete'
+      end
   end
 
   def destroy
-
        card = Card.find_by(user_id: current_user.id).first
-
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -76,9 +74,7 @@ class CardsController < ApplicationController
   end
 
   def confirmation
-
     @addresses = Address.find_by(user_id: current_user.id)
-
     card_information
   end
 
@@ -92,14 +88,12 @@ class CardsController < ApplicationController
   private
 
   def card_exist
-
     @card = Card.find_by(user_id: current_user.id)
-
     redirect_to action: "step4" if @card.blank?
   end
 
   def card_params
-    params.permit('payjp-token',:product_id)
+    params.permit('payjp-token',:item_id)
   end
   
   def card_information
@@ -110,7 +104,7 @@ class CardsController < ApplicationController
 
 
   def set_item
-    @item = Item.find(params[:card_id])
+    @item = Item.find(params[:item_id])
   end
 
 end
