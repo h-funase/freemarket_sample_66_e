@@ -18,6 +18,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @items = Item.includes(:images)
+    @item= Product.find(params[:id])
+    @images = @item.images.order(id: "DESC")
+  end
+
   def create
     @item = Item.new(item_params)
     @item.status = 0
