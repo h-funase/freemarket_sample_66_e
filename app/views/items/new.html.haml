@@ -7,9 +7,8 @@
       %h2.sell_form__main__head  
         商品の情報を入力
       
-      .sell_form_content
-      = form_for(@item) do |f|
-
+      .sell-main__form
+      = form_for @item do |f|
         // 画像アップロード
         .sell_form__main__box
           .sell_upload_box 
@@ -26,7 +25,8 @@
               .image-box__container
                 = f.fields_for :images do |i|
                   .input-area
-                    = i.file_field :images, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
+                    = i.file_field :images,required: true, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
+                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'image_url'}
                     %i.fas.fa-camera
 
 
@@ -34,17 +34,20 @@
         .sell_content 
           .sell_content_form_group
             %label.sell_name
-              = f.label :name, "商品名"
+              = f.label :name do
+                商品名
               %span.form-require
                 必須
-            = f.text_field :name, class: "sell_form_name", placeholder: "商品名（必須40文字まで）"
+            = f.text_field :name, required: true, class: "sell_form_name", placeholder: "商品名（必須40文字まで）"
+            = render partial: 'layouts/error_messages', locals: {item: @item, column: 'name'}
           .sell_content_item_group
             %label.sell_item_description
-              = f.label :description, "商品の説明"
+              = f.label :description do
+                商品の説明
               %span.form-require
                 必須
-            = f.text_area :description, class: "sell_item_textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-
+            = f.text_area :description,required: true, class: "sell_item_textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            = render partial:'layouts/error_messages', locals: {item: @item, column: ' description'}
         // 商品詳細
         .sell_detail_content
           .sell_detail_content__head
@@ -55,13 +58,15 @@
               -# 商品カテゴリー
             .listing-form-box
               .listing-product-detail__category
-                = f.label :category_id, "カテゴリー" 
+                = f.label :category_id do
+                  カテゴリー
                 %span.form-require 必須
                 .listing-select-wrapper
                   .listing-select-wrapper__box
-                    = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    = f.select :category_id,@category_parent_array, {}, {class: 'listing-select-wrapper__box--select', required: true, id: 'parent_category'}
                     %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-              
+                =  render partial: 'layouts/error_messages', locals: {item: @item, column: ' category_id'}
+
               .sell_item_detail_box_form_group
                 %label.item_status
                   = f.label :size_id, "サイズ"
@@ -70,13 +75,13 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :size_id, Item.sizes.keys,{prompt: '---'}
-
+                  
 
               .sell_item_detail_box_form_group
                 %label.item_status
                   = f.label :brand_id, "ブランド"
                   %span.form-require
-                    必須
+                    任意
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :brand_id, Item.brands.keys,{prompt: '---'}
@@ -90,8 +95,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.select :condition_id, Item.conditions.keys,{prompt: '---'}
-
+                    = f.select :condition_id, Item.conditions.keys,{prompt: '---'},required: true
+                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'condition_id'}
         -# 配送について
         .shipping_item_content
           .shipping_item_content__head
@@ -106,7 +111,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.select :delivery_charge_id, Item.delivery_charges.keys,{prompt: '---'}
+                    = f.select :delivery_charge_id, Item.delivery_charges.keys,{prompt: '---'},required: true
+                    = render partial: 'layouts/error_messages', locals: {items: @items, column: 'delivery_charge_id'}
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
@@ -115,8 +121,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'}
-              
+                    = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'},required: true
+                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'prefecture_id'}
 
                     
 
@@ -128,8 +134,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.select :delivery_way_id, Item.delivery_ways.keys,{prompt: '---'}
-
+                    = f.select :delivery_way_id, Item.delivery_ways.keys,{prompt: '---'},required: true
+                    = render partial:'layouts/error_messages', locals: {item: @item, column: 'delivery_way_id'}
 
               .shipping_item_content__box__form_group
                 %label.shipping_charge
@@ -138,8 +144,8 @@
                     必須
                 .category_select_wrap
                   %i.icon_arrow_bottom
-                    = f.select :delivery_days_id, Item.delivery_days.keys,{prompt: '---'}
-                  
+                    = f.select :delivery_days_id,Item.delivery_days.keys,{prompt: '---'},required: true
+                    = render partial: 'layouts/error_messages', locals: {item: @item, column: 'delivery_days_id'}
                     
         -# 販売価格
         .item_price_content
@@ -154,7 +160,8 @@
               .item_price_input
                 %p.price¥
                 .input_price
-                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' }
+                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' , required: true,}
+                  = render partial: 'layouts/error_messages', locals: {item: @item, column: 'price'}
               .item_handling_charge
                 販売手数料 (10%)
               .sell_profit

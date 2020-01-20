@@ -145,6 +145,27 @@
         &__button{
           display: flex;
           justify-content: end;
+          &__login{
+            .login{
+              background-color: railwhite;
+              color: blue;
+              display: inline;
+              font-size: 14px;
+              border-width: 1px;
+              border-style: solid;
+              border-color: blue;
+              border-image: initial;
+              border-radius: 4px;
+              padding: 8px 10px;
+              transition: all 0.3s ease-out 0s;
+              margin-left: 8px;
+              text-decoration:none;
+              &:hover {
+                background-color: blue;
+                color: white;
+              }
+            }
+          }
           &__signup{
             .registration{
               text-decoration: none;
@@ -153,6 +174,8 @@
               padding:6px;
               border-radius: 3px;
             }
+          
+
           }
           &__login{
 
