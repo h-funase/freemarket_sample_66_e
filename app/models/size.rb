@@ -1,3 +1,3 @@
-class Sizeac < ApplicationRecord
+class Size < ApplicationRecord
   has_many :items
 end
