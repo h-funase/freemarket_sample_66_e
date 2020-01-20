@@ -81,8 +81,9 @@
           %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
-          支払い方法
-          %i.fas.fa-chevron-right
+          = link_to credit_items_path, class: "credit_way" do
+            支払い方法
+            %i.fas.fa-chevron-right
         %li
         .mypage_side_content__nav_list_item 
           メール/パスワード
