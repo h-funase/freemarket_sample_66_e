@@ -1,93 +1,75 @@
-.step4
-  .step4__top_contents
-    .step4__top_contents__box
-      .step4__top_contents__box__free_icon
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.19 84.08"><defs><style>.cls-1{fill:#dc4912;stroke:#fff;stroke-miterlimit:10;}.cls-2{font-size:48px;fill:#231815;font-family:YuGo-Bold-83pv-RKSJ-H, YuGothic;}</style></defs><title>アセット 3</title><g id="レイヤー_2" data-name="レイヤー 2"><g id="レイヤー_1-2" data-name="レイヤー 1"><polygon class="cls-1" points="36.41 83.5 0.5 62.77 0.5 21.31 36.41 0.58 72.32 21.31 72.32 62.77 36.41 83.5"/><polyline class="cls-1" points="0.5 21.31 36.41 42.04 72.32 21.31"/><polyline class="cls-1" points="36.41 83.5 36.41 49.36 36.41 42.04"/><line class="cls-1" x1="36.41" y1="52.41" x2="0.5" y2="31.67"/><line class="cls-1" x1="72.32" y1="33.2" x2="36.41" y2="50.88"/><text class="cls-2" transform="translate(86.41 62.77)">Fmarket</text></g></g></svg>
-      .step4__top_contents__box__progress_bar
-        %ul.progress_bar
-          %li.progress_bar__active
-            会員情報
-            %div.progress_status
-          %li.progress_bar__active
-            電話番号認証
-            %div.progress_status
-          %li.progress_bar__active
-            お届け先住所入力
-            %div.progress_status
-          %li.progress_bar__active
-            支払い方法
-            %div.progress_status
-          %li.progress_bar__active
-            完了
-            %div.progress_status
-.card
-  .card__bottom_contents
-    .card__bottom_contents__top
-      %h2.top_string 支払い方法
-    .card__bottom_contents__bottom
-      = form_tag(cards_path, method: :post, id: 'charge-form',  name: "inputForm") do 
-        .card__bottom_contents__bottom__box
-          .card__bottom_contents__bottom__box__top
-            .card__bottom_contents__bottom__box__top__title
-            %p カード番号
-            .card__bottom_contents__bottom__box__top__essential_icon
-              %p 必須
-          = text_field_tag "number", "", class: "card__bottom_contents__bottom__box__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "number"
-          .card__bottom_contents__bottom__box__card_icon
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763", size: "59x30",alt:"visa"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2482339763", size: "44x30",alt:"master-card"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2482339763", size: "40x30",alt:"saison-card"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2482339763", size: "42x30",alt:"jcb"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2482339763", size: "31x30",alt:"american_express"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2482339763", size: "42x30",alt:"dinersclub"
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2482339763", size: "42x30",alt:"discover"
-          .card__bottom_contents__bottom__box__bottom
-            %label
-              有効期限
+.signup_address
+  = render "/devise/shared/signup_header"
+  .card
+    .card__bottom_contents
+      .card__bottom_contents__top
+        %h2.top_string 支払い方法
+      .card__bottom_contents__bottom
+        = form_tag(cards_path, method: :post, id: 'charge-form',  name: "inputForm") do 
+          .card__bottom_contents__bottom__box
+            .card__bottom_contents__bottom__box__top
+              .card__bottom_contents__bottom__box__top__title
+              %p カード番号
+              .card__bottom_contents__bottom__box__top__essential_icon
+                %p 必須
+            = text_field_tag "number", "", class: "card__bottom_contents__bottom__box__input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "number"
+            .card__bottom_contents__bottom__box__card_icon
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?2482339763", size: "59x30",alt:"visa"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?2482339763", size: "44x30",alt:"master-card"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?2482339763", size: "40x30",alt:"saison-card"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?2482339763", size: "42x30",alt:"jcb"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?2482339763", size: "31x30",alt:"american_express"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?2482339763", size: "42x30",alt:"dinersclub"
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?2482339763", size: "42x30",alt:"discover"
+            .card__bottom_contents__bottom__box__bottom
+              %label
+                有効期限
+                %span
+                  必須
+                %br
+              %select#exp_month{name: "exp_month", type: "text"}
+                %option{value: ""} --
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              %span 月
+              %br
+              %select#exp_year{name: "exp_year", type: "text"}
+                %option{value: ""} --
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              %span 年
+              %br
+              %br
+              %br
+              セキュリティーコード
               %span
+              %a.card__bottom_contents__bottom__box__bottom__essential_icon
                 必須
               %br
-            %select#exp_month{name: "exp_month", type: "text"}
-              %option{value: ""} --
-              %option{value: "1"}01
-              %option{value: "2"}02
-              %option{value: "3"}03
-              %option{value: "4"}04
-              %option{value: "5"}05
-              %option{value: "6"}06
-              %option{value: "7"}07
-              %option{value: "8"}08
-              %option{value: "9"}09
-              %option{value: "10"}10
-              %option{value: "11"}11
-              %option{value: "12"}12
-            %span 月
-            %br
-            %select#exp_year{name: "exp_year", type: "text"}
-              %option{value: ""} --
-              %option{value: "2020"}20
-              %option{value: "2021"}21
-              %option{value: "2022"}22
-              %option{value: "2023"}23
-              %option{value: "2024"}24
-              %option{value: "2025"}25
-              %option{value: "2026"}26
-              %option{value: "2027"}27
-              %option{value: "2028"}28
-              %option{value: "2029"}29
-            %span 年
-            %br
-            %br
-            %br
-            セキュリティーコード
-            %span
-            %a.card__bottom_contents__bottom__box__bottom__essential_icon
-              必須
-            %br
-            = text_field_tag "cvc", "", class: "card__bottom_contents__bottom__box__bottom__cvc_code", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
-            .card__bottom_contents__bottom__box__bottom__seqcode
-              %span.card__bottom_contents__bottom__box__bottom__seqcode__mark ?
-              %span.card__bottom_contents__bottom__box__bottom__seqcode__text カード背面の番号とは？
-            #card_token
-        -# %input.next-btn{type: 'submit',value: '次へ進む',class:"step4__bottom_contents__bottom__box__submit_btn"} 
-        = submit_tag "次へ進む", class:"step4__bottom_contents__bottom__box__submit_btn",id: "token_submit", type: "submit"
+              = text_field_tag "cvc", "", class: "card__bottom_contents__bottom__box__bottom__cvc_code", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+              .card__bottom_contents__bottom__box__bottom__seqcode
+                %span.card__bottom_contents__bottom__box__bottom__seqcode__mark ?
+                %span.card__bottom_contents__bottom__box__bottom__seqcode__text カード背面の番号とは？
+              #card_token
+          -# %input.next-btn{type: 'submit',value: '次へ進む',class:"step4__bottom_contents__bottom__box__submit_btn"} 
+          = submit_tag "次へ進む", class:"step4__bottom_contents__bottom__box__submit_btn",id: "token_submit", type: "submit"
+    
+  = render "/items/sheard/icon_footer"

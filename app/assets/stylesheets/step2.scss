@@ -51,7 +51,6 @@
             margin: 0 auto 10px auto;
             background-color: #ccc;
            }
-
            .progress_status:after {
             content: "";
             position: absolute;
@@ -104,13 +103,13 @@
           align-items: center;
 
           &__string {
-            font-size: 15px;
+            font-size: 10px;
             font-weight: 600;
           }
 
           &__essential_icon {
             color: #fff;
-            font-size: 12px;
+            font-size: 1px;
             background: #ea352d;
             border-radius: 2px;
             margin-left: 5px;

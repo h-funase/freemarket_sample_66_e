@@ -70,11 +70,14 @@ p.info {
   text-align: center;
 }
 .image-box__container{
+  flex-wrap: wrap;
+  display: flex;
   width: 100%;
   padding: 10px;
   text-align: center;
   font-size: 14px;
   line-height: 1.5;
+  display: flex;
 }
 .image-field{
   width:100%;
