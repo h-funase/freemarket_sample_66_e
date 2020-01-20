@@ -42,23 +42,20 @@
             .input_mem_info__bottom_contents__main_form__group__top_contents__essential_icon
               必須
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可",class:"input_mem_info__bottom_contents__main_form__group__bottom_content"
-
-        .input_mem_info__bottom_contents__main_form__group
-          .input_mem_info__bottom_contents__main_form__group__top_contents
-            .input_mem_info__bottom_contents__main_form__group__top_contents__string
-              %h3 パスワード
-            .input_mem_info__bottom_contents__main_form__group__top_contents__essential_icon
-              必須
-          = f.password_field :password, autocomplete: "new-password",placeholder:"7文字以上の半角英数字",class:"input_mem_info__bottom_contents__main_form__group__bottom_content"
-
-
-
-          .input_mem_info__bottom_contents__main_form__group__valid
-            ※ 英字と数字の両方を含めて設定してください
-          .input_mem_info__bottom_contents__main_form__group__check_box
-            パスワードを表示する
-            = check_box_tag :check1 do
-              = label_tag :check1, "パスワードを表示する"
+        - if @omniauth.nil?
+          .input_mem_info__bottom_contents__main_form__group
+            .input_mem_info__bottom_contents__main_form__group__top_contents
+              .input_mem_info__bottom_contents__main_form__group__top_contents__string
+                %h3 パスワード
+              .input_mem_info__bottom_contents__main_form__group__top_contents__essential_icon
+                必須
+            = f.password_field :password, autocomplete: "new-password",placeholder:"7文字以上の半角英数字",class:"input_mem_info__bottom_contents__main_form__group__bottom_content"
+            .input_mem_info__bottom_contents__main_form__group__valid
+              ※ 英字と数字の両方を含めて設定してください
+            .input_mem_info__bottom_contents__main_form__group__check_box
+              パスワードを表示する
+              = check_box_tag :check1 do
+                = label_tag :check1, "パスワードを表示する"
 
 
         .input_mem_info__bottom_contents__main_form__identity_verification
