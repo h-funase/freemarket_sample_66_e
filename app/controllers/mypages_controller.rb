@@ -36,7 +36,7 @@ class MypagesController < ApplicationController
       redirect_to root_path
     else
       redirect_to root_path
-    endp
+    end
   end
  end
 
