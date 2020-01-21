@@ -16,8 +16,8 @@ class Item < ApplicationRecord
   belongs_to :size, optional: true
   belongs_to :brand, optional: true
   belongs_to :user, optional: true
-  belongs_to :buyer_id, optional: true
-  belongs_to :saler_id, optional: true
+  belongs_to :buyer, optional: true
+  belongs_to :saler, optional: true
 
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
   scope :category_item,  -> category_list { includes(:images).where(category_id: category_list.id )}
