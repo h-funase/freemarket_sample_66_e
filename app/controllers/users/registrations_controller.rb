@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     if @user.save
-      redirect_to controller: '/addresses', action: 'step3' 
+      redirect_to controller: addresses_path, action: 'step3' 
       sign_in(@user)
       bypass_sign_in(@user)
     else
