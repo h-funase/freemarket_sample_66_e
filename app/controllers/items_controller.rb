@@ -18,12 +18,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
-    @items = Item.includes(:images)
-    @item= Product.find(params[:id])
-    @images = @item.images.order(id: "DESC")
-  end
-
   def create
     @item = Item.new(item_params)
     @item.status = 0
@@ -31,6 +25,25 @@ class ItemsController < ApplicationController
       redirect_to controller: :items, action: :index
     else
       render :new unless @item.valid? #（バリデーションエラーがある場合、falseが返り値となります）-> false # バリデーションに引っかかった場合
+    end
+  end
+
+  def edit
+    @items = Item.includes(:images)
+    @item= Item.find(params[:id])
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    @images = @item.images
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_update_params)
+       redirect_to action: "show"
+    else
+      render :edit
     end
   end
   
@@ -67,6 +80,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
+  end
+
+  def item_update_params
+    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price)
   end
 
 end

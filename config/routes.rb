@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   end
   resources :mypages, only: [:index, :show]
 
-  resources :items,only:[:show, :edit] do
+  resources :items,only:[:show, :edit, :update] do
     get 'cards/pay', to: 'cards#pay'
     get 'cards/confirmation', to:'cards#confirmation'
     get 'cards/complete', to:'cards#complete'
