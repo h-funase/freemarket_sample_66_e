@@ -23,11 +23,14 @@
               %br
               またはクリックしてファイルをアップロード
               .image-box__container
+                #image-box-1
+                .item-num-0#image-box__container
                 = f.fields_for :images do |i|
-                  .input-area
-                    = i.file_field :images, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:block"
-                    %i.fas.fa-camera
 
+                  .input-area
+                    = i.file_field :images,type: 'file', name: "item[images_attributes][][image_url]", value:"image_url", style: "display:none", id:"img-file",required: true
+                    %label.input{for: "img-file"}
+                      %i.fas.fa-camera
 
         // 商品名入力
         .sell_content 
@@ -45,7 +48,7 @@
               %span.form-require
                 必須
             = f.text_area :description,required: true, class: "sell_item_textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-            
+
         // 商品詳細
         .sell_detail_content
           .sell_detail_content__head
@@ -73,7 +76,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :size_id, Item.sizes.keys,{prompt: '---'}
-                  
 
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -83,7 +85,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :brand_id, Item.brands.keys,{prompt: '---'}
-
 
               -# 商品ステータス
               .sell_item_detail_box_form_group
@@ -120,10 +121,6 @@
                   %i.icon_arrow_bottom
                     = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'},required: true
 
-
-                    
-
-
               .shipping_item_content__box__form_group
                 %label.delivery_way_id
                   = f.label :delivery_way_id, "配送の方法"
@@ -142,11 +139,10 @@
                   %i.icon_arrow_bottom
                     = f.select :delivery_days_id,Item.delivery_days.keys,{prompt: '---'},required: true
                     
-                    
-        -# 販売価格
         .item_price_content
           .item_price_content__head
             販売価格(300〜9,999,999)
+
           .item_price_content__box
             .item_price_content__box__form
               %label.item_price
@@ -156,15 +152,18 @@
               .item_price_input
                 %p.price¥
                 .input_price
-                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '例）300',  value: '' , required: true,}
+                  %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}
 
               .item_handling_charge
                 販売手数料 (10%)
+                .right_bar
+
               .sell_profit
                 .sell_profit__left
                   販売利益
-                .sell_profit___right
-                  
+                  = f.number_field :price, style: "display: none", id: "price"
+                .right_bar_2
+
         .sell_btn_box
           .caution
           %p.caution 禁止されている出品,行為を必ずご確認ください。
