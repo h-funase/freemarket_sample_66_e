@@ -31,8 +31,6 @@ class MypagesController < ApplicationController
     @images = @item.images
   end
 
-  
-
   def destroy
     if @item.saler_id == current_user.id
       @item.destroy
