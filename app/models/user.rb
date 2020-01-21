@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :last_name_kana, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :birthday,  presence: true, format: { with: year_month_day }
   validates :password,presence: true ,length: { minimum: 6  }
-  validates :phone, presence: true, format: { with: phone_number}
+  validates :phone, presence: true, format: { with: phone_number }
 
   has_one :address,dependent: :destroy
   has_one :card,dependent: :destroy
@@ -45,12 +45,12 @@ class User < ApplicationRecord
           provider: auth.provider
         )
       end
-      return { user: user ,sns: sns}
+      return { user: user ,sns: sns }
     end
 
    def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
-    unless user.present?
+    if user.blank?
       user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
@@ -71,6 +71,6 @@ class User < ApplicationRecord
       user = without_sns_data(auth)[:user]
       sns = without_sns_data(auth)[:sns]
     end
-    return { user: user ,sns: sns}
+    return { user: user ,sns: sns }
   end
 end
