@@ -18,7 +18,7 @@ $(function(){
 
       var num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
-　　　 //画像が10枚になったら超えたらドロップボックスを削除する
+    //画像が10枚になったら超えたらドロップボックスを削除する
       if (num == 10){
         $('#image-box__container').css('display', 'none')   
       }
@@ -35,7 +35,7 @@ $(function(){
                       <div class='item-image__operetion--delete'>削除</div>
                     </div>
                   </div>`
-        //image_box__container要素の前にhtmlを差し込む
+
         $('#image-box__container').before(html);
       };
       //image-box__containerのクラスを変更し、CSSでドロップボックスの大きさを変えてやる。

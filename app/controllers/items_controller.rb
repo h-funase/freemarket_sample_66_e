@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-    # 5.times { @item.images.build }
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -25,7 +24,7 @@ class ItemsController < ApplicationController
     if @item.save!
       redirect_to controller: :items, action: :index
     else
-      render :new unless @item.valid? #（バリデーションエラーがある場合、falseが返り値となります）-> false # バリデーションに引っかかった場合
+      render :new unless @item.valid? 
     end
   end
   

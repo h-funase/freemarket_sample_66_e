@@ -23,12 +23,6 @@
               %br
               またはクリックしてファイルをアップロード
               .image-box__container
-                -# = f.fields_for :images do |i|
-                -#   .input-area
-                -#     = i.file_field :images, multiple: true, type: 'file', name: "item[images_attributes][][image_url]", value:"image_url", style: "display:block"
-                -#     %i.fas.fa-camera
-
-
                 #image-box-1
                 .item-num-0#image-box__container
                 = f.fields_for :images do |i|
@@ -37,8 +31,6 @@
                     = i.file_field :images,type: 'file', name: "item[images_attributes][][image_url]", value:"image_url", style: "display:none", id:"img-file",required: true
                     %label.input{for: "img-file"}
                       %i.fas.fa-camera
-
-
 
         // 商品名入力
         .sell_content 
@@ -95,7 +87,6 @@
                   %i.icon_arrow_bottom
                     = f.select :brand_id, Item.brands.keys,{prompt: '---'}
 
-
               -# 商品ステータス
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -131,10 +122,6 @@
                   %i.icon_arrow_bottom
                     = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'},required: true
 
-
-                    
-
-
               .shipping_item_content__box__form_group
                 %label.delivery_way_id
                   = f.label :delivery_way_id, "配送の方法"
@@ -152,7 +139,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :delivery_days_id,Item.delivery_days.keys,{prompt: '---'},required: true
-                    
                     
         .item_price_content
           .item_price_content__head
@@ -179,8 +165,6 @@
                   = f.number_field :price, style: "display: none", id: "price"
                 .right_bar_2
 
-
-                  
         .sell_btn_box
           .caution
           %p.caution 禁止されている出品,行為を必ずご確認ください。
