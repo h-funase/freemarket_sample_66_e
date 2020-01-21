@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.status = 0
+    @item.saler_id = current_user.id
     if @item.save!
       redirect_to controller: :items, action: :index
     else
@@ -46,7 +47,7 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-  
+
 # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-  
+
   def logout
   end
 
@@ -75,7 +76,6 @@ class ItemsController < ApplicationController
 
   def item_screen
   end
-
 
   private
   def item_params
