@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :installs
 
   devise_for :users, controllers: {
+    sessions: 'users/sessions',
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
     get    'users/signup/registration',      to: 'users/registrations#step1'
@@ -71,6 +72,4 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-
-
 end

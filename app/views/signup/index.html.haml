@@ -11,10 +11,10 @@
             メールアドレスで登録する
           %button#facebook-login.btn-default.btn_facebook
             %i.fab.fa-facebook-square
-            facebookで登録する
+            = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
           %button#google-login.btn-default.btn_googl
             %i.fab.fa-google
-            Googlで登録する
+            = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
   
   .user_sign_footer
     = render "/items/sheard/icon_footer"
