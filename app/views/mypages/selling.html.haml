@@ -92,24 +92,22 @@
         .edit_mypage
           .edit_mypage__contents
             .edit_mypage__contents__edit
-              商品の編集
+              = link_to edit_item_path, class: "item_edit" do
+                %p 商品の編集
             .edit_mypage__contents__or
               or
             .edit_mypage__contents__stop
               出品を一旦停止する
             .edit_mypage__contents__delete
+
               = link_to "この商品を削除する", mypage_path(@item.id), method: "delete"
 
           .edit_mypage__content
             .edit_mypage__content__caution
-              コメント
+              相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             .edit_mypage__content__fill
             .edit_mypage__content__comment
               コメントする
-
-
-
-
 
   %section
     = render "items/sheard/bottom_image"

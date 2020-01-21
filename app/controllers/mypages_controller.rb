@@ -1,5 +1,7 @@
 class MypagesController < ApplicationController
+
   before_action :set_item, only: [:selling, :destroy]
+
   def index
   end
 
@@ -13,13 +15,23 @@ class MypagesController < ApplicationController
   def edit
   end
 
+
   def selling
     @images = @item.images
   end
 
   def items_screen
     @items = Item.order("created_at DESC")
+
   end
+
+
+  def selling
+    @item = Item.find(params[:id])
+    @images = @item.images
+  end
+
+  
 
   def destroy
     if @item.saler_id == current_user.id
@@ -34,5 +46,6 @@ class MypagesController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
 
 end
