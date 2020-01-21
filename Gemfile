@@ -85,3 +85,4 @@ gem 'ancestry'
 gem "carrierwave"
 gem "gretel"
 gem 'rails-i18n'
+gem 'ransack'

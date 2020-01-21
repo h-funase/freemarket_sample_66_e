@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
+
   devise_for :installs
 
   devise_for :users, controllers: {
@@ -71,6 +73,6 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-
+  
 
 end
