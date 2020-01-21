@@ -3,7 +3,7 @@
   = render "items/sheard/header"
 
   -# 下記を記述した箇所にパンくずリストが表示される。
-  - breadcrumb :mypages
+  - breadcrumb :selling
   = render "layouts/breadcrumbs"
 
   .mypage_html
@@ -11,15 +11,15 @@
       = render "side_content"
       .item__details
         %h2.item__details__name
-          -# = @items.name
+          = @item.name
         .item__details__main_content
           .item__details__main_content_boxes
             .main_photo
               .photos
-                -# = image_tag "#{@items.images[0].image_url}", class: "photos"
+                = image_tag "#{@item.images[0].image_url}", class: "photos"
               .small_photos
-                -# - @images.each do |image|
-                -#   = image_tag image.image_url.to_s, class: "small_photo"
+                - @images.each do |image|
+                  = image_tag image.image_url.to_s, class: "small_photo"
 
 
             %table.item_detail_table
@@ -44,39 +44,39 @@
                     .item_category
                       .item_category_top
                       %span 
-                        -# = @items.category_id
+                        = @item.category_id
 
                 %tr
                   %th ブランド
                   %td 
-                    -# = @items.brand_id
+                    = @item.brand_id
                 %tr
                   %th 商品サイズ
                   %td 
-                    -# = @items.size_id
+                    = @item.size_id
                 %tr
                   %th 商品の状態
                   %td 
-                    -# = @items.condition_id
+                    = @item.condition_id
                 %tr
                   %th 配送料の負担
                   %td 
-                    -# = @items.delivery_charge_id
+                    = @item.delivery_charge_id
                 %tr
                   %th 配送の方法
                   %td 
-                    -# = @items.delivery_way_id
+                    = @item.delivery_way_id
                 %tr
                   %th 発送元地域
                   %td 
-                    -# = @items.prefecture_id
+                    = @item.prefecture_id
                 %tr
                   %th 発送日の目安
                   %td 
-                    -# = @items.delivery_days_id
+                    = @item.delivery_days_id
           .item_price_box
             %span.item_price
-              -# = "¥#{@items.price}"
+              = "¥#{@item.price}"
             %span.item_tax (税込)
             %span.item_shipping_fee 送料込み
 
@@ -95,19 +95,20 @@
         .edit_mypage
           .edit_mypage__contents
             .edit_mypage__contents__edit
-              商品の編集
+              = link_to edit_item_path, class: "item_edit" do
+                %p 商品の編集
             .edit_mypage__contents__or
               or
             .edit_mypage__contents__stop
               出品を一旦停止する
             .edit_mypage__contents__delete
-              = link_to "この商品を削除する", "/mypages/1", method: "delete"
+              = link_to "この商品を削除する", "/mypages/1",style: 'text-decoration: none',class: "delete_btn", method: "delete"
 
 
 
           .edit_mypage__content
             .edit_mypage__content__caution
-              コメント
+              相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
             .edit_mypage__content__fill
             .edit_mypage__content__comment
               コメントする

@@ -8,6 +8,7 @@
   height: 300px;
   width: 600px;
   background-color :#FFFFFF;
+
   &__edit{
   height: 55px;
   width: 600px;
@@ -15,6 +16,11 @@
   text-align: center;
   line-height: 50px;
   color: white;
+
+    .item_edit {
+      text-decoration: none;
+      color: #fff;
+    }
   }
 
   &__or{
@@ -40,6 +46,10 @@
   line-height: 50px;
   width: 600px;
   color: white;
+
+  .delete_btn {
+    color: white;
+  }
   }
  }
 
@@ -48,18 +58,24 @@
     background-color:#FFFFFF;
     margin-top: 20px;
     padding: 20px;
+    display: grid;
+
   &__caution{
     height: 55px;
     background-color: #FEF6CF;
     padding: 5px;
+    font-size: 15px;
+    color: #888;
   }
+
   &__fill{
     height: 130px;
     border: 1px solid #ccc;
   }
+
   &__comment{
     height: 55px;
-    width: 600px;
+    width: 100%;
     background-color: grey;
     text-align: center;
     line-height: 50px;

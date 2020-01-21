@@ -7,12 +7,11 @@ class ItemsController < ApplicationController
   def show
     @items = Item.find(params[:id])
     @images = @items.images
-
   end
 
   def new
     @item = Item.new
-    5.times { @item.images.build }
+    @image = @item.images.build
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -25,7 +24,26 @@ class ItemsController < ApplicationController
     if @item.save!
       redirect_to controller: :items, action: :index
     else
-      redirect_to new_item_path
+      render :new unless @item.valid? 
+    end
+  end
+
+  def edit
+    @items = Item.includes(:images)
+    @item= Item.find(params[:id])
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    @images = @item.images
+  end
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_update_params)
+       redirect_to action: "show"
+    else
+      render :edit
     end
   end
   
@@ -41,37 +59,9 @@ class ItemsController < ApplicationController
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
-
   
-
-  def step2
-  end
-
-  def step3_1
-  end
-
-  def step3_2
-  end
-
-  def step4
-  end
-
-  def step5
-  end
-
-  def credit
-  end
-
   def logout
   end
-
-  def sign_up
-  end
-
-  def login
-  end
-
 
   def userprofile
   end
@@ -90,6 +80,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
+  end
+
+  def item_update_params
+    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price)
   end
 
 end

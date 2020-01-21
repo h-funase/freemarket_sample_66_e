@@ -70,14 +70,23 @@ p.info {
   text-align: center;
 }
 .image-box__container{
-  flex-wrap: wrap;
-  display: flex;
   width: 100%;
   padding: 10px;
   text-align: center;
   font-size: 14px;
   line-height: 1.5;
-  display: flex;
+
+  .dropzone-container {
+    width: 20%;
+  }
+
+  .dropzone-area {
+    background-size: cover;
+  }
+
+  .input_area {
+    background-size: cover;
+  }
 }
 .image-field{
   width:100%;
@@ -198,22 +207,17 @@ select{
     }
   }
 }
-#price_calc.price_form-box{
-  text-align: center;
-  height:50px;
-  font-size: 20px;
-  float: left;
-}
+
 // 販売価格
 .item_price_input {
   text-align: right;
-  width: 60%;
+  width: 50%;
   float: right;
   display: flex;
 }
 .input-default{
   height: 48px;
-  width: 150px;
+  width: 170px;
   padding: 8px 16px ;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -235,17 +239,11 @@ p.price{
   margin-top: 30px;
   border-top: 1px solid #ccc;
 }
-
-.right_bar{
-  padding-top: 20px;
-  font-size:15px;
-}
 .sell_profit{
   padding: 24px 0;
   border-top: 1px solid #ccc;
 }
 
-.sell_profit__left{}
 .sell_btn_box {
   padding: 40px;
   border-top: 1px solid #eee;

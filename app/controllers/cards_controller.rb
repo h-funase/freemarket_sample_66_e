@@ -41,7 +41,7 @@ class CardsController < ApplicationController
   end
 
   def pay 
-      if @item.status != 0  
+      if @item.status == 1  
         redirect_to item_path(@item.id) 
       else
         card = Card.find_by(user_id: current_user.id)
