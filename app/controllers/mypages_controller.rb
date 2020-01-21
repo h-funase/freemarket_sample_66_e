@@ -32,13 +32,13 @@ class MypagesController < ApplicationController
   end
 
   def destroy
-    if @item.saler_id == current_user.id
-      @item.destroy
+    if @item.saler_id == current_user.id && @item.destroy
       redirect_to root_path
     else
       redirect_to root_path
-    end
+    endp
   end
+ end
 
   private
   def set_item
