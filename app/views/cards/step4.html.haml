@@ -69,7 +69,7 @@
                 %span.card__bottom_contents__bottom__box__bottom__seqcode__mark ?
                 %span.card__bottom_contents__bottom__box__bottom__seqcode__text カード背面の番号とは？
               #card_token
-          -# %input.next-btn{type: 'submit',value: '次へ進む',class:"step4__bottom_contents__bottom__box__submit_btn"} 
+
           = submit_tag "次へ進む", class:"step4__bottom_contents__bottom__box__submit_btn",id: "token_submit", type: "submit"
     
   = render "/items/sheard/icon_footer"
