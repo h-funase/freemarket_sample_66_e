@@ -52,15 +52,18 @@ Rails.application.routes.draw do
   end
 
   resources :mypages do
-    collection do
-      get :items_screen
+    member do   # idありの自作アクション
       get :selling
+    end
+
+    collection do  #idなしのあ自作アクション」」
+      get :items_screen
       get :logout
     end
   end
   resources :mypages, only: [:index, :show]
 
-  resources :items,only:[:show] do
+  resources :items,only:[:show, :edit, :update] do
     get 'cards/pay', to: 'cards#pay'
     get 'cards/confirmation', to:'cards#confirmation'
     get 'cards/complete', to:'cards#complete'
