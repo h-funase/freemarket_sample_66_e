@@ -19,8 +19,6 @@ class MypagesController < ApplicationController
 
   def items_screen
     @items = Item.order("created_at DESC")
-    #@user = User.find(params[:id])
-   #items = @user.items
   end
 
   def destroy
