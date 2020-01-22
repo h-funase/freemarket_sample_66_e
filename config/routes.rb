@@ -59,6 +59,12 @@ Rails.application.routes.draw do
   end
   resources :mypages, only: [:index, :show]
 
+  resources :mypages do
+    member do
+      get :personal_page
+    end
+  end
+
   resources :items,only:[:show] do
     get 'cards/pay', to: 'cards#pay'
     get 'cards/confirmation', to:'cards#confirmation'
