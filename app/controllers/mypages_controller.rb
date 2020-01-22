@@ -1,8 +1,12 @@
 class MypagesController < ApplicationController
+
+  before_action :set_item, only: [:selling, :destroy]
+
   def index
   end
 
   def show
+
   end
 
   def logout
@@ -11,17 +15,35 @@ class MypagesController < ApplicationController
   def edit
   end
 
+
   def selling
+    @images = @item.images
   end
 
   def items_screen
-    # @user = User.find(params[:id])
-    # @items = @user.items
+    @items = Item.order("created_at DESC")
+
+  end
+
+
+  def selling
+    @item = Item.find(params[:id])
+    @images = @item.images
   end
 
   def destroy
-    @item.destroy if @item.user_id == current_user.id
-    redirect_to "/items/#{@item.user.id}/mypages"
+    if @item.saler_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
+ end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 
 end

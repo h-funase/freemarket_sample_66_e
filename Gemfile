@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -68,6 +67,7 @@ end
 
 group :test do
   gem 'faker', "~> 2.8"
+  gem 'capybara'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -78,7 +78,6 @@ gem 'devise'
 gem 'active_hash'#あらかじめデータが登録されたテーブルを作成するためのgem。都道府県を登録しておくのに使う
 gem 'payjp'#クレジットカード情報の登録、及びクレジットカード決済に必要なgem
 gem "recaptcha", require: "recaptcha/rails" #recaptcha認証（私はロボットではありません）のためのgem
-gem 'rails-i18n'#エラーメッセージの日本語科のためにインストール
 gem 'active_hash'
 gem 'fog-aws'
 gem 'ancestry'
@@ -86,3 +85,7 @@ gem "carrierwave"
 gem "gretel"
 gem 'rails-i18n'
 gem 'ransack'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+

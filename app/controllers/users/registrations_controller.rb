@@ -24,13 +24,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password],  first_name_kana: session[:first_name_kana],last_name_kana: session[:last_name_kana], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday],phone: params[:user][:phone])
+    if session[:provider].present? && session[:uid].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.create(nickname:session[:nickname], email: session[:email],password: "password",  first_name_kana: session[:first_name_kana],last_name_kana: session[:last_name_kana], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday],phone: params[:user][:phone])
+      sns = SnsCredential.create(user_id: @user.id,uid: session[:uid], provider: session[:provider])
+    else
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password],  first_name_kana: session[:first_name_kana],last_name_kana: session[:last_name_kana], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday],phone: params[:user][:phone])
+    end
+
     if @user.save
-      redirect_to controller: '/addresses', action: 'step3'
+      redirect_to controller: addresses_path, action: 'step3' 
       sign_in(@user)
       bypass_sign_in(@user)
     else
-      render "step1"
+      render "step1" 
     end
   end
 
