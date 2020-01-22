@@ -72,14 +72,9 @@ color: #ea352d;
 .progress-status{
   background: #ea352d;
 }
+.progress-status_bar{
+  background: gray;
+ }
 }
 
-#through .progress-status_bar{
-  background: #ea352d;
-}
-#active{
-  color: #ea352d;
-  .progress-status{
-    background: #ea352d;
-  }
-}
+
