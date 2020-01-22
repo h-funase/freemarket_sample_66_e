@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200117075033) do
+ActiveRecord::Schema.define(version: 20200120055453) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",         null: false
@@ -72,23 +72,31 @@ ActiveRecord::Schema.define(version: 20200117075033) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "name",                             null: false
-    t.text     "description",        limit: 65535, null: false
-    t.string   "category_id",                      null: false
-    t.integer  "size_id"
-    t.string   "condition_id",                     null: false
-    t.string   "delivery_charge_id",               null: false
-    t.string   "prefecture_id",                    null: false
-    t.string   "delivery_days_id",                 null: false
-    t.string   "delivery_way_id",                  null: false
-    t.integer  "price",                            null: false
+    t.string   "name",               null: false
+    t.string   "category_id",        null: false
+    t.string   "size_id"
+    t.string   "condition_id",       null: false
+    t.string   "delivery_charge_id", null: false
+    t.string   "prefecture_id",      null: false
+    t.string   "delivery_days_id",   null: false
+    t.string   "delivery_way_id",    null: false
+    t.integer  "price",              null: false
     t.integer  "buyer_id"
     t.integer  "saler_id"
     t.string   "brand_id"
-    t.integer  "status"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -112,4 +120,5 @@ ActiveRecord::Schema.define(version: 20200117075033) do
   end
 
   add_foreign_key "cards", "users"
+  add_foreign_key "sns_credentials", "users"
 end
