@@ -38,7 +38,7 @@ class MypagesController < ApplicationController
       redirect_to root_path
     end
   end
- end
+
 
   private
   def set_item

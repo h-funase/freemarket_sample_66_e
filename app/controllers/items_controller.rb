@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.status = 0
 
-    @item.saler_id = current_user.id
+    @item.seller_id = current_user.id
     if @item.save!
 
       redirect_to controller: :items, action: :index
