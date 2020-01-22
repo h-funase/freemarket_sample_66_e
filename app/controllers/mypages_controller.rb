@@ -19,6 +19,10 @@ class MypagesController < ApplicationController
     # @items = @user.items
   end
 
+  def personal_page
+    @items = Item.where(saler_id: current_user.id)
+  end
+
   def destroy
     @item.destroy if @item.user_id == current_user.id
     redirect_to "/items/#{@item.user.id}/mypages"
