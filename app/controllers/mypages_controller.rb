@@ -31,6 +31,10 @@ class MypagesController < ApplicationController
     @images = @item.images
   end
 
+  def personal_page
+    @items = Item.where(seller_id: current_user.id)
+  end
+
   def destroy
     if @item.saler_id == current_user.id && @item.destroy
       redirect_to root_path

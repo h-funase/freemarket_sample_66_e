@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20200120055453) do
     t.string   "name",               null: false
     t.string   "category_id",        null: false
     t.string   "size_id"
+
     t.string   "description"
 
     t.string   "condition_id",       null: false

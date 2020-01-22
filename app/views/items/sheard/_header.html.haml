@@ -95,7 +95,7 @@
                 <i class="far fa-smile"></i>
 
               .header__box__lower_contents__right_comtents__my_page__may_box__name
-                = link_to 'マイページ', '/mypages', class: ''
+                = link_to 'マイページ', personal_page_mypage_path(current_user.id), class: ''
         - else
           .header__box__lower_contents__right_comtents__button
           .header__box__lower_contents__right_comtents__button__signup

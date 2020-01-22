@@ -19,7 +19,6 @@ class Item < ApplicationRecord
   belongs_to :buyer, optional: true
   belongs_to :seller, optional: true
 
-
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
   scope :category_item,  -> category_list { includes(:images).where(category_id: category_list.id )}
 
