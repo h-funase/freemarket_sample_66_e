@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
+  get '/search/detail_search', to: 'search#detail_search'
   devise_for :installs
 
   devise_for :users, controllers: {
+    sessions: 'users/sessions',
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
     get    'users/signup/registration',      to: 'users/registrations#step1'
     get    'users/signup/sms_confirmation',  to: 'users/registrations#step2'
   end
-  
+
   get '/addresses/new', to: 'addresses#step3'
   get '/cards/new', to: 'cards#step4'
   get '/signup/done', to: 'signup#done'
@@ -18,7 +21,7 @@ Rails.application.routes.draw do
   resources :signup do
     collection do
       get 'index'
-      get 'done' 
+      get 'done'
     end
   end
 
@@ -51,13 +54,17 @@ Rails.application.routes.draw do
   end
 
   resources :mypages do
-    collection do
-      get :items_screen
+    member do   # idありの自作アクション
       get :selling
+    end
+
+    collection do  #idなしのあ自作アクション」」
+      get :items_screen
       get :logout
     end
   end
   resources :mypages, only: [:index, :show]
+
 
   resources :mypages do
     member do
@@ -65,7 +72,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only:[:show] do
+
+
+  resources :items,only:[:show, :edit, :update] do
+
+
     get 'cards/pay', to: 'cards#pay'
     get 'cards/confirmation', to:'cards#confirmation'
     get 'cards/complete', to:'cards#complete'
@@ -77,6 +88,4 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
-
-
 end

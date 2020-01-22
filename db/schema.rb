@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 20200120055453) do
     t.string   "name",               null: false
     t.string   "category_id",        null: false
     t.string   "size_id"
+
+    t.string   "description"
+
     t.string   "condition_id",       null: false
     t.string   "delivery_charge_id", null: false
     t.string   "prefecture_id",      null: false
@@ -82,7 +85,7 @@ ActiveRecord::Schema.define(version: 20200120055453) do
     t.string   "delivery_way_id",    null: false
     t.integer  "price",              null: false
     t.integer  "buyer_id"
-    t.integer  "saler_id"
+    t.integer  "seller_id"
     t.string   "brand_id"
     t.string   "status"
     t.datetime "created_at",         null: false
