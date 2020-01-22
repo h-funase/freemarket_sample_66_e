@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'search/index'
-  get '/search/detail_search', to: 'search#detail_search'
   devise_for :installs
 
   devise_for :users, controllers: {
@@ -79,4 +77,7 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
+
+  get 'search/index'
+  get '/search/detail_search', to: 'search#detail_search'
 end
