@@ -20,7 +20,7 @@ class MypagesController < ApplicationController
   end
 
   def personal_page
-    @items = Item.where(saler_id: current_user.id)
+    @items = Item.where(seller_id: current_user.id)
   end
 
   def destroy
