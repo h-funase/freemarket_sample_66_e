@@ -13,7 +13,7 @@
     
       = form_tag(search_index_path,class: "header__box__upper_contents__form",method: :get) do
         = text_field_tag :search, "",placeholder:"何かお探しですか？",style: "width:100%;"
-        = submit_tag 'serach', :name => nil,style: "display:none;"
+        = submit_tag 'serach', name: nil,style: "display:none;"
     
 
 
