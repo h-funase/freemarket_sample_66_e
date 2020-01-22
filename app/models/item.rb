@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :user, optional: true
   belongs_to :buyer, optional: true
-  belongs_to :saler, optional: true
+  belongs_to :seller, optional: true
 
 
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
@@ -48,5 +48,10 @@ class Item < ApplicationRecord
   enum delivery_way: { "未定": 1, "らくらくメルカリ便": 2, "ゆうメール": 3, "レターパック": 4, "普通郵便(定形、定形外)": 5, "クロネコヤマト": 6, "ゆうパック": 7, "クリックポスト": 8, "ゆうパケット": 9}, _prefix: true
   enum brand: {"シャネル":1, "グッチ":2, "ルイヴィトン":3,  "シュプリーム":4, "アディダス":5, "ナイキ":6, "プーマ":7, "グラッドハンド":8, "BOSE":9, "Apple":10}, _prefix: true
   enum size: {"XXS以下":1, "XS(SS)":2, "S":3,  "M":4, "L":5, "XL(LL)":6, "2XL(3L)":7, "3XL(4L)":8, "FREE SIZE":9}, _prefix: true
+  
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?', "%#{search}%"])
+  end
 
 end
