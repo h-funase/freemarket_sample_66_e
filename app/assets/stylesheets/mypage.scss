@@ -137,10 +137,16 @@ li{
 }
 
 .mypage_content__notification{
+
   li {
     border-bottom: 1px solid #eee;
-    display: flex;
     background: white;
+    display: flex;
+  }
+  &__buying_items {
+    border-bottom: 1px solid #eee;
+    background: white;
+    display: flex;
   }
 }
 .mypage_content__item-body {
