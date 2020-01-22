@@ -80,9 +80,11 @@
   
 
   %ul.mypage_content__notification
-    %li
-      %figure= image_tag '/icon/buy_item.jpeg' ,width: 60,height: 60
-      .mypage_content__item-body
-        .mypage_content__item-text
-          = link_to "glad hand  クラッチバッグ」 を購入しました。"
-        %span.status 取引中
+    - items.each do |item|
+      .mypage_content__notification__buying_items
+        %figure= link_to image_tag("#{item.images[0].image_url}" ,width: 60,height: 60), item_path(item.id)
+
+        .mypage_content__item-body
+          .mypage_content__item-text
+            = "#{item.name}を購入しました。"
+          %span.status 取引中
