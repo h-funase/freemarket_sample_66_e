@@ -8,9 +8,6 @@ class SearchController < ApplicationController
 
   
   def detail_search
-    @search = params[:q][:name_cont]
-    @search = params[:q][:size_id]
-    @search = params[:q][:brand_id]
     @search_product = Item.ransack(params[:q]) 
     @items = @search_product.result.page(params[:page])
   end
