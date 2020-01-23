@@ -2,47 +2,50 @@
   = render "/items/sheard/icon_header"
 
   // 商品フォームヘッダー
-  .sell_form
-    .sell_form__main
-      %h2.sell_form__main__head  
-        商品の編集情報を入力
-      
-      .sell-main__form
-      = form_for @item do |f|
-        // 画像アップロード
-        .sell_form__main__box
-          .sell_upload_box 
-            
-            %h3.sell_upload_box__head
-              = f.label :image, "出品画像"
-              %span.form-require
-                必須
-            %p.info 最大10枚までアップロードできます
-            .sell_dropbox
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-              .image-box__container
-                = f.fields_for :images do |image|
-                  .dropzone-container
-                    #preview
-                    .dropzone-area
-                      = image.label :image, class: "dropzone-box", for: "upload-image__btn" do
-                        .input_area
-                          = image.file_field :image, id: "upload-image__btn", class: "upload-image", 'data-image': 0, type: "file", name: "item[images_attributes][0][image]"
+#edit_item
+  .item
+    .item__title
+      %h2.edit_title 商品の情報を入力
+    = form_for @item do |f|
+      .item__img
+        %ul.edit_ul
+          %li
+            %h3 出品画像
+          %li
+            .required__icon 必須
+        .clearfix
+        %p.max_10 最大10枚までアップロードできます
+
+        = f.fields_for :images, @item.images.first do |image|
+          .item__img__dropzone.clearfix
+            #preview
+            -# １〜５枚目プレビュー表示
+            .item__img__dropzone__input
+              = image.label :image, for: "upload-image" do
+                .input-area
+                  = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+
+                .item__img__dropzone__input__description
+                  .item__img__dropzone__input__description__text
+                    -# ドラッグアンドドロップ
+                    -# %br
+                    -# またはクリックしてファイルをアップロード
+
+          .item__img__dropzone2.clearfix
+            #preview2
+            -# ６〜１０枚目プレビュー表示
+            .item__img__dropzone2__input2
+              = image.label :image, for: "upload-image" do
+                .input-area
+                  = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                .item__img__dropzone2__input2__description
+                  .item__img__dropzone2__input2__description__text
+                    -# ドラッグアンドドロップ
+                    -# %br
+                    -# またはクリックしてファイルをアップロード
 
 
-                      -# = i.file_field :images, type: 'file', name: "item[images_attributes][][image_url]", id: :upload_file, value: @item.images, style: "display:block"
-                      -# %i.fas.fa-camera
 
-
-              
-
-              -# .image-box__container
-              -#   = f.fields_for :images do |image|
-              -#     .input-area
-              -#       = i.file_field :images, type: 'file', name: "item[images_attributes][][image_url]", id: :upload_file, value: @item.images, style: "display:block"
-              -#       %i.fas.fa-camera
 
 
         // 商品名入力
@@ -61,7 +64,7 @@
               %span.form-require
                 必須
             = f.text_area :description,required: true, class: "sell_item_textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-            
+
         // 商品詳細
         .sell_detail_content
           .sell_detail_content__head
@@ -89,7 +92,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :size_id, Item.sizes.keys,{prompt: '---'}
-                  
 
               .sell_item_detail_box_form_group
                 %label.item_status
@@ -99,7 +101,6 @@
                 .category_select_wrap
                   %i.icon_arrow_bottom
                     = f.select :brand_id, Item.brands.keys,{prompt: '---'}
-
 
               -# 商品ステータス
               .sell_item_detail_box_form_group
@@ -136,10 +137,6 @@
                   %i.icon_arrow_bottom
                     = f.select :prefecture_id, Item.prefectures.keys,{prompt: '---'},required: true
 
-
-                    
-
-
               .shipping_item_content__box__form_group
                 %label.delivery_way_id
                   = f.label :delivery_way_id, "配送の方法"
@@ -158,11 +155,10 @@
                   %i.icon_arrow_bottom
                     = f.select :delivery_days_id,Item.delivery_days.keys,{prompt: '---'},required: true
                     
-                    
-        -# 販売価格
         .item_price_content
           .item_price_content__head
             販売価格(300〜9,999,999)
+
           .item_price_content__box
             .item_price_content__box__form
               %label.item_price
@@ -172,15 +168,18 @@
               .item_price_input
                 %p.price¥
                 .input_price
-                  = f.text_field :price, { class: 'input-default',id: 'price', placeholder: '',  value: @item.price, required: true,}
+                  %input#price_calc.price_form-box{value: @item.price, type: "number"}
 
               .item_handling_charge
                 販売手数料 (10%)
+                .right_bar
+
               .sell_profit
                 .sell_profit__left
                   販売利益
-                .sell_profit___right
-                  
+                  = f.number_field :price, style: "display: none", id: "price"
+                .right_bar_2
+
         .sell_btn_box
           .caution
           %p.caution 禁止されている出品,行為を必ずご確認ください。
