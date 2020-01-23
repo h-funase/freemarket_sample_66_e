@@ -4,7 +4,7 @@
   background-image: url(/icon/top-image1.jpeg);           
   background-size:auto;     
   background-position:right ;            
-  height: 400px;
+  height: 450px;
   display: flex;
   align-items: center;
   &__main_box {
@@ -24,6 +24,7 @@
       height: 35%;
       font-size: 18px;
       padding: 40px 0 5px 0;
+      font-weight: bold;
     }
 
     &__app_download {
