@@ -264,8 +264,10 @@ table.item_detail_table {
   word-break: break-all;
   //height:80px;
   display: flex;
+  margin: 40px;
   &__text{
     padding: 5px;
+    
   }
 }
 .message_icon {
