@@ -24,10 +24,7 @@ class SearchController < ApplicationController
             :price_lteq, 
             :sorts,
             :size_id,
-            :brand_id,
-            {state_in: []}, 
-            {fee_payer_in: []}, 
-            {status_in: []})
+            :brand_id, )
   end
 
 
