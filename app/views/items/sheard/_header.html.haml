@@ -1,11 +1,7 @@
 .header
-
   .header__box
-
     .header__box__box_up
-
     .header__box__upper_contents
-
       .header__box__upper_contents__logo
         %h1
           = link_to root_path do
@@ -15,37 +11,24 @@
         = text_field_tag :search, "",placeholder:"何かお探しですか？",style: "width:100%;"
         = submit_tag 'serach', name: nil,style: "display:none;"
     
-
-
     .header__box__lower_contents
-
-    
-
       .header__box__lower_contents__left_comtents
-
         .header__box__lower_contents__left_comtents__category
-
           .header__box__lower_contents__left_comtents__category__category_box
-
             .header__box__lower_contents__left_comtents__category__category_box__logo
               <i class="fas fa-list-ul"></i>
 
             .header__box__lower_contents__left_comtents__category__category_box__name
-              カテゴリーから探す
-
-
+              = link_to do
+                %span カテゴリーから探す
+            -# =render partial: 'window', locals: { category: @category }
 
         .header__box__lower_contents__left_comtents__brand
-
           .header__box__lower_contents__left_comtents__brand__brand_bax
-
             .header__box__lower_contents__left_comtents__brand__brand_bax__logo
               <i class="fas fa-tag"></i>
-
             .header__box__lower_contents__left_comtents__brand__brand_bax__name
               ブランドから探す
-
-
     
       .header__box__lower_contents__right_comtents
         - if user_signed_in?
@@ -60,37 +43,21 @@
                 .header__box__lower_contents__right_comtents__likes_list__likes-box__name
                   いいね！一覧
 
-
-
-
           .header__box__lower_contents__right_comtents__info
-
             .header__box__lower_contents__right_comtents__info__info_box
-
               .header__box__lower_contents__right_comtents__info__info_box__logo
                 <i class="far fa-bell"></i>
-
               .header__box__lower_contents__right_comtents__info__info_box__name
                 お知らせ
-
-
-
           .header__box__lower_contents__right_comtents__todo_list
-
             .header__box__lower_contents__right_comtents__todo_list__todo_box
-
               .header__box__lower_contents__right_comtents__todo_list__todo_box__logo
                 <i class="fas fa-check"></i>
-
               .header__box__lower_contents__right_comtents__todo_list__todo_box__name
                 やることリスト
 
-
-
           .header__box__lower_contents__right_comtents__my_page
-          
             .header__box__lower_contents__right_comtents__my_page__may_box
-
               .header__box__lower_contents__right_comtents__my_page__may_box__logo
                 <i class="far fa-smile"></i>
 

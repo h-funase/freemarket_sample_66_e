@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     if item.update(item_update_params)
-       redirect_to action: "show"
+      redirect_to action: "show"
     else
       render :edit
     end
@@ -74,6 +74,7 @@ class ItemsController < ApplicationController
   end
 
   def person_check
+    @address= Address.find_by(user_id: current_user.id)  
   end
 
   def item_screen

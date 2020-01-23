@@ -26,11 +26,12 @@
                 #image-box-1
                 .item-num-0#image-box__container
                 = f.fields_for :images do |i|
-
                   .input-area
                     = i.file_field :images,type: 'file', name: "item[images_attributes][][image_url]", value:"image_url", style: "display:none", id:"img-file",required: true
                     %label.input{for: "img-file"}
                       %i.fas.fa-camera
+
+                  
 
         // 商品名入力
         .sell_content 

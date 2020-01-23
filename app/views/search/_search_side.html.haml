@@ -1,70 +1,38 @@
 
 .l-side 
   .search_extend_container
-    .search_sort
-      %h3 詳細検索
-      %select.select-default{name:"sort_order"}
-        %option{value: ""} 並び替え
-        %option{ value:"price_asc"}
-          価格の安い順
-        %option{ value:"price_desc"}
-          価格の高い順
-        %option{ value:"created_desc"}
-          出品の新しい順
-        %option{ value:"like_desc"}
-          いいね!の多い順
+    = search_form_for(@q,url: search_detail_search_path) do |f|
+      .search_sort
+        %h3 詳細検索
+        = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
 
+        .search_form_group
+          .search_form_group__label
+            %i.icon-plus
+            %p キーワードを追加する
+          = f.search_field :name_cont, class: "detail_search__group--form", placeholder: "例）値下げ"
 
-
-      .search_form_group
-        .search_form_group__label
-          %i.icon-plus
-          %span キーワードを追加する
-        %input.input-default{name:"search", placeholder:"例）値下げ", type:"name", value:""}/
-
-      .search_form_group
-        %label
-          %i.icon-list
-          %span カテゴリーを選択する
-        .select-wrap{"data-search": "parent"}
-          %i.icon-arrow-bottom
-          %select.select-default{name: "category_root"}
-            %option{value: ""} すべて
-            %option{"data-root-id": "1", value: "1"} レディース
-            %option{"data-root-id": "2", value: "2"} メンズ
-            %option{"data-root-id": "3", value: "3"} ベビー・キッズ
-            %option{"data-root-id": "4", value: "4"} インテリア・住まい・小物
-            %option{"data-root-id": "5", value: "5"} 本・音楽・ゲーム
-            %option{"data-root-id": "1328", value: "1328"} おもちゃ・ホビー・グッズ
-            %option{"data-root-id": "6", value: "6"} コスメ・香水・美容
-            %option{"data-root-id": "7", value: "7"} 家電・スマホ・カメラ
-            %option{"data-root-id": "8", value: "8"} スポーツ・レジャー
-            %option{"data-root-id": "9", value: "9"} ハンドメイド
-            %option{"data-root-id": "1027",value: "1027"} チケット
-            %option{"data-root-id": "1318",value: "1318"} 自動車・オートバイ
-            %option{"data-root-id": "10", value: "10"} その他
-
-      .search_form_group
-        %label
-          %i.icon-tag
-          %span ブランド名から探す
-        %input.input-default{"data-search": "brand", name: "brand_name", placeholder: "例）シャネル", type: "text", value:""}/
-        %input{ name:"brand_id", type: "hidden", value: ""}/
-        %ul{"data-search": "brand-dom"}
-
-
-
-      .search_form_group
-        %label
-          %i.icon-size
-          %span サイズを指定する
-        .select-wrap{"data-search": "parent"}
-          %i.icon-arrow-bottom
-          %select.select-default{name: "size_group"}
-      
-      .detail_search__btns
-        .detail_search__btn--grey
-          = form_tag(search_index_path,class: "header__box__upper_contents__form",method: :get) do
-            = text_field_tag :search, "",placeholder:"何かお探しですか？",style: "width:100%;"
-            = submit_tag 'serach', name: nil,style: "display:none;"
+        .search_form_group
+          %label
+            %span ブランド名から探す
+            %i.icon-arrow-bottom
+          = f.select :brand_id_in, Item.brands.keys,{prompt: '---'}
         
+        .search_form_group
+          .detail_search__group--label
+          %p 価格
+          .detail_search__group--forms
+            = f.search_field :price_gteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Min"
+            %p 〜
+            = f.search_field :price_lteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Max"
+
+        .search_form_group
+          %label
+            %span サイズを指定する
+            %i.icon-arrow-bottom
+            = f.select :size_id_in, Item.sizes.keys,{prompt: '---'}
+        
+        .detail_search__btns
+          .detail_search__btn--grey
+            = f.submit "クリア", type: :reset, class: "detail_search_clear_btn",style:"background: #aaa;"
+          = f.submit "完了", class: "detail_search__btn  detail_search__btn--red"
