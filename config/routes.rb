@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index, :show]
 
 
+
   resources :items,only:[:show, :edit, :update] do
 
     get 'cards/pay', to: 'cards#pay'
@@ -79,4 +80,10 @@ Rails.application.routes.draw do
       post 'pay', to: 'cards#pay'
     end
   end
+
+
+  resources :items do
+    resources :comments, only: [:create, :destroy]
+  end
+  
 end

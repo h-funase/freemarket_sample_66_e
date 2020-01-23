@@ -93,28 +93,29 @@
       .message_items
         .message-user
           .fas.fa-user-circle
-        .message_body
-          .message_body_text
-            すみません。アウトソールは何センチになりますか？
-            サイズを確認したいのですが？
-            .message_icon
-              .message_icon_left
-                .icon-time
-                  %i.far.fa-clock
-                  %span
-                    5日前
-              .message_icon_right
-                %i.far.fa-flag
+            コメント一覧
+          - @comments.each do |comment|
+            .message_body
+              .message_body_text
+                = comment.text
+                = comment.created_at.strftime("%Y/%m/%d %H:%M")
+              .message_icon
+                .message_icon_left
+                  .icon-time
+                    %i.far.fa-clock
+                    %span
+                .message_icon_right
+                  %i.far.fa-flag
 
-    .message_content
       .message_content__box
         .message_content__box__form
           %p.attention
-            相手のことを考え丁寧なコメントを心がけましょう。
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           .message_content__box__form__textarea
-          .message_content__box__form__submit
-            コメントする
+            = form_for [@items, @comment] do |f|
+              = f.text_area :text, size: "63x5"
+              = f.submit 'コメントする', class: "message_content__box__form__submit"
+
 
     .next_or_back
       .previous_product.items-link_to
