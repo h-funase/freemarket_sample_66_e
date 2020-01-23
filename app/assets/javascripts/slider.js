@@ -5,7 +5,7 @@ $(function() {
         dots: true,
         autoplay: true,
         autoplaySpeed: 2500,
-        speed: 800,
+        speed: 700,
         draggable: true,
         arrows: true,
         initialSlide: 3,
