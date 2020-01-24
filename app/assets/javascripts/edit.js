@@ -2,7 +2,7 @@ $(function() {
 
   var dropzone = $(".item__img__dropzone__input");
   var dropzone2 = $(".item__img__dropzone2__input2");
-  var appendzone = $(".item__img__dropzone2");
+  var appendzone = $(".item__img__dropzone2")
   var input_area = $(".input-area");
   var preview = $("#preview");
   var preview2 = $("#preview2");
@@ -11,7 +11,7 @@ $(function() {
 // 登録済画像と新規追加画像を全て格納する配列（ビュー用）
   var images = [];
   // 登録済画像データだけの配列（DB用）
-  var registered_images_ids =[];
+  var registered_images_ids =[]
   // 新規追加画像データだけの配列（DB用）
   var new_image_files = [];
 
@@ -51,7 +51,7 @@ $(function() {
 
     // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
   } else if (images.length == 5) {
-    $("#preview").empty();
+    $("#preview").empty()
     $.each(images, function(index, image) {
       image.data("image", index);
       preview.append(image);
@@ -104,6 +104,7 @@ $(function() {
       });
     }
   }
+  console.log(registered_images_ids)
 
   var new_image = $(
     `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`
@@ -183,6 +184,8 @@ $(function() {
     );
     input_area.append(new_image);
   });
+  console.log(new_image_files)
+  
 
   // 削除ボタン
   $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on('click', '.btn_delete', function() {
@@ -274,13 +277,12 @@ $(function() {
     }
   })
 
-
-  $('.sell__about__bottom-btn').on('submit', function(e){
+  $('.edit_item').on('submit', function(e){
     // 通常のsubmitイベントを止める
     e.preventDefault();
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
-
+    
     // 登録済画像が残っていない場合は便宜的に0を入れる
     if (registered_images_ids.length == 0) {
       formData.append("registered_images_ids[ids][]", 0)
@@ -289,7 +291,6 @@ $(function() {
       registered_images_ids.forEach(function(registered_image){
         formData.append("registered_images_ids[ids][]", registered_image)
       });
-      console.log(formData)
     }
 
     // 新しく追加したimagesがない場合は便宜的に空の文字列を入れる
@@ -301,14 +302,13 @@ $(function() {
         formData.append("new_images[images][]", file)
       });
     }
-
+    // console.log(formData)
     $.ajax({
       url:         '/items/' + gon.item.id,
       type:        "PATCH",
       data:        formData,
-      contentType: false,
-      processData: false,
+      contentType: false,       //FormDataオブジェクトでデータを取得する場合に記載すると覚えればOK!
+      processData: false,       //FormDataオブジェクトでデータを取得する場合に記載すると覚えればOK!
     })
   });
-})
-
+});

@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :set_category,            only: [:edit, :update]
-  before_action :set_gon,                 only: [:edit, :update]
+  before_action :set_category,             only: [:edit, :update]
+  before_action :set_gon,                  only: [:edit, :update]
   before_action :registered_images_params, only: :update
-  before_action :new_image_params,        only: :update
+  before_action :new_image_params,         only: :update
 
   def index
     @items = Item.includes(:images).order("created_at DESC").limit(10)
@@ -41,24 +41,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
 
-    # if @item.update!(item_params)
-    #   redirect_to action: "show"
-    # else
-    #   @item = Item.find(params[:id])
-    #   @images = @item.images
-    #   render :edit
-    # end
-
-    
-
     # 登録済画像のidの配列を生成
     ids = @item.images.map{|image| image.id }
     # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
-    exist_ids = registered_image_params[:ids].map(&:to_i)
+    exist_ids = registered_images_params[:ids].map(&:to_i)
     # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
     exist_ids.clear if exist_ids[0] == 0
 
-    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)  # ||はor（または）
+    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update!(item_update_params)  # ||はor（または）
 
       # 登録済画像のうち削除ボタンをおした画像を削除
       unless ids.length == exist_ids.length
@@ -121,9 +111,14 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price, images_attributes: [:image_url])
   end
+
+  def item_update_params
+    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price)
+  end
   
   def registered_images_params
     params.require(:registered_images_ids).permit({ids: []})
+
   end
 
   def new_image_params
