@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include AjaxHelper
   before_action :set_category,             only: [:edit, :update]
   before_action :set_gon,                  only: [:edit, :update]
   before_action :registered_images_params, only: :update
@@ -66,9 +67,10 @@ class ItemsController < ApplicationController
         end
       end
 
-      flash[:notice] = '編集が完了しました'
-      redirect_to item_path(@item)
-
+      # flash[:notice] = '編集が完了しました'
+      respond_to do |format|
+        format.js { render ajax_redirect_to(item_path(@item)) }
+      end
     else
       flash[:alert] = '未入力項目があります'
       rener :edit
@@ -118,7 +120,6 @@ class ItemsController < ApplicationController
   
   def registered_images_params
     params.require(:registered_images_ids).permit({ids: []})
-
   end
 
   def new_image_params

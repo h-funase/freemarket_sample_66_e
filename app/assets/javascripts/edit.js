@@ -84,7 +84,6 @@ $(function() {
       image.data('image', index + 5);
       preview2.append(image);
     })
-    console.log(registered_images_ids) // コンソールで確認中
 
     dropzone.css({
       'display': 'none'
@@ -184,7 +183,6 @@ $(function() {
     );
     input_area.append(new_image);
   });
-  console.log(new_image_files)
   
 
   // 削除ボタン
@@ -273,7 +271,6 @@ $(function() {
           'width': `calc(100% - (20% * ${images.length - 5}))`
         })
       })
-      console.log(registered_images_ids)
     }
   })
 
@@ -302,7 +299,7 @@ $(function() {
         formData.append("new_images[images][]", file)
       });
     }
-    // console.log(formData)
+
     $.ajax({
       url:         '/items/' + gon.item.id,
       type:        "PATCH",
