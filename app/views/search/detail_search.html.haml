@@ -1,0 +1,45 @@
+.search_html
+  = render "items/sheard/header"
+  .detail_search
+    .search-container
+      = render "search_side"
+      .right_content_main
+        .search-right
+        %section.items-box-container
+        -if @search_product.present?
+          %h2.search_result_head
+            =@search_product.name_cont
+            
+            %span.search-result-head-text
+              の検索結果
+          .search_result_number
+            ="#{@items.count}件表示"
+            
+        -else
+          .search_result_number
+            ="#{@items.count-@items.count}件表示"
+          ="該当する商品が見つかりません。検索条件を変えて、再度お試しください。"
+
+          %h2.search_result_nil
+            新着商品
+        .items-box-content
+          .category_contents__category_box__items_box__items
+            %ul.item_list
+              - @items.each do |item|
+                %li.item_list__one_item
+                  .item_list__one_item__box
+                    = link_to item_path(item), class: "item_link" do
+                      .item_list__one_item__box__show_item
+                        = image_tag "#{item.images[0].image_url}", class: "item_image"
+                        .item_list__one_item__box__show_item__price
+                          %p.img_title
+                            = "¥#{item.price}"
+                      .item_list__one_item__box__show_item__item_name
+                        %p.item_name
+                          = item.name
+
+        
+    
+  %section
+    = render "items/sheard/bottom_image"
+    = render "items/sheard/footer"

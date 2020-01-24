@@ -1,0 +1,38 @@
+
+.l-side 
+  .search_extend_container
+    = search_form_for(@q,url: search_detail_search_path) do |f|
+      .search_sort
+        %h3 詳細検索
+        = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+
+        .search_form_group
+          .search_form_group__label
+            %i.icon-plus
+            %p キーワードを追加する
+          = f.search_field :name_cont, class: "detail_search__group--form", placeholder: "例）値下げ"
+
+        .search_form_group
+          %label
+            %span ブランド名から探す
+            %i.icon-arrow-bottom
+          = f.select :brand_id_in, Item.brands.keys,{prompt: '---'}
+        
+        .search_form_group
+          .detail_search__group--label
+          %p 価格
+          .detail_search__group--forms
+            = f.search_field :price_gteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Min"
+            %p 〜
+            = f.search_field :price_lteq, class: "detail_search__group--form detail_form-mini", placeholder: "¥ Max"
+
+        .search_form_group
+          %label
+            %span サイズを指定する
+            %i.icon-arrow-bottom
+            = f.select :size_id_in, Item.sizes.keys,{prompt: '---'}
+        
+        .detail_search__btns
+          .detail_search__btn--grey
+            = f.submit "クリア", type: :reset, class: "detail_search_clear_btn",style:"background: #aaa;"
+          = f.submit "完了", class: "detail_search__btn  detail_search__btn--red"

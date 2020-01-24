@@ -23,7 +23,6 @@
     background-image: url(https://season-freeillust.com/img/others-haikei/01.jpg);
 
     &__contents{
-      height: 50px;
       width: 100%;
       position: relative;
       text-align: center;
@@ -50,30 +49,34 @@
 
 
   &__text {
-    height: 270px;
-    width: 90%;
-    margin: auto;
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    background: #fff;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 10px;
-  }
-
-  &__btn {
-    background: #ea352d;
-    border: 15px solid #ea352d;
-    color: #fff;
-    height: 60px;
-    width: 90%;
-    text-align: center;
-    margin: 20px auto;
+    .textarea-default {
+      min-height: 216px;
+      margin: 20px;
+      display: block;
+      width: 91%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+    };
   }
 }
+.btn-default.btn-red {
+  display: block;
+  width: 90%;
+  line-height: 48px;
+  font-size: 14px;
+  margin: 16px auto;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
 
-
-
-
+.user-icon{
+  border-radius: 50%;
+}
 
 
