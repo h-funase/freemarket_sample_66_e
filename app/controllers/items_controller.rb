@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_gon,                  only: [:edit, :update]
   before_action :registered_images_params, only: :update
   before_action :new_image_params,         only: :update
+  before_action :item_update_params,       only: :update
 
   def index
     @items = Item.includes(:images).order("created_at DESC").limit(10)
@@ -27,7 +28,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.status = 0
     if @item.save!
-      redirect_to controller: :items, action: :index
+      redirect_to root_path
     else
       render :new unless @item.valid? 
     end

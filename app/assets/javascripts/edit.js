@@ -103,7 +103,6 @@ $(function() {
       });
     }
   }
-  console.log(registered_images_ids)
 
   var new_image = $(
     `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`
@@ -279,6 +278,7 @@ $(function() {
     e.preventDefault();
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
+    
     
     // 登録済画像が残っていない場合は便宜的に0を入れる
     if (registered_images_ids.length == 0) {

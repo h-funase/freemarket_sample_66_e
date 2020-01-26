@@ -168,7 +168,8 @@
               .item_price_input
                 %p.price¥
                 .input_price
-                  %input#price_calc.price_form-box{value: @item.price, type: "number"}
+                  -# %input#price_calc.price_form-box{value: @item.price, type: "number"}
+                  = f.number_field :price, class: "price_form-box", id: "price_calc"
 
               .item_handling_charge
                 販売手数料 (10%)
@@ -177,7 +178,8 @@
               .sell_profit
                 .sell_profit__left
                   販売利益
-                  = f.number_field :price, style: "display: none", id: "price"
+                  -# = f.number_field :price, style: "display: none", id: "price"
+                  %input#price{style: "display: none"}
                 .right_bar_2
 
         .sell_btn_box
