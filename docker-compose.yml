@@ -1,0 +1,26 @@
+version: '2'
+services:
+  db: 
+    image: mysql:5.6
+    volumes:
+      - mysql-data:/var/lib/mysql    #データの永続化のために必要
+    ports:
+      - "4306:3306"  #両方3306でもok。詳細は下の「番外編：DBをsequel proで可視化したい」へ
+    
+
+  app:
+    tty: true          #コンテナ上でbinding.pryするために必要
+    stdin_open: true   #コンテナ上でbinding.pryするために必要
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/myproject    #ローカルのディレクトリをコンテナ上にマウント
+      - bundle:/usr/local/bundle    #bundle installした後buildし直さなくてよくなる
+    links:
+      - db
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql-data:
+  bundle:  
