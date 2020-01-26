@@ -72,7 +72,10 @@
         %span.item_tax (税込)
         %span.item_shipping_fee 送料込み
       .item_buy_btn
-        = link_to "購入する", item_cards_confirmation_path(@items.id)
+        - if @items.status == "1"
+          = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
+        - else 
+          = link_to "購入する", item_cards_confirmation_path(@items.id)
       .shipping_note_message
         -if @items.delivery_way_id ==10
           %p この商品はゆうゆうフリマ便を利用しているため、アプリからのみ購入できます。
@@ -126,13 +129,13 @@
     .item-snsbox
       .sns
         .facebook
-        %i.fab.fa-facebook-square
+        %a.fab.fa-facebook-square{href: "https://www.facebook.com"}
         .twitter
-        %i.fab.fa-twitter-square
+        %a.fab.fa-twitter-square{href: "https://twitter.com"}
         .line
-        %i.fab.fa-line
+        %a.fab.fa-line{href: "https://line.me/ja"}
         .pinterest
-        %i.fab.fa-pinterest-square
+        %a.fab.fa-pinterest-square{href: "https://www.pinterest.jp"}
 
   %section
   .items_show
