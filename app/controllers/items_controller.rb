@@ -74,10 +74,6 @@ class ItemsController < ApplicationController
         format.js { render ajax_redirect_to(item_path(@item)) }
       end
 
-    item = Item.find(params[:id])
-    if item.update(item_update_params)
-      redirect_to items_show_path
-
     else
       flash[:alert] = '未入力項目があります'
       rener :edit
