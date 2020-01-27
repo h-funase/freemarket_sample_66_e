@@ -63,11 +63,14 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index, :show]
 
 
+
+
   resources :mypages do
     member do
       get :personal_page
     end
   end
+
 
 
 
@@ -86,6 +89,14 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+  resources :items do
+    resources :comments, only: [:create, :destroy]
+  end
+  
+
   get 'search/index'
   get '/search/detail_search', to: 'search#detail_search'
+
 end
