@@ -4,7 +4,7 @@
     %ul.mypage_side_content__nav_list
       %li
         .mypage_side_content__nav_list_item 
-          = link_to 'マイページ', '/mypages', class: ''
+          = link_to 'マイページ', personal_page_mypage_path(current_user.id), class: ''
           .fas.fa-chevron-right
       %li
         .mypage_side_content__nav_list_item 

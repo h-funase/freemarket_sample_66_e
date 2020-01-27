@@ -20,6 +20,8 @@ class Item < ApplicationRecord
   belongs_to :seller, optional: true
   has_many :comments, dependent: :destroy
 
+
+
   scope :category_items, -> categories { includes(:images).where(category_id: categories.ids ) }
   scope :category_item,  -> category_list { includes(:images).where(category_id: category_list.id )}
 

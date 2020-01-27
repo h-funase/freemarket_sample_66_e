@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'search/index'
-  get '/search/detail_search', to: 'search#detail_search'
-  devise_for :installs
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get    'users/signup/registration',      to: 'users/registrations#step1'
@@ -67,7 +64,18 @@ Rails.application.routes.draw do
 
 
 
+
+  resources :mypages do
+    member do
+      get :personal_page
+    end
+  end
+
+
+
+
   resources :items,only:[:show, :edit, :update] do
+
 
     get 'cards/pay', to: 'cards#pay'
     get 'cards/confirmation', to:'cards#confirmation'
@@ -82,8 +90,13 @@ Rails.application.routes.draw do
   end
 
 
+
   resources :items do
     resources :comments, only: [:create, :destroy]
   end
   
+
+  get 'search/index'
+  get '/search/detail_search', to: 'search#detail_search'
+
 end

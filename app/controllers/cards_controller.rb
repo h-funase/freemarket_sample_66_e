@@ -41,7 +41,7 @@ class CardsController < ApplicationController
   end
 
   def pay 
-      if @item.status == 1  
+      if @item.status == "1"  
         redirect_to item_path(@item.id) 
       else
         card = Card.find_by(user_id: current_user.id)
@@ -52,6 +52,7 @@ class CardsController < ApplicationController
         currency: 'jpy',
         )
         @item[:status] = 1
+        @item.buyer_id = current_user.id
         @item.save
         redirect_to action: 'complete'
       end
@@ -106,5 +107,4 @@ class CardsController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
-
 end

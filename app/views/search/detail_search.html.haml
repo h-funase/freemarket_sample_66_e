@@ -1,81 +1,45 @@
 .search_html
   = render "items/sheard/header"
-  
-  
-  .search
+  .detail_search
     .search-container
-      .search-left
-      
-      -# .detail_search
-      -#   = search_form_for @q, url: search_detail_search_path, class: 'item_search' do |f|
-      -#     .detail_search_sort
-      -#       = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
-      -#     .detail_search_form
-      -#       .detail_search__title
-      -#         %h3 詳細検索
-      -#       .detail_search__group
-      -#         .detail_search__group--label
-      -#           = fa_icon "search"
-      -#           %p キーワードを追加する
-      -#         = f.search_field :name_cont, placeholder: "例）値下げ"
-      -#       .detail_search__group
-      -#         .detail_search__group--label
-      -#           = fa_icon "search"
-      -#           %p 価格
-      -#         .detail_search__group--forms
-      -#           = f.search_field :price_gteq, placeholder: "¥ Min"
-      -#           %p 〜
-      -#           = f.search_field :price_lteq, placeholder: "¥ Max"
-      -#       .detail_search__group
-      -#         .detail_search__group--label
-      -#           = fa_icon "search"
-      -#           %p 商品の状態
-      -#         .detail_search__group--checkbox
-      -#           %label
-      -#             %input{type: "checkbox"}
-      -#             = 'すべて'
-      -#         .detail_search__group--checkbox
-      -#           %label
-      -#             = f.check_box :state_in, '1', nil
-      -#             = '新品、未使用'
-      -#         .detail_search__group--checkbox
-      -#           %label
-      -#             = f.check_box :state_in, '2', nil
-      -#             = '未使用に近い'
-      -#       .detail_search__btns
-      -#         .detail_search__btn--grey
-      -#           = link_to "クリア", "/searches",type: "button"
-      -#         = f.submit "完了"
-
-
-
-
-
-
-      .search-right
+      = render "search_side"
+      .right_content_main
+        .search-right
         %section.items-box-container
-          -if @search.present?
-            %h2.search-result-head
-              =@search
-              %span.search-result-head-text
-                の検索結果
-            .search-result-number
-              ="1-#{@items.count}件表示"
-          -else
-            %h2.search-result-nil
-              新着商品
-          .items-box-content
-            .category_contents__category_box__items_box__items
-              %ul.item_list
-                - @items.each do |item|
-                  %li.item_list__one_item
-                    .item_list__one_item__box
-                      = link_to item_path(item), class: "item_link" do
-                        .item_list__one_item__box__show_item
-                          = image_tag "#{item.images[0].image_url}", class: "item_image"
-                          .item_list__one_item__box__show_item__price
-                            %p.img_title
-                              = "¥#{item.price}"
-                        .item_list__one_item__box__show_item__item_name
-                          %p.item_name
-                            = item.name
+        -if @search_product.present?
+          %h2.search_result_head
+            =@search_product.name_cont
+            
+            %span.search-result-head-text
+              の検索結果
+          .search_result_number
+            ="#{@items.count}件表示"
+            
+        -else
+          .search_result_number
+            ="#{@items.count-@items.count}件表示"
+          ="該当する商品が見つかりません。検索条件を変えて、再度お試しください。"
+
+          %h2.search_result_nil
+            新着商品
+        .items-box-content
+          .category_contents__category_box__items_box__items
+            %ul.item_list
+              - @items.each do |item|
+                %li.item_list__one_item
+                  .item_list__one_item__box
+                    = link_to item_path(item), class: "item_link" do
+                      .item_list__one_item__box__show_item
+                        = image_tag "#{item.images[0].image_url}", class: "item_image"
+                        .item_list__one_item__box__show_item__price
+                          %p.img_title
+                            = "¥#{item.price}"
+                      .item_list__one_item__box__show_item__item_name
+                        %p.item_name
+                          = item.name
+
+        
+    
+  %section
+    = render "items/sheard/bottom_image"
+    = render "items/sheard/footer"

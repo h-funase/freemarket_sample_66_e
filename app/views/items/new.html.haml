@@ -26,11 +26,12 @@
                 #image-box-1
                 .item-num-0#image-box__container
                 = f.fields_for :images do |i|
-
                   .input-area
                     = i.file_field :images,type: 'file', name: "item[images_attributes][][image_url]", value:"image_url", style: "display:none", id:"img-file",required: true
                     %label.input{for: "img-file"}
                       %i.fas.fa-camera
+
+                  
 
         // 商品名入力
         .sell_content 
@@ -152,7 +153,8 @@
               .item_price_input
                 %p.price¥
                 .input_price
-                  %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}
+                  = f.number_field :price, class: "price_form-box", id: "price_calc"
+                  -# %input#price_calc.price_form-box{placeholder: "例) 300", type: "number"}
 
               .item_handling_charge
                 販売手数料 (10%)
@@ -161,7 +163,8 @@
               .sell_profit
                 .sell_profit__left
                   販売利益
-                  = f.number_field :price, style: "display: none", id: "price"
+                  %input#price{style: "display: none"}
+                  -# = f.number_field :price, style: "display: none", id: "price"
                 .right_bar_2
 
         .sell_btn_box
