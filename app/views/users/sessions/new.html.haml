@@ -20,7 +20,8 @@
               .bottom_contents
                 = f.email_field :email, autocomplete: "email", class:'login_mail',placeholder:'メールアドレス'
                 = f.password_field :password, autocomplete: "new-password", class:'login_password',placeholder:'パスワード'
-                -# = recaptcha_tags
+                - if Rails.env == 'production'
+                  = recaptcha_tags
                 .sample
                 = f.submit 'ログイン', class: "login_button"
                 .forget_password パスワードをお忘れの方
