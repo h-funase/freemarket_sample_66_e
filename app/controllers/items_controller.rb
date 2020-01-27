@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_category, only: [:new, :edit, :update,]
   def index
     @items = Item.includes(:images).order("created_at DESC").limit(10)
   end
@@ -12,10 +12,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @image = @item.images.build
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
   end
 
   def create
@@ -30,19 +26,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @items = Item.includes(:images)
-    @item= Item.find(params[:id])
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-    @images = @item.images
+    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_update_params)
-      redirect_to items_show_path
+    @item = Item.find(params[:id])
+    if @item.update(update_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -78,8 +68,15 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url])
   end
 
-  def item_update_params
-    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price)
+  def update_params
+    params.require(:item).permit( :name, :description, :category_id, :size_id, :brand_id, :prefecture_id, :condition_id, :delivery_charge_id, :delivery_way_id, :delivery_days_id, :price,images_attributes: [:image_url,:id])
+  end
+
+  def set_category
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
 end
