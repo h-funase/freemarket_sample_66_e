@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200120055453) do
+ActiveRecord::Schema.define(version: 20200122030254) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",         null: false
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20200120055453) do
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",       limit: 65535, null: false
+    t.integer  "user_id",                  null: false
+    t.integer  "item_id",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "item_id",    null: false
     t.string   "image_url",  null: false
@@ -72,6 +80,7 @@ ActiveRecord::Schema.define(version: 20200120055453) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
+
 
     t.string   "name",                             null: false
     t.text     "description",        limit: 65535, null: false

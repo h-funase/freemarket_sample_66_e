@@ -9,11 +9,14 @@
     .item__details__main_content
       .item__details__main_content_boxes
         .main_photo
-          .photos
-            = image_tag "#{@items.images[0].image_url}", class: "photos"
-          .small_photos  
-            - @images.each do |image|
-              = image_tag image.image_url.to_s, class: "small_photo"  
+          - if @items.status == "1"
+            %p.sold_2 SOLD
+          .photos_box
+            .photos
+              = image_tag "#{@items.images[0].image_url}", class: "photos"
+            .small_photos  
+              - @images.each do |image|
+                = image_tag image.image_url.to_s, class: "small_photo"  
 
         %table.item_detail_table
           %tbody
@@ -36,35 +39,35 @@
               %td
                 .item_category
                   .item_category_top
-                  %span 
+                  %span
                     = @items.category_id
             %tr
               %th ブランド
-              %td 
+              %td
                 = @items.brand_id
             %tr
               %th 商品サイズ
-              %td 
+              %td
                 = @items.size_id
             %tr
               %th 商品の状態
-              %td 
+              %td
                 = @items.condition_id
             %tr
               %th 配送料の負担
-              %td 
+              %td
                 = @items.delivery_charge_id
             %tr
               %th 配送の方法
-              %td 
+              %td
                 = @items.delivery_way_id
             %tr
               %th 発送元地域
-              %td 
+              %td
                 = @items.prefecture_id
             %tr
               %th 発送日の目安
-              %td 
+              %td
                 = @items.delivery_days_id
       .item_price_box
         %span.item_price
@@ -94,30 +97,31 @@
   .message_container
     .message_content
       .message_items
-        .message-user
-          .fas.fa-user-circle
-        .message_body
-          .message_body_text
-            すみません。アウトソールは何センチになりますか？
-            サイズを確認したいのですが？
-            .message_icon
-              .message_icon_left
-                .icon-time
-                  %i.far.fa-clock
-                  %span
-                    5日前
-              .message_icon_right
-                %i.far.fa-flag
+        - @comments.each do |comment|
+          .message-user
+            .fas.fa-user-circle
+            .message_user-text
+              = comment.user.nickname
+              = comment.text
+              .message_icon
+                .message_icon_left
+                  .icon-time
+                    %i.far.fa-clock
+                    = comment.created_at.strftime("%Y/%m/%d %H:%M")
+                    = link_to "削除する", "#{@items.id}/comments/#{comment.id}",method: :delete, data: { confirm: "削除しますか？" }
+                    %span
+                .message_icon_right
+                  %i.far.fa-flag
 
-    .message_content
       .message_content__box
         .message_content__box__form
           %p.attention
-            相手のことを考え丁寧なコメントを心がけましょう。
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            相手のことを考え丁寧なコメントを心がけましょう。 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           .message_content__box__form__textarea
-          .message_content__box__form__submit
-            コメントする
+            = form_for [@items, @comment],id: "new_comment" do |f|
+              = f.text_area :text, size: "63x5",class: "textbox"
+              = f.submit 'コメントする', class: "message_content__box__form__submit"
+
 
     .next_or_back
       .previous_product.items-link_to

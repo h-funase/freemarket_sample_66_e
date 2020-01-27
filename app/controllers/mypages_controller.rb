@@ -32,7 +32,8 @@ class MypagesController < ApplicationController
   end
 
   def personal_page
-    @items = Item.where(seller_id: current_user.id)
+    # @items = Item.where(seller_id: current_user.id)
+    @items = Item.all
   end
 
   def destroy
