@@ -17,11 +17,6 @@
             .small_photos  
               - @images.each do |image|
                 = image_tag image.image_url.to_s, class: "small_photo"  
-          .photos
-            = image_tag "#{@items.images[0].image_url}", class: "photos"
-          .small_photos
-            - @images.each do |image|
-              = image_tag image.image_url.to_s, class: "small_photo"
 
         %table.item_detail_table
           %tbody
