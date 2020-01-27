@@ -80,11 +80,12 @@
   
 
   %ul.mypage_content__notification
-    - items.each do |item|
-      .mypage_content__notification__buying_items
-        %figure= link_to image_tag("#{item.images[0].image_url}" ,width: 60,height: 60), item_path(item.id)
+    - @items.each do |item|
+      - if (item.buyer_id == current_user.id)
+        .mypage_content__notification__buying_items
+          %figure= link_to image_tag("#{item.images[0].image_url}" ,width: 60,height: 60), item_path(item.id)
 
-        .mypage_content__item-body
-          .mypage_content__item-text
-            = "#{item.name}を購入しました。"
-          %span.status 取引中
+          .mypage_content__item-body
+            .mypage_content__item-text
+              = "#{item.name}を購入しました。"
+            %span.status 取引中

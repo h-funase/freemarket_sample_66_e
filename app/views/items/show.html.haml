@@ -9,11 +9,14 @@
     .item__details__main_content
       .item__details__main_content_boxes
         .main_photo
-          .photos
-            = image_tag "#{@items.images[0].image_url}", class: "photos"
-          .small_photos  
-            - @images.each do |image|
-              = image_tag image.image_url.to_s, class: "small_photo"  
+          - if @items.status == "1"
+            %p.sold_2 sold
+          .photos_box
+            .photos
+              = image_tag "#{@items.images[0].image_url}", class: "photos"
+            .small_photos  
+              - @images.each do |image|
+                = image_tag image.image_url.to_s, class: "small_photo"  
 
         %table.item_detail_table
           %tbody

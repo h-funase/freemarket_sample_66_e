@@ -28,7 +28,11 @@
       display: flex;
       justify-content: space-between;
       .main_photo {
-        padding-right: 8px;
+
+        position: relative;
+        height: 420px;
+        width: 300px;
+      }
         .photos {
           // background-image: url(/images/item_sample.jpg);
           background-size: cover;
@@ -106,7 +110,7 @@
       }      
     }
   }
-}
+
 
 
 // アイテム詳細テーブル(right)
@@ -114,6 +118,8 @@ table.item_detail_table {
   float: right;
   height: 380px;
   width: 300px;
+  margin-left: 15px;
+
   th, td {
     border: 1px solid  #f7efef;
     padding: 9px;
@@ -433,4 +439,20 @@ ul.home {
 li.item_name  {
   font-size: 13px;
   list-style: none;
+}
+
+.sold_2{
+  z-index: 10;
+  font-size: 30px;
+  position: relative;
+  color: white;
+  background-color: red;
+  width: 300px;
+  margin-top: 140px;
+  text-align: center;
+}
+
+.photos_box{
+  position: absolute;
+  top: 0px;
 }

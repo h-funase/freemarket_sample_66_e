@@ -6,10 +6,11 @@
           = link_to item_path(item.id), class: "item_link" do
             .item_list__one_item__box__show_item
               = image_tag "#{item.images[0].image_url}", class: "item_image"
+                - if item.status == "1"
+                %p.sold sold
               .item_list__one_item__box__show_item__price
                 %p.img_title
                   = "¥#{item.price}"
             .item_list__one_item__box__show_item__item_name
               %p.item_name
                 = item.name
-
