@@ -146,8 +146,8 @@ class ItemsController < ApplicationController
     if Rails.env.production?
       client = Aws::S3::Client.new(
                              region: 'ap-northeast-1',
-                             access_key_id: '<%= ENV["AWS_ACCESS_KEY_ID"] %>',
-                             secret_access_key: '<%= ENV["AWS_SECRET_ACCESS_KEY"] %>',
+                             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+                             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
                              )
       @item.images.each do |image|
         binary_data = client.get_object(bucket: 'freemarket-sample66e', key: image.image_url.file.path).body.read
