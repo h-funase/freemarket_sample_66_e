@@ -6,6 +6,8 @@ services:
       - mysql-data:/var/lib/mysql    #データの永続化のために必要
     ports:
       - "4306:3306"  #両方3306でもok。詳細は下の「番外編：DBをsequel proで可視化したい」へ
+    environment:
+      MYSQL_ROOT_PASSWORD: password
     
 
   app:
@@ -20,7 +22,7 @@ services:
       - db
     ports:
       - "3000:3000"
-
+  
 volumes:
   mysql-data:
   bundle:  
