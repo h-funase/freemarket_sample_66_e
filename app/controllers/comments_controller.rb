@@ -1,11 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.create(comment_params)
+    respond_to do |format|
+      format.html { redirect_to item_path(params[:item_id])  }
+      format.json
+    end
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_back(fallback_location: root_path)
+    #  redirect_back(fallback_location: root_path)
     else
-      redirect_back(fallback_location: root_path)
+    #   redirect_back(fallback_location: root_path)
     end
   end
 
