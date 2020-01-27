@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.status = 0
- 
     @item.seller_id = current_user.id
     if @item.save!
       redirect_to root_path

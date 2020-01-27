@@ -19,22 +19,23 @@
 
         .item_screen__box
           - @items.each do |item|
-            = link_to selling_mypage_path(item.id), class: "selling_my_item" do
-              .item_screen__box__items
-                = item.name
-                .item_screen__box__items__img
-                  = image_tag "#{item.images[0].image_url}", alt: '', height: '100%', width: '100%', class: ''
-                .item_screen__box__box__items__name
-                .item_screen__box__items__icons
-                  <i class="fas fa-heart"></i>
-                  .item_screen__box__items__icons__comment
-                    11
-                  .item_screen__box__items__icons__icon
-                  <i class="far fa-comment-alt"></i>
-                  .item_screen__box__items__icons__comment
-                    22
-                  .item_screen__box__items__icons__selling
-                    出品中
+            -if item.status == "0" && item.seller_id == current_user.id
+              = link_to selling_mypage_path(item.id), class: "selling_my_item" do
+                .item_screen__box__items
+                  = item.name
+                  .item_screen__box__items__img
+                    = image_tag "#{item.images[0].image_url}", alt: '', height: '100%', width: '100%', class: ''
+                  .item_screen__box__box__items__name
+                  .item_screen__box__items__icons
+                    <i class="fas fa-heart"></i>
+                    .item_screen__box__items__icons__comment
+                      11
+                    .item_screen__box__items__icons__icon
+                    <i class="far fa-comment-alt"></i>
+                    .item_screen__box__items__icons__comment
+                      22
+                    .item_screen__box__items__icons__selling
+                      出品中
 
   %section
     = render "items/sheard/bottom_image"
