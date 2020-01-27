@@ -13,6 +13,8 @@ class ItemsController < ApplicationController
   def show
     @items = Item.find(params[:id])
     @images = @items.images
+    @comment = Comment.new
+    @comments = @items.comments
   end
 
   def new
@@ -27,6 +29,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.status = 0
+ 
     @item.seller_id = current_user.id
     if @item.save!
       redirect_to root_path

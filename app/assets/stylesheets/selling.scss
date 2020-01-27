@@ -250,20 +250,19 @@ table.item_detail_table {
   background: white;
   .message_items {
     margin: 1.5em 0 0;
-    height:60px;
   }
 }
 
-.message_body {
-  float: right;
+.message-user {
+  // float: right;
   position: relative;
-  width: calc(100% - 56px);
+  //width: calc(100% - 56px);
   padding: 5px;
   background: #eef0f4;
   border-radius: 15px;
   line-height: 1.5;
   word-break: break-all;
-  height:80px;
+  //height:80px;
   display: flex;
   &__text{
     padding: 5px;
