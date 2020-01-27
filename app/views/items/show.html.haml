@@ -10,7 +10,7 @@
       .item__details__main_content_boxes
         .main_photo
           - if @items.status == "1"
-            %p.sold_2 sold
+            %p.sold_2 SOLD
           .photos_box
             .photos
               = image_tag "#{@items.images[0].image_url}", class: "photos"
