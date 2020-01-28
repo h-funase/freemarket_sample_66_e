@@ -78,7 +78,7 @@
         - if @items.status == "1"
           = link_to "取引が終了したアイテムです", root_path, method: "GET" ,class:"btn-default",style: "background-color: lightgray"
         - else 
-          = link_to "購入する", item_cards_confirmation_path(@items.id)
+          = link_to "購入する", item_cards_confirmation_path(@items.id) ,class: "btn-default2"
       .shipping_note_message
         -if @items.delivery_way_id ==10
           %p この商品はゆうゆうフリマ便を利用しているため、アプリからのみ購入できます。

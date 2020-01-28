@@ -447,11 +447,30 @@ li.item_name  {
   color: white;
   background-color: red;
   width: 300px;
-  margin-top: 140px;
+  margin-top: 120px;
   text-align: center;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+   -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+       transform: rotate(-20deg);
 }
 
 .photos_box{
   position: absolute;
   top: 0px;
+}
+
+.edit_mypage__content_sold{
+  margin-top: 100px;
+}
+
+.btn-default{
+  text-decoration: none;
+  color: black;
+}
+
+.btn-default2{
+  text-decoration: none;
+  color: white;
 }

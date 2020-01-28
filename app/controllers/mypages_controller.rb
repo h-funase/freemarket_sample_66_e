@@ -22,13 +22,21 @@ class MypagesController < ApplicationController
 
   def items_screen
     @items = Item.order("created_at DESC")
+  end
 
+  def items_screen_sold
+    @items = Item.order("created_at DESC")
   end
 
 
   def selling
     @item = Item.find(params[:id])
     @images = @item.images
+  end
+
+  def selling_sold
+    @item = Item.find(params[:id])
+    @images = @item.images  
   end
 
   def personal_page

@@ -194,9 +194,14 @@
   color: white;
   font-size: 18px;
   z-index: 10;
-  margin-top: 80px;
+  margin-top: 60px;
   background-color: red;
   height: 22px;
   width: 100%;
   text-align: center;
+  -webkit-transform: rotate(-20deg);
+     -moz-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+       -o-transform: rotate(-20deg);
+          transform: rotate(-20deg);
 }
