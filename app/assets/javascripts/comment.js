@@ -1,11 +1,11 @@
 $(function(){
   function buildHTML(comment){
     var html = `
-                 
+
                 <div class= "message-user">
                   <div class="fas fa-user-circle">
                   </div>
-                 
+
                   <div class= "message-user-text">
                   ${comment.user_name} ${comment.text}
                         <div class= "message_icon">
@@ -15,13 +15,13 @@ $(function(){
                             </i>
                             ${comment.created_at}
                             <i class="far fa-flag"></i>
-                            <a href=/items/${comment.item_id}/comments/${comment.id}>削除する</a>
+                            <a ,data-method, ='delete' href='/items/${comment.item_id}/comments/${comment.id}'>削除する</a>
                             </div>
                           </div>
                         </div>
                       </div>
                       </div>
-                
+
                 `
     return html;
   }
