@@ -53,10 +53,12 @@ Rails.application.routes.draw do
   resources :mypages do
     member do   # idありの自作アクション
       get :selling
+      get :selling_sold
     end
 
     collection do  #idなしのあ自作アクション」」
       get :items_screen
+      get :items_screen_sold
       get :logout
     end
   end

@@ -10,17 +10,17 @@
         .item_screen__body_header
           出品した商品
         .item_screen__tag
-          .item_screen__tag__on
-            出品中
+          .item_screen__tag__off_sold
+            = link_to "出品中" ,items_screen_mypages_path, class: "link_my_items"
           .item_screen__tag__off
             取引中
-          .item_screen__tag__off
-            = link_to "売却済み", items_screen_sold_mypages_path, class: "link_my_items"
+          .item_screen__tag__on_sold
+            売却済み
 
         .item_screen__box
           - @items.each do |item|
-            -if item.status == "0" && item.seller_id == current_user.id
-              = link_to selling_mypage_path(item.id), class: "selling_my_item" do
+            -if item.status == "1" && item.seller_id == current_user.id
+              = link_to selling_sold_mypage_path(item.id), class: "selling_my_item" do
                 .item_screen__box__items
                   = item.name
                   .item_screen__box__items__img
@@ -35,24 +35,8 @@
                     .item_screen__box__items__icons__comment
                       22
                     .item_screen__box__items__icons__selling
-                      出品中
+                      売却済み
 
   %section
     = render "items/sheard/bottom_image"
     = render "items/sheard/footer"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
