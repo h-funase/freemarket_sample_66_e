@@ -26,12 +26,20 @@
                 #image-box-1
                 .item-num-0#image-box__container
                 = f.fields_for :images do |i|
+                  #img_field{:onclick => "$('#file').click()"}
                   .input-area
-                    = i.file_field :image_url,"data-id": "#{i}",class: "file_field"
+                    = i.file_field :image_url,"data-id": "#{i}",id: "file"
                     %label.input{for: "img-file",value: "patch"}
                       %i.fas.fa-camera
+                      %img#preview
+                      .item-image{"data-image": "${item.image_url}"}>
+                        .item-image__operetion
+                          .item-image__operetion--delete 削除
+                      `
 
-                  
+
+
+
 
         // 商品名入力
         .sell_content 
