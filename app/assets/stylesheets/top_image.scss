@@ -2,9 +2,9 @@
 
   position: relative;
   width:100%;
-  background-image: url(/icon/top-image1.jpeg);           
+  background-image: url(/icon/top11.jpeg);           
   background-size:auto;     
-  background-position:right ;            
+  background-position:left ;            
   height: 450px;
   display: flex;
   align-items: center;
@@ -19,11 +19,13 @@
       font-size: 60px;
       font-weight: bolder;
       padding-top: 5px;
+      -webkit-text-stroke: 1px white;
     }
 
     &__sub_title {
+      -webkit-text-stroke: 0.5px white;
       height: 35%;
-      font-size: 18px;
+      font-size: 32px;
       padding: 40px 0 5px 0;
       font-weight: bold;
     }
