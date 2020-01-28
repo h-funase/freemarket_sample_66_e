@@ -136,8 +136,7 @@ class ItemsController < ApplicationController
 
   def set_gon
     @item= Item.find(params[:id])
-    @images = @item.images
-
+    # @images = @item.images
     gon.item = @item
     gon.images = @item.images
 

@@ -27,9 +27,9 @@
 
                 .item__img__dropzone__input__description
                   .item__img__dropzone__input__description__text
-                    -# ドラッグアンドドロップ
-                    -# %br
-                    -# またはクリックしてファイルをアップロード
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
 
           .item__img__dropzone2.clearfix
             #preview2
@@ -40,9 +40,9 @@
                   = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
                 .item__img__dropzone2__input2__description
                   .item__img__dropzone2__input2__description__text
-                    -# ドラッグアンドドロップ
-                    -# %br
-                    -# またはクリックしてファイルをアップロード
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
 
 
 
@@ -190,7 +190,7 @@
           %p.caution また、出品をもちまして,加盟店規約,に同意したことになります。
           
           .sell_btn
-            = f.submit "編集する", class: 'sell__about__bottom-btn submit edit_sub'
+            = f.submit "編集する", class: 'sell__about__bottom-btn submit edit_sub', id: "edit_btn"
           .back_btn
             戻る
 

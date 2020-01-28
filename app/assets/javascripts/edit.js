@@ -1,4 +1,6 @@
-$(function() {
+$(function(){
+
+  if (typeof gon != "undefined") {   //gonがundefinedじゃなかったらという条件分岐
 
   var dropzone = $(".item__img__dropzone__input");
   var dropzone2 = $(".item__img__dropzone2__input2");
@@ -15,28 +17,30 @@ $(function() {
   // 新規追加画像データだけの配列（DB用）
   var new_image_files = [];
 
-  gon.images.forEach(function(image, index) {
-    var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
+  
+    gon.images.forEach(function(image, index) {
+      var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
 
-    // カスタムデータ属性を付与
-    img.data("image", index)
+      // カスタムデータ属性を付与
+      img.data("image", index)
 
-    var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
+      var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
 
-    // 画像に編集・削除ボタンをつける
-    img.append(btn_wrapper);
+      // 画像に編集・削除ボタンをつける
+      img.append(btn_wrapper);
 
-    binary_data = gon.images_binary_datas[index]
+      binary_data = gon.images_binary_datas[index]
 
-    // 表示するビューにバイナリーデータを付与
-    img.find("img").attr({
-      src: "data:image/jpeg;base64," + binary_data
-    });
+      // 表示するビューにバイナリーデータを付与
+      img.find("img").attr({
+        src: "data:image/jpeg;base64," + binary_data
+      });
 
-    // 登録済画像のビューをimagesに格納
-    images.push(img)
-    registered_images_ids.push(image.id)
-  })
+      // 登録済画像のビューをimagesに格納
+      images.push(img)
+      registered_images_ids.push(image.id)
+    })
+  
 
   // 画像が４枚以下のとき
   if (images.length <= 4) {
@@ -47,7 +51,10 @@ $(function() {
     })
     dropzone.css({
       'width': `calc(100% - (20% * ${images.length}))`
-    })
+    });
+    preview.css({
+      'width': `calc(20% * ${images.length})`
+    });
 
     // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
   } else if (images.length == 5) {
@@ -56,11 +63,15 @@ $(function() {
       image.data("image", index);
       preview.append(image);
     });
-    appendzone.css({
-      display: "block"
-    });
+    // appendzone.css({
+    //   display: "block"
+    // });
     dropzone.css({
       display: "none"
+    });
+    preview2.empty();
+    preview.css({
+      'width': `calc(20% * ${images.length})`
     });
     preview2.empty();
 
@@ -88,9 +99,9 @@ $(function() {
     dropzone.css({
       'display': 'none'
     })
-    appendzone.css({
-      'display': 'block'
-    })
+    // appendzone.css({
+    //   'display': 'block'
+    // })
     dropzone2.css({
       'display': 'block',
       'width': `calc(100% - (20% * ${images.length - 5}))`
@@ -138,7 +149,13 @@ $(function() {
       })
       dropzone.css({
         'width': `calc(100% - (20% * ${images.length}))`
-      })
+      });
+      preview.css({
+        'width': `calc(20% * ${images.length})`
+      });
+      add_img.css({
+        'width': `calc(100% / ${images.length})`
+      });
 
       // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
     } else if (images.length == 5) {
@@ -147,11 +164,14 @@ $(function() {
         image.data("image", index);
         preview.append(image);
       });
-      appendzone.css({
-        display: "block"
-      });
+      // appendzone.css({
+      //   display: "block"
+      // });
       dropzone.css({
         display: "none"
+      });
+      preview.css({
+        'width': `calc(20% * ${images.length})`
       });
       preview2.empty();
 
@@ -299,7 +319,6 @@ $(function() {
         formData.append("new_images[images][]", file)
       });
     }
-
     $.ajax({
       url:         '/items/' + gon.item.id,
       type:        "PATCH",
@@ -308,4 +327,6 @@ $(function() {
       processData: false,       //FormDataオブジェクトでデータを取得する場合に記載すると覚えればOK!
     })
   });
+ }
 });
+
