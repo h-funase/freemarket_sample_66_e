@@ -9,7 +9,7 @@
   .mypage_html
     .mypage_index
       = render "side_content"
-      = render "main_content", items: @items
+      = render "main_content", items: @items,selling_items: @selling_items
 
   %section
     = render "items/sheard/bottom_image"
