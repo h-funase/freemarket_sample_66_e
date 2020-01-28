@@ -57,6 +57,9 @@ li{
   float: right;
   padding-top: 40px;
   width: 700px;
+  &__user_name{
+    font-size:25px;
+  }
   &__user_icon{
     background-image: url(/icon/mypage_sample.jpeg);
     height: 155px;
