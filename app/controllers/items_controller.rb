@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   before_action :item_update_params,       only: :update
 
   def index
-    @items = Item.includes(:images).order("created_at DESC").limit(10)
+    @items = Item.includes(:images).order("created_at DESC").limit(100)
   end
 
   def show
